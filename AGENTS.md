@@ -74,9 +74,9 @@ Push status forward alongside content. A draft merged and reviewed becomes 🟢.
 
 ## File Conventions
 
-- **Layout.** Document set lives in `docs/`. Root holds only `README.md`, `AGENTS.md`, `CLAUDE.md`, `ISSUES.md`, and `tools/` (scripts that validate and render the doc set). Docs are banded: `problem/`, `solution/`, `ways-of-working/`.
+- **Layout.** Document set lives in `docs/`. Root holds only `README.md`, `AGENTS.md`, `CLAUDE.md`, `ISSUES.md`, `tools/` (scripts that validate and render the doc set), and `.githooks/`. Docs are banded: `problem/`, `solution/`, `ways-of-working/`.
 - **Plain-text formats.** Documents in markdown; structured data in CSV or YAML. No Word, PDF, Google Docs, or other office formats.
-- **Generated sections.** Text between `<!-- BEGIN GENERATED ... -->` and `<!-- END GENERATED -->` is rendered from `docs/data/`. Edit the source, then run the tool named in the marker.
+- **Generated sections.** Text between `<!-- BEGIN GENERATED ... -->` and `<!-- END GENERATED -->` is rendered from `docs/data/`. Edit the source; the pre-commit hook refreshes the section. One-time setup per clone: `git config core.hooksPath .githooks` (needs `uv`).
 - **One thing per file.** A monolith document is a sign of undiscovered structure. Split when a section could stand alone and be cross-referenced.
 - **Files are numbered** (`01-`, `02-`...) within a band, only for reading order. Directories are unnumbered.
 - **Relative links** (`../problem/01-problem-statement.md`), never `https://github.com/...` links within the doc set. External links are fine.

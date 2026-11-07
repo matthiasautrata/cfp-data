@@ -1,6 +1,6 @@
 # Stakeholders & Use Cases
 
-> Use cases and competency questions live in [`use-cases.yaml`](../data/use-cases.yaml). The tables under *Use Cases* are generated from it; after editing the YAML, refresh them with `uv run tools/render_use_cases.py`. If they differ, the YAML wins.
+> Use cases and competency questions live in [`use-cases.yaml`](../data/use-cases.yaml). The tables under *Use Cases* are generated from it and refresh on commit (pre-commit hook); by hand: `uv run tools/render_use_cases.py`. If they differ, the YAML wins.
 
 ## Stakeholders
 

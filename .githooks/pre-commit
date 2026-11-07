@@ -1,0 +1,9 @@
+#!/bin/sh
+# Refresh generated use-case tables when the register or its doc is committed.
+git diff --cached --name-only | grep -qE '^docs/(data/use-cases\.yaml|problem/02-stakeholders-use-cases\.md)$' || exit 0
+if ! command -v uv >/dev/null 2>&1; then
+  echo "pre-commit: uv not found; use-case tables not refreshed" >&2
+  exit 0
+fi
+uv run -q tools/render_use_cases.py || exit 1
+git add docs/problem/02-stakeholders-use-cases.md
