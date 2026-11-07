@@ -87,3 +87,19 @@ Network data has users, owners, SLAs, quality metrics, and lifecycle management 
 The data plane must survive failures in the control plane. A metadata registry being down should not break topology queries that could be served from a cached copy.
 
 > **Rationale**: If the data architecture is less reliable than the network it describes, operators will bypass it.
+
+---
+
+### P11. Structure First, Detail Later
+
+Get the shape right early: entities, dimensions, boundaries, interfaces. Fill in detail in small increments. Each increment ships value; none forces a redesign.
+
+> **Rationale**: Structural rework is expensive; detail is cheap to add. Small increments inside a sound structure show value early without running in the wrong direction. Standards and prior art are the cheapest route to a sound structure.
+
+---
+
+### P12. Policy Is Designed In, Not Bolted On
+
+The policy model — how policy is expressed, attached to data, and evidenced — is foundation work, designed with the data model. Enforcement can follow later; the model cannot.
+
+> **Rationale**: Retrofitting policy re-touches every model, pipeline, and consumer. Realizes P8.
