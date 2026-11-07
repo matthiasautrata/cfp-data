@@ -31,4 +31,6 @@ All requirements are candidates until their use cases are validated.
 ## Gaps
 
 - R-7 and Q-4 trace to no architecture principle. Either a principle is missing or none is needed; open.
-- P3 and P5 are decision rules: they govern how every requirement is met, so they trace weakly by design.
+- Weak traces after the P-numbering change: R-2 → P8, R-6 → P7, Q-1 → P1. None of the three states the concern the requirement actually serves. Open issue I-9.
+- P3 and P5 are decision rules: they govern how every requirement is met, so they trace weakly by design. P8 is a sequencing rule, not a system property. The principles table mixes two kinds; the trace matrix treats them uniformly. See I-9.
+- Nine use-case actors, three named stakeholders. No UC actor maps to a stakeholder role. Open issue I-10.

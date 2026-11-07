@@ -47,3 +47,6 @@ Cross-cutting issues only. Questions local to one document stay in that document
 | I-6 | Effort sizes not set | [Roadmap](docs/delivery/01-roadmap.md) | Size at Phase 0 start |
 | I-7 | Precedence when modalities or oracles disagree | [Ideas](docs/ideas/source-of-truth-dimensions.md) | Discuss |
 | I-8 | Knowledge Platform history: derived or snapshots? | [Core Platforms](docs/solution/05-core-platforms.md) | Discuss |
+| I-9 | Trace matrix mixes two kinds of principle. System properties (P1, P2, P4, P6, P7, P9, P10) and decision/sequencing rules (P3, P5, P8) are traced uniformly, producing weak traces: R-2 → P8, R-6 → P7, Q-1 → P1. | [Requirements](docs/problem/04-requirements.md), [Principles](docs/solution/01-principles.md) | Split the principles table into two groups, or add a trace strength column |
+| I-10 | Nine use-case actors, three named stakeholders; no actor-to-stakeholder mapping | [Use cases](docs/problem/03-stakeholders-use-cases.md) | Map actors to stakeholder roles during validation |
+| I-11 | P-numbers were reassigned during the last restructure (P7, P8 changed meaning). The ID-stability rule in [AGENTS.md](AGENTS.md) now forbids this; earlier citations may be stale. | [Principles](docs/solution/01-principles.md) | Freeze P-numbers; anchor future traceability on concern names |
