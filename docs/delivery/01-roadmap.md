@@ -29,7 +29,7 @@ Metadata registry + search/query interface so anyone can find what data exists a
 
 How policy is expressed, attached to entities and data elements, and evidenced. Categories: ownership, classification, naming, retention, access, quality.
 
-**Depends on**: Co-designed with A (P12).
+**Depends on**: Co-designed with A (P6).
 **Output**: Policy model v1; ownership and classification policies for the first domain.
 
 ### D2. Policy Enforcement
@@ -71,7 +71,7 @@ Training, documentation, self-service tooling, community model, onboarding proce
 | **2: Expand** | Migration cycle per further domain, by value and independence | A–E per domain; D2 (first policy set) | Per domain as Phase 1; first policies enforced |
 | **3: Integrate, Govern, Observe** | Cross-domain integration, enforcement at scale, telemetry, adoption at scale | D2, F, G | Measured against [Success Dimensions](04-success-dimensions.md) |
 
-Each phase delivers usable output before the next begins. Structure is designed early (P11, P12); detail arrives in increments.
+Each phase delivers usable output before the next begins. Structure is designed early (P8, P6); detail arrives in increments.
 
 ## Sizing
 

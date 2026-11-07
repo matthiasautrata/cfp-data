@@ -22,6 +22,8 @@ Features that sit above the core platforms and make the data ecosystem useful, u
 
 ### AI Enablement
 
+- AI in three roles (build, design, use): [Stakeholders & Use Cases](../problem/03-stakeholders-use-cases.md). Access via API + MCP (P9); agents at the edge, not in the core (P10).
+
 - Structured, queryable data that AI/ML tools can consume without bespoke extraction pipelines.
 - Labeled, versioned datasets for training models (anomaly detection, predictive maintenance, traffic forecasting).
 - Explanation-ready interfaces: models should be able to cite the data and policy that drove their recommendation.

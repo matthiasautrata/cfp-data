@@ -38,7 +38,7 @@ Current state is a view over these dimensions, not the store.
 ## Rationale
 
 - Audit needs record time; option 3 loses it.
-- `planned` gives declarative intent a home (P6).
+- `planned` gives declarative intent a home (P4).
 - Reconciliation becomes a query across modality ([Process, Rules & Activities](../solution/04-process-rules-activities.md)).
 - Prior art: [SQL:2011 temporal tables](../references/sql2011-temporal.md); [OpenConfig](../references/openconfig.md) intended vs operational state; [Kubernetes](../references/kubernetes-spec-status.md) spec vs status.
 

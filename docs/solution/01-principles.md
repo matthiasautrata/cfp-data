@@ -2,104 +2,103 @@
 
 These principles guide every decision in this program. A proposal that violates a principle carries a heavy burden of proof.
 
----
+Each principle covers one concern. Which requirements each principle serves is recorded once, in the [trace matrix](../problem/04-requirements.md).
 
-### P1. One Thing, One Task
-
-Each component does one thing well. A metadata registry does not also serve time-series data. A topology service does not also enforce policy. Boundaries are explicit and respected.
-
-> **Rationale**: Focused components are replaceable, testable, and understandable. A system that does everything does nothing reliably.
-
----
-
-### P2. No Monoliths
-
-The target architecture is a set of interoperating platforms, not a single platform. No single database, no single service, no single vendor owns all network data.
-
-> **Rationale**: Monoliths create coupling, single points of failure, and vendor lock-in. They also concentrate power in one team — which becomes a bottleneck.
-
----
-
-### P3. No Vendor Dependency
-
-Every interface is defined by contract, not by product. Where we acquire a platform, it must expose data and functions through open, documented interfaces. Proprietary lock-in is a disqualifier.
-
-> **Rationale**: The network lifecycle is longer than any vendor's product lifecycle. We must be able to swap components without rebuilding everything.
+| ID | Principle | Concern |
+|---|---|---|
+| P1 | Separation of Concerns | Component boundaries |
+| P2 | Contract-First Interfaces | Coupling, replaceability |
+| P3 | Acquire Where It Fits, Build Where It Matters | Sourcing |
+| P4 | Declarative State and Intent | Desired vs actual state |
+| P5 | Standards-Based, Hype-Resistant | Adoption of standards |
+| P6 | Policy-Driven, Designed In | Governance |
+| P7 | Data Is a Product | Ownership, lifecycle |
+| P8 | Structure First, Detail Later | Design sequencing |
+| P9 | API-First, Agent-Accessible | Access |
+| P10 | Deterministic Core, Agentic Edge | Where agents act |
 
 ---
 
-### P4. Design for Plug-and-Play
+### P1. Separation of Concerns
 
-Components define clear, stable interfaces. Adapters and transformers live at the boundaries, not in the core. A new data source or consumer connects through a defined contract, not through custom code.
+Each component does one thing well. A metadata registry does not also serve time-series data. A topology service does not also enforce policy. No single database, service, or vendor owns all network data.
 
-> **Rationale**: The set of data sources and consumers will grow. A plug-and-play architecture absorbs growth without proportional complexity increase.
+> **Rationale**: Focused components are replaceable, testable, and understandable. A monolith follows from violating this principle; it also concentrates control in one team, which becomes a bottleneck.
 
 ---
 
-### P5. Acquire Where It Fits, Build Where It Matters
+### P2. Contract-First Interfaces
 
-We prefer proven platforms over custom development — *unless* the requirement is truly differentiating. Custom code is justified only for:
+Every interface is defined by contract, not by product. Adapters live at the boundaries, not in the core. A new source or consumer connects through a contract, not custom code. A platform that cannot expose its data and functions through open, documented interfaces is disqualified.
+
+> **Rationale**: The network lifecycle is longer than any product's. Contracts let us swap components and absorb growth without proportional complexity.
+
+---
+
+### P3. Acquire Where It Fits, Build Where It Matters
+
+Prefer proven platforms over custom development, unless the requirement is differentiating. Build only:
 - Core models that reflect unique network semantics.
-- Integration adapters that bridge incompatible standards.
+- Adapters that bridge incompatible standards.
 - Policy logic that embodies proprietary operational knowledge.
 
-> **Rationale**: Building what you can buy is wasteful. But buying what must be owned is irresponsible.
+> **Rationale**: Building what you can buy is wasteful. Buying what must be owned is irresponsible.
 
 ---
 
-### P6. Declarative State and Intent
+### P4. Declarative State and Intent
 
-Wherever possible, systems declare desired state and let the platform reconcile. Imperative workflows are the exception, not the default.
+Systems declare desired state; platforms reconcile. Imperative workflows are the exception.
 
 > **Rationale**: Declarative models are auditable, testable, and repeatable. They separate *what* from *how*.
 
 ---
 
-### P7. Standards-Based, Hype-Resistant
+### P5. Standards-Based, Hype-Resistant
 
-We adopt standards that reduce risk, friction, or cost. We do not adopt a standard because it is popular, loudly marketed, or "what everyone is doing." Every standard choice must be rationally motivated against:
-1. Does it solve a real problem we have?
-2. Does it reduce coupling or increase portability?
-3. What is the operational cost of adopting it?
+Adopt a standard only if it:
+1. Solves a real problem we have.
+2. Reduces coupling or increases portability.
+3. Has an operational cost we accept.
 
-> **Rationale**: Hype-driven architecture produces complexity without commensurate value. We are not early adopters; we are effective adopters.
-
----
-
-### P8. Policy-Driven, Not Tool-Driven
-
-What data is collected, retained, transformed, and exposed is determined by policy — not by what a given tool happens to support. Tools serve policy; policy does not bend to tools.
-
-> **Rationale**: Tool-driven governance produces accidental architecture. Policy-driven governance produces intentional architecture.
+> **Rationale**: Hype-driven architecture produces complexity without value. We are effective adopters, not early adopters.
 
 ---
 
-### P9. Data Is a Product, Not a Byproduct
+### P6. Policy-Driven, Designed In
 
-Network data has users, owners, SLAs, quality metrics, and lifecycle management — just like any product. It is designed, not accumulated.
+What data is collected, retained, transformed, and exposed is determined by policy, not by what a tool supports. The policy model — how policy is expressed, attached to data, and evidenced — is foundation work, designed with the data model. Enforcement may follow later; the model may not.
 
-> **Rationale**: Treating data as a byproduct guarantees fragmentation, quality issues, and unmanaged cost.
-
----
-
-### P10. Resilience by Default
-
-The data plane must survive failures in the control plane. A metadata registry being down should not break topology queries that could be served from a cached copy.
-
-> **Rationale**: If the data architecture is less reliable than the network it describes, operators will bypass it.
+> **Rationale**: Tool-driven governance produces accidental architecture. Retrofitting policy re-touches every model, pipeline, and consumer.
 
 ---
 
-### P11. Structure First, Detail Later
+### P7. Data Is a Product
+
+Network data has users, owners, SLAs, quality metrics, and lifecycle management. It is designed, not accumulated.
+
+> **Rationale**: Data treated as a byproduct fragments, degrades, and costs without control.
+
+---
+
+### P8. Structure First, Detail Later
 
 Get the shape right early: entities, dimensions, boundaries, interfaces. Fill in detail in small increments. Each increment ships value; none forces a redesign.
 
-> **Rationale**: Structural rework is expensive; detail is cheap to add. Small increments inside a sound structure show value early without running in the wrong direction. Standards and prior art are the cheapest route to a sound structure.
+> **Rationale**: Structural rework is expensive; detail is cheap to add. Small increments inside a sound structure show value early without running in the wrong direction. Standards and prior art (P5) are the cheapest route to a sound structure.
 
 ---
 
-### P12. Policy Is Designed In, Not Bolted On
+### P9. API-First, Agent-Accessible
 
-The policy model — how policy is expressed, attached to data, and evidenced — is foundation work, designed with the data model. Enforcement can follow later; the model cannot.
+Every meaningful function is exposed through a versioned API. Agent access (MCP today) is an adapter generated from or layered on that API, not a separate path.
 
-> **Rationale**: Retrofitting policy re-touches every model, pipeline, and consumer. Realizes P8.
+> **Rationale**: Agents build, design, and use this system. A function without an API is invisible to them. Treating MCP as an adapter keeps us protocol-independent (P2, P5).
+
+---
+
+### P10. Deterministic Core, Agentic Edge
+
+Core processing — ingestion, storage, reconciliation execution, policy evaluation — is deterministic, fast, and reliable. Agents work at the edge: analysis, decisions, automation. Agents act through the same APIs and policies as humans, and their actions are audited.
+
+> **Rationale**: Core paths need predictable latency and repeatable results. Agents add value where judgement and synthesis are needed. Coordination model: [idea: multi-agent coordination](../ideas/multi-agent-coordination.md).

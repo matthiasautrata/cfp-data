@@ -17,7 +17,7 @@
 | **Metadata registry** | The system that tells you what data exists, where it lives, and what it means. The "map" of the data ecosystem. |
 | **Modality** | The basis on which a fact is held: discovered, asserted, or planned. |
 | **Oracle authority** | Who decides what is true for an attribute (device, control plane, person, planning system). |
-| **Planned** | Modality: a fact stating intent — a desired or future state (P6). |
+| **Planned** | Modality: a fact stating intent — a desired or future state (P4). |
 | **Platform** | See *Data platform*. |
 | **Points** | Team-relative effort for a backlog item. Converts to time only via measured velocity. |
 | **Provenance** | The recorded path by which a specific fact arrived: collector, origin system, time. |

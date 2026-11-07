@@ -22,8 +22,8 @@ Option 2. Discovery and inventory are separate components that share the canonic
 
 ## Rationale
 
-- P1 (one thing, one task): observing and recording are different jobs.
-- P3, P4 (no vendor dependency, plug-and-play): a discovery tool is replaceable without touching inventory.
+- P1 (separation of concerns): observing and recording are different jobs.
+- P2 (contract-first interfaces): a discovery tool is replaceable without touching inventory.
 - Option 3 contradicts the canonical-model definition ([glossary](../glossary.md)).
 
 ## Consequences
