@@ -12,7 +12,7 @@ This file defines how we work in this repo. It is the operating agreement for an
 - **Assume a knowledgeable audience.** No background primers on networking, databases, or architecture. Define only terms that are genuinely ambiguous or contested within the team (see [`docs/07-glossary.md`](docs/07-glossary.md)).
 - **No filler.** Every paragraph, every sentence, every word earns its place. If it does not add signal, delete it.
 - **Readable in 5 minutes.** Detail goes into linked sub-documents or ADRs.
-- **No unqualified absolutes in estimates or targets.** Size work as effort: T-shirt for phases and initiatives, points for backlog items. Calendar ranges derive from measured velocity. Thresholds are provisional until baselined.
+- **No unqualified absolutes in estimates or targets.** Size work as effort: T-shirt for phases and initiatives, points for backlog items. Calendar ranges derive from measured velocity. Every KPI needs a threshold; until baselined, write `[T]` rather than a number.
 - **Standards-first, hype-last.** See principle P7 in [`docs/03-architecture-principles.md`](docs/03-architecture-principles.md).
 - **Tables over prose** for enumerations (risks, principles, success dimensions, platform capabilities). One row per item, concrete values where possible.
 - **Cross-reference by relative path**, never by absolute URL. The document tree is the navigation system.
