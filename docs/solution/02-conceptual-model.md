@@ -19,6 +19,8 @@ Every fact carries:
 | Source authority | per attribute | same |
 | Provenance | per fact | same |
 
+Dependencies and freshness are requirements on answers, not dimensions of facts; competency questions record them separately ([use cases](../problem/02-stakeholders-use-cases.md)).
+
 ## Components
 
 | Concern | Boundary | Source |

@@ -5,7 +5,10 @@
 #
 # Use case:  id (UC-n, stable) | activity (AC-n) | actor | need (one line) | driver {label, link: repo-root path} | questions
 # Question:  id (CQ-n, stable, global) | question (<placeholders> are parameters) | entities | answer (expected shape) | status
-#            dimensions: subset of valid_time, record_time, modality, dependencies, authority, freshness, lifecycle
+#            fact_dimensions: subset of valid_time, record_time, modality, oracle_authority, source_authority, provenance
+#                             (the fact dimensions of docs/solution/02-conceptual-model.md)
+#            answer_requirements: optional; subset of dependencies (graph traversal), freshness (age bound `[T]`)
+#            attributes: optional; named attributes the question needs
 #            status: candidate | validated  (a use case is validated when all its questions are)
 
 use_cases:
@@ -18,13 +21,13 @@ use_cases:
       - id: CQ-1
         question: "Which devices held customer data on <date>?"
         entities: [device, data_classification]
-        dimensions: [valid_time, authority]
+        fact_dimensions: [valid_time, source_authority, provenance]
         answer: "list of devices with classification and source"
         status: candidate
       - id: CQ-2
         question: "What did our records say about which devices held customer data, as recorded on <date>?"
         entities: [device, data_classification]
-        dimensions: [record_time, authority]
+        fact_dimensions: [record_time, source_authority, provenance]
         answer: "list of devices as recorded, with provenance"
         status: candidate
   - id: UC-2
@@ -36,13 +39,15 @@ use_cases:
       - id: CQ-3
         question: "What is connected to <device>, and what depends on it?"
         entities: [device, interface, link, service]
-        dimensions: [dependencies, freshness]
+        fact_dimensions: []
+        answer_requirements: [dependencies, freshness]
         answer: "dependency graph rooted at the device"
         status: candidate
       - id: CQ-4
         question: "What changed on or around <device> in the last <hours>?"
         entities: [device, change, configuration]
-        dimensions: [record_time, dependencies, freshness]
+        fact_dimensions: [record_time]
+        answer_requirements: [dependencies, freshness]
         answer: "ordered list of changes with source and time"
         status: candidate
   - id: UC-3
@@ -54,13 +59,13 @@ use_cases:
       - id: CQ-5
         question: "What data exists about <entity type>, where does it live, and what does it mean?"
         entities: [entity_type, source, definition]
-        dimensions: [authority]
+        fact_dimensions: [source_authority, provenance]
         answer: "registry entries with locations and definitions"
         status: candidate
       - id: CQ-6
         question: "Which count of <entity type> is authoritative, and on whose authority?"
         entities: [entity_type, source]
-        dimensions: [authority]
+        fact_dimensions: [oracle_authority, source_authority, provenance]
         answer: "count with source authority and provenance"
         status: candidate
   - id: UC-4
@@ -72,7 +77,8 @@ use_cases:
       - id: CQ-7
         question: "If <IP | link | device> changes, which devices and services are affected?"
         entities: [ip_address, link, device, service]
-        dimensions: [dependencies, modality]
+        fact_dimensions: [modality]
+        answer_requirements: [dependencies]
         answer: "impacted set with dependency paths"
         status: candidate
   - id: UC-5
@@ -84,13 +90,13 @@ use_cases:
       - id: CQ-8
         question: "What capacity exists and is planned, per site?"
         entities: [site, device, capacity_metric]
-        dimensions: [valid_time, modality]
+        fact_dimensions: [valid_time, modality]
         answer: "capacity per site, actual and planned"
         status: candidate
       - id: CQ-9
         question: "Where and when does projected demand exceed capacity?"
         entities: [site, capacity_metric]
-        dimensions: [valid_time, modality]
+        fact_dimensions: [valid_time, modality]
         answer: "list of site, resource, and date of shortfall"
         status: candidate
   - id: UC-6
@@ -102,13 +108,13 @@ use_cases:
       - id: CQ-10
         question: "Where do discovered, asserted, and planned state disagree for <entity type>?"
         entities: [entity_type]
-        dimensions: [modality, authority]
+        fact_dimensions: [modality, source_authority, provenance]
         answer: "list of disagreements with values per modality"
         status: candidate
       - id: CQ-11
         question: "Which authority decides each disagreement?"
         entities: [entity_type, source]
-        dimensions: [authority]
+        fact_dimensions: [oracle_authority, source_authority, provenance]
         answer: "per disagreement, the deciding oracle or source authority"
         status: candidate
   - id: UC-7
@@ -120,13 +126,13 @@ use_cases:
       - id: CQ-12
         question: "Which devices are discovered but unknown to inventory?"
         entities: [device]
-        dimensions: [modality]
+        fact_dimensions: [modality]
         answer: "list of discovered-only devices with discovery provenance"
         status: candidate
       - id: CQ-13
         question: "Where does actual segmentation differ from intended segmentation?"
         entities: [segment, policy, device]
-        dimensions: [modality]
+        fact_dimensions: [modality]
         answer: "list of segment violations, intended vs observed"
         status: candidate
   - id: UC-8
@@ -138,7 +144,7 @@ use_cases:
       - id: CQ-14
         question: "For question <Q>, what is the answer, which facts and sources support it, and which policy applies?"
         entities: [any]
-        dimensions: [valid_time, record_time, modality, authority]
+        fact_dimensions: [valid_time, record_time, modality, source_authority, provenance]
         answer: "answer with cited facts, sources, and applicable policy"
         status: candidate
   - id: UC-9
@@ -150,7 +156,7 @@ use_cases:
       - id: CQ-15
         question: "Which contracts exist, in which versions, and which sources and consumers use each?"
         entities: [contract, source, consumer]
-        dimensions: [valid_time]
+        fact_dimensions: [valid_time]
         answer: "contract catalogue with users per version"
         status: candidate
   - id: UC-10
@@ -162,13 +168,15 @@ use_cases:
       - id: CQ-16
         question: "What is the current operational state of <entity>?"
         entities: [device, interface, link]
-        dimensions: [modality, freshness]
+        fact_dimensions: [modality]
+        answer_requirements: [freshness]
         answer: "state with observation time"
         status: candidate
       - id: CQ-17
         question: "Which events relate to <entity> within <window>?"
         entities: [event, device]
-        dimensions: [valid_time, freshness]
+        fact_dimensions: [valid_time]
+        answer_requirements: [freshness]
         answer: "ordered list of events"
         status: candidate
   - id: UC-11
@@ -180,7 +188,8 @@ use_cases:
       - id: CQ-18
         question: "What were configuration and topology of <affected set> at each occurrence of incident class <Y>?"
         entities: [incident, device, configuration, link]
-        dimensions: [valid_time, record_time, dependencies]
+        fact_dimensions: [valid_time, record_time]
+        answer_requirements: [dependencies]
         answer: "per occurrence, configuration and topology snapshot views"
         status: candidate
   - id: UC-12
@@ -192,13 +201,15 @@ use_cases:
       - id: CQ-19
         question: "Which assets and dependencies support critical function <F>?"
         entities: [business_function, asset, service]
-        dimensions: [dependencies, valid_time]
+        fact_dimensions: [valid_time]
+        answer_requirements: [dependencies]
         answer: "dependency graph from function to assets"
         status: candidate
       - id: CQ-20
         question: "Which of those assets or links are single points of failure?"
         entities: [asset, link]
-        dimensions: [dependencies]
+        fact_dimensions: []
+        answer_requirements: [dependencies]
         answer: "list of single points of failure per function"
         status: candidate
   - id: UC-13
@@ -210,7 +221,8 @@ use_cases:
       - id: CQ-21
         question: "Which assets reach end of support within <horizon>, who owns them, and where are they?"
         entities: [asset, owner, site]
-        dimensions: [lifecycle, valid_time]
+        attributes: [owner, location, support_expiration_date]
+        fact_dimensions: [valid_time]
         answer: "list of asset, owner, location, support end date"
         status: candidate
   - id: UC-14
@@ -222,7 +234,7 @@ use_cases:
       - id: CQ-22
         question: "For site <S>, what is planned, and what is built?"
         entities: [site, device, link]
-        dimensions: [modality, valid_time]
+        fact_dimensions: [modality, valid_time]
         answer: "planned vs built, per element"
         status: candidate
   - id: UC-15
@@ -234,7 +246,8 @@ use_cases:
       - id: CQ-23
         question: "Which assets or functions are duplicated or under-used?"
         entities: [asset, service, capacity_metric]
-        dimensions: [dependencies, valid_time]
+        fact_dimensions: [valid_time]
+        answer_requirements: [dependencies]
         answer: "consolidation candidates with evidence"
         status: candidate
   - id: UC-16
@@ -246,12 +259,13 @@ use_cases:
       - id: CQ-24
         question: "What is <device>, and how is it configured, now and as of <date>?"
         entities: [device, configuration]
-        dimensions: [valid_time, record_time, modality]
+        fact_dimensions: [valid_time, record_time, modality]
         answer: "device record with configuration per modality"
         status: candidate
       - id: CQ-25
         question: "How is <device> related to other entities?"
         entities: [device, interface, link, site, service]
-        dimensions: [dependencies]
+        fact_dimensions: []
+        answer_requirements: [dependencies]
         answer: "relationship graph"
         status: candidate

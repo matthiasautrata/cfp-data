@@ -20,6 +20,8 @@ One file per external source. Each file holds home, key concepts, relevance, and
 | [GQL — ISO/IEC 39075](gql-39075.md) | Standard | Graph query |
 | [OpenTelemetry](opentelemetry.md) | Standard | Telemetry |
 | [W3C PROV](prov.md) | Standard | Provenance |
+| [ISO/IEC 25012](iso-25012.md) | Standard | Data quality characteristics |
+| [ODCS](odcs.md) | Specification | Data contracts |
 | [LinkML](linkml.md) | Tooling | Schema authoring |
 | [Competency questions](competency-questions.md) | Method | Use cases, model scope (P11) |
 | [Kubernetes spec / status](kubernetes-spec-status.md) | Prior art | Desired vs observed state |

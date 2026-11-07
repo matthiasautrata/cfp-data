@@ -37,7 +37,7 @@
 
 ## Open Issues
 
-Cross-cutting issues only. Questions local to one document stay in that document's Key Questions.
+Cross-cutting issues only. Questions local to one document stay in that document's Key Questions. Gaps in numbering are retired IDs.
 
 Current phase is structure: shape, models, conventions. Facts from the ground — systems, owners, domains, actor membership — arrive with the estate first pass. Issues that need those facts are marked *deferred*.
 

@@ -3,20 +3,24 @@
 | Term | Definition |
 |---|---|
 | **Activity** | An operational practice that consumes CFP Network Data (`AC-n`), named after ITIL 4 practices. |
+| **Answer requirement** | A constraint on an answer rather than a property of a fact: dependency traversal, freshness. |
 | **Asserted** | Modality: a fact stated by a person or system of record. See [idea](ideas/bitemporal-modal-inventory.md). |
 | **Bitemporal** | A fact carries both valid time and record time. |
 | **Canonical model** | The authoritative definition of an entity type and its attributes: one per entity type. Domains consume projections of it, in the form that suits their work. |
 | **CFP Network Data** | The data describing the network estate owned by Core Foundational Platforms (CFP). The subject of this program. |
 | **Competency question** | A question the data must be able to answer (`CQ-n`). The form of every use case; doubles as an acceptance test. Register: [`use-cases.yaml`](data/use-cases.yaml). |
+| **Contract** | The published, versioned interface through which a source or consumer connects (P2): schema, semantics, and service terms. |
 | **Data platform** | A system that stores, serves, and manages a category of network data. Part of the target architecture. |
 | **Discovered** | Modality: a fact observed by a discovery mechanism. |
 | **Discovery** | Observing the network to produce facts. Proposed as separate from inventory ([idea](ideas/discovery-decoupled-from-inventory.md)). |
 | **Effort size** | T-shirt estimate (S, M, L, XL) for a phase or initiative. Not a duration. |
 | **Entity** | A thing we model: device, interface, circuit, location, service, customer, policy, etc. |
 | **Estate** | The complete set of data sources, stores, and pipelines that exist today (legacy + target). |
+| **Freshness** | Maximum age of a fact when served, against threshold `[T]` (R-14). An answer requirement, not a fact dimension. |
 | **Idea** | Early, non-binding thinking in `ideas/`. Promoted to an ADR when agreed. |
 | **Inventory** | Curated record of what exists, existed, or is planned. |
 | **Knowledge platform** | The system that holds the curated, relational, historical view of the network. The "what we know" layer. |
+| **Lifecycle dates** | Asset attributes such as support expiration date (R-12). Attributes, not fact dimensions. |
 | **Metadata registry** | The system that tells you what data exists, where it lives, and what it means. The "map" of the data ecosystem. |
 | **Modality** | The basis on which a fact is held: discovered, asserted, or planned. |
 | **Oracle authority** | Who decides what is true for an attribute (device, control plane, person, planning system). |

@@ -20,7 +20,8 @@ SRC = "docs/data/use-cases.yaml"
 DOC = "docs/problem/02-stakeholders-use-cases.md"
 BEGIN = "<!-- BEGIN GENERATED: tools/render_use_cases.py from docs/data/use-cases.yaml. Do not edit. -->"
 END = "<!-- END GENERATED -->"
-DIMENSIONS = {"valid_time", "record_time", "modality", "dependencies", "authority", "freshness", "lifecycle"}
+FACT_DIMENSIONS = {"valid_time", "record_time", "modality", "oracle_authority", "source_authority", "provenance"}
+ANSWER_REQUIREMENTS = {"dependencies", "freshness"}
 STATUSES = {"candidate", "validated"}
 
 
@@ -43,9 +44,12 @@ def validate(data, doc_text):
             if q["id"] in cq_ids:
                 fail(f"duplicate {q['id']}")
             cq_ids.add(q["id"])
-            bad = set(q["dimensions"]) - DIMENSIONS
+            bad = set(q["fact_dimensions"]) - FACT_DIMENSIONS
             if bad:
-                fail(f"{q['id']}: unknown dimensions {sorted(bad)}")
+                fail(f"{q['id']}: unknown fact dimensions {sorted(bad)}")
+            bad = set(q.get("answer_requirements", [])) - ANSWER_REQUIREMENTS
+            if bad:
+                fail(f"{q['id']}: unknown answer requirements {sorted(bad)}")
             if q["status"] not in STATUSES:
                 fail(f"{q['id']}: unknown status {q['status']}")
     unused = activities - {uc["activity"] for uc in data["use_cases"]}
@@ -72,12 +76,16 @@ def render(data):
         status = "validated" if all(q["status"] == "validated" for q in uc["questions"]) else "candidate"
         out.append(f"| {uc['id']} | {uc['activity']} | {uc['actor']} | {uc['need']} | {qs} | {link(uc['driver'])} | {status} |")
     out += ["", "### Competency Questions", "",
-            "| ID | Use case | Question | Entities | Dimensions | Answer | Status |",
-            "|---|---|---|---|---|---|---|"]
+            "| ID | Use case | Question | Entities | Fact dimensions | Answer requirements | Answer | Status |",
+            "|---|---|---|---|---|---|---|---|"]
     for uc in data["use_cases"]:
         for q in uc["questions"]:
-            out.append(f"| {q['id']} | {uc['id']} | {code(q['question'])} | {', '.join(q['entities'])} | "
-                       f"{', '.join(q['dimensions'])} | {q['answer']} | {q['status']} |")
+            ents = ", ".join(q["entities"])
+            if q.get("attributes"):
+                ents += " · attributes: " + ", ".join(q["attributes"])
+            out.append(f"| {q['id']} | {uc['id']} | {code(q['question'])} | {ents} | "
+                       f"{', '.join(q['fact_dimensions']) or '—'} | {', '.join(q.get('answer_requirements', [])) or '—'} | "
+                       f"{q['answer']} | {q['status']} |")
     return "\n".join(out)
 
 

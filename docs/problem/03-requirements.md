@@ -37,4 +37,4 @@ All requirements are candidates until their use cases are validated.
 - R-7 and Q-4 trace to no architecture principle (I-5). R-7 now has a regulatory driver via R-13.
 - Weak traces (R-2 → P8, R-6 → P7, Q-1 → P1) and mixed principle kinds: I-9.
 - Use-case actors not mapped to stakeholders: I-10.
-- Vision claims (access modes, freshness, quality and lineage alongside data, answer assembly) not yet covered by requirements: I-13.
+- Vision claims not yet covered by requirements: quality and lineage alongside data, answer assembly (I-13).

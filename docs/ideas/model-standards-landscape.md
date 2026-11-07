@@ -33,7 +33,7 @@ RFC 8345 is worth reading even if YANG is never used: nodes, termination points,
 
 ## 3. Interface contracts
 
-Not data semantics — the wire format at each boundary. OpenAPI 3.1 (REST), AsyncAPI 3 (events), JSON Schema 2020-12 (payload validation), Avro or Protobuf where a schema-registry-mediated bus is chosen. One choice per boundary, recorded in an ADR, versioned in the metadata registry. YANG's encodings (JSON per RFC 7951, XML) cover device-facing interfaces, so no second contract is needed there. Agent access (MCP, [P9](../solution/01-principles.md)) is an adapter generated from these contracts, not a separate one. Data-product contracts (ownership, SLA, quality) are a further layer: ODCS (Open Data Contract Standard) is the candidate to evaluate.
+Not data semantics — the wire format at each boundary. OpenAPI 3.1 (REST), AsyncAPI 3 (events), JSON Schema 2020-12 (payload validation), Avro or Protobuf where a schema-registry-mediated bus is chosen. One choice per boundary, recorded in an ADR, versioned in the metadata registry. YANG's encodings (JSON per RFC 7951, XML) cover device-facing interfaces, so no second contract is needed there. Agent access (MCP, [P9](../solution/01-principles.md)) is an adapter generated from these contracts, not a separate one. Data-product contracts (ownership, SLA, quality) are a further layer: [ODCS](../references/odcs.md) (Open Data Contract Standard) is the candidate to evaluate.
 
 ## 4. Telemetry, flows, events
 
@@ -52,7 +52,7 @@ Not data semantics — the wire format at each boundary. OpenAPI 3.1 (REST), Asy
 | Provenance | [W3C PROV](../references/prov.md) entity/activity/agent | **Adopt as a model**, not a serialization |
 | Units, time format | UCUM; ISO 8601 | **Adopt** — trivial, prevents silent unit bugs |
 | Metadata registry | ISO/IEC 11179 data element concepts | **Reference** — borrow the definitions, not the process ceremony |
-| Data quality dimensions | ISO/IEC 25012 | **Reference** — shared vocabulary for the Quality success dimension |
+| Data quality dimensions | [ISO/IEC 25012](../references/iso-25012.md) | **Reference** — shared vocabulary for the Quality success dimension |
 | Lineage events | OpenLineage | **Reference** — only if pipeline lineage becomes a requirement |
 | Catalog vocabulary | DCAT | **Defer** — RDF-based; adopt only if the catalog is RDF anyway |
 
