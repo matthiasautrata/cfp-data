@@ -16,31 +16,20 @@ How we move from the current fragmented state to the target architecture — wit
 
 ---
 
-## Migration Phases
+## Migration Cycle (per domain)
 
-### Phase 0: Inventory & Classification
-- Catalog every current data source, store, and pipeline.
-- Classify each by: criticality, data quality, replaceability, consumer count.
-- Identify quick wins: systems that are expensive to maintain, have few consumers, and have a clear replacement.
+Phasing lives in [5](../05-initiatives-roadmap.md). This is the cycle each domain runs: the first domain in Phase 1, the rest in Phase 2.
 
-### Phase 1: Core Model + Meta-Data Registry
-- Define and publish the canonical models for the top 10 entity types.
-- Stand up the metadata registry with pointers to existing systems.
-- No data moves yet — this is a map of what exists.
+| Step | Activity | Exit |
+|---|---|---|
+| **1. Inventory** | Catalog the domain's sources, stores, pipelines, consumers. Classify by criticality, quality, replaceability, consumer count. | Disposition recorded in the estate matrix |
+| **2. Map** | Map domain data to the canonical and policy models. Fix model gaps fast. | Mapping reviewed; gaps resolved or captured as ideas |
+| **3. Build / acquire** | Target platform for the domain. | Accepted against model and policy |
+| **4. Parallel run** | Populate faithfully from legacy; consumers migrate. | Reconciliation within agreed threshold; consumer sign-off checklist complete |
+| **5. Cut over** | Target becomes source of truth. | Legacy read-only |
+| **6. Retire** | Decommission legacy. | No remaining consumers; at least two people understand any residual flows |
 
-### Phase 2: Target Platform for One Domain
-- Pick one domain (e.g., IPAM or device inventory) with a clear replacement candidate.
-- Build/acquire the target platform, populate it from the legacy source.
-- Run in parallel until all consumers have migrated; then cut over and decommission the legacy system.
-
-### Phase 3: Expand
-- Repeat Phase 2 for each domain, in order of value and independence.
-- Each cycle validates the model and the migration pattern.
-
-### Phase 4: Integrate & Optimize
-- Cross-domain integrations: topology ↔ inventory, telemetry ↔ capacity planning.
-- Policy-driven automation: rules that span domains.
-- Retire the remaining legacy systems.
+Estate-wide work (first-pass inventory, cross-domain integration) is phased in [5](../05-initiatives-roadmap.md).
 
 ---
 
@@ -57,7 +46,7 @@ How we move from the current fragmented state to the target architecture — wit
 
 ## Key Risks
 
-- **Phase 0 paralysis**: spending too long cataloging without delivering value. Set a 2-week timebox.
+- **Phase 0 paralysis**: spending too long cataloging without delivering value. Timebox the first pass; refine per domain.
 - **Premature decommissioning**: retiring a legacy system before all consumers are migrated. Require a consumer sign-off checklist.
 - **Model mismatch**: the canonical model does not fit a domain's actual data. Fix the model, not the migration — but do it fast.
 - **Loss of tribal knowledge**: undocumented data flows that only one person understands. Pair documentation with migration.

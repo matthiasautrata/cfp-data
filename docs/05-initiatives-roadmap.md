@@ -1,67 +1,93 @@
 # 5. Initiatives & Roadmap
 
-## Initiatives
+Phasing lives here. How each domain migrates: [4.5 Migration Cycle](04-major-areas-of-work/04-05-migration-strategy.md).
 
-The raw list of things we need to do. These will be grouped into phases and assigned to workstreams.
+## Initiatives
 
 ### A. Define Data We Need
 
-What entities, attributes, and relationships must we model to run the network? This is the foundational modelling exercise.
+What entities, attributes, and relationships must we model to run the network? The foundational modelling exercise, including temporal and modal dimensions ([idea](ideas/bitemporal-modal-inventory.md)).
 
-**Depends on**: Nothing — this is the first thing.
-**Output**: Canonical model v1.0, covering 10-15 core entity types.
+**Depends on**: Nothing. Co-designed with D1.
+**Output**: Canonical model v1 for the core entity types (expected 10–15).
 
 ### B. Decide What Stays and What Goes
 
 Inventory every current data source and classify: keep, migrate, retire, or deprecate.
 
-**Depends on**: A (models define the target; we compare current state to target).
-**Output**: Estate disposition matrix.
+**Depends on**: A for the target. Runs alongside A: the estate first pass informs the model.
+**Output**: Estate disposition matrix. First pass in Phase 0; refined per domain.
 
 ### C. Make Data Discoverable
 
 Metadata registry + search/query interface so anyone can find what data exists and where to get it.
 
-**Depends on**: A (models define what we index), B (we know what exists).
-**Output**: Running metadata registry with pointers to current systems.
+**Depends on**: A (what we index), B (what exists).
+**Output**: Registry structure in Phase 0; populated per domain.
 
-### D. Govern by Policy
+### D1. Policy Model
 
-Policy engine that defines naming, classification, retention, access, and quality rules — and enforces them.
+How policy is expressed, attached to entities and data elements, and evidenced. Categories: ownership, classification, naming, retention, access, quality.
 
-**Depends on**: A, C (policy needs models and a registry to attach to).
-**Output**: Policy framework, first set of enforceable policies.
+**Depends on**: Co-designed with A (P12).
+**Output**: Policy model v1; ownership and classification policies for the first domain.
+
+### D2. Policy Enforcement
+
+Evaluate and enforce policies at ingestion, query, and reporting time.
+
+**Depends on**: D1, C.
+**Output**: Enforcement for a first policy set.
 
 ### E. Trusted, Resilient Data
 
 Data quality monitoring, reconciliation, drift detection, and automated remediation.
 
-**Depends on**: C, D (quality needs a registry and policy framework).
-**Output**: Data quality dashboards, reconciliation pipelines.
+**Depends on**: C, D1.
+**Output**: Quality baseline per domain; reconciliation pipelines.
 
 ### F. Observe the Network
 
 Telemetry and observability for both the network and the data ecosystem itself.
 
-**Depends on**: E (quality baseline needed before observability is meaningful).
-**Output**: Unified observability platform for network data health.
+**Depends on**: E (a quality baseline makes observability meaningful).
+**Output**: Observability for network data health.
 
 ### G. Enable & Adopt
 
 Training, documentation, self-service tooling, community model, onboarding process.
 
-**Depends on**: C, D, E, F (need something to adopt before enabling adoption).
-**Output**: Adoption program, onboarding playbook, self-service portal.
+**Depends on**: Starts with the first domain's consumers; scales with C, D2, E, F.
+**Output**: Onboarding playbook; self-service; adoption program.
 
 ---
 
-## Suggested Phasing
+## Phasing
 
-| Phase | Focus | Initiatives | Duration |
+| Phase | Focus | Initiatives | Exit criteria |
 |---|---|---|---|
-| **0: Foundation** | Models + Registry + Estate Map | A, B, C (partial) | 8-12 weeks |
-| **1: First Domain** | Pick one domain, build target platform, migrate consumers | A+B+C applied to one domain, E (quality baseline) | 8-16 weeks |
-| **2: Expand** | Repeat for 2-3 additional domains | A+B+C+E per domain | 16-24 weeks |
-| **3: Govern + Observe** | Policy engine, telemetry, cross-domain integration | D, F, G | Ongoing |
+| **0: Foundation** | Shape: canonical model, policy model, registry structure, estate first pass | A, D1, B (first pass), C (structure) | Model v1 and policy model v1 drafted and reviewed; first domain chosen |
+| **1: First Domain** | Migration cycle end to end on one domain | A, D1 applied; B, C for the domain; E (baseline); G (domain consumers) | Domain consumers on target; legacy read-only or retired; quality baseline measured |
+| **2: Expand** | Migration cycle per further domain, by value and independence | A–E per domain; D2 (first policy set) | Per domain as Phase 1; first policies enforced |
+| **3: Integrate, Govern, Observe** | Cross-domain integration, enforcement at scale, telemetry, adoption at scale | D2, F, G | Measured against [6](06-success-dimensions.md) |
 
-> Note: These are working estimates. Each phase delivers a concrete, usable output before the next begins.
+Each phase delivers usable output before the next begins. Structure is designed early (P11, P12); detail arrives in increments.
+
+## Sizing
+
+Effort, not calendar time.
+
+| Level | Unit | Set when |
+|---|---|---|
+| Phase, initiative | T-shirt (S, M, L, XL) | At phase start, after the estate first pass sizes scope |
+| Backlog item | Points (team-relative) | At refinement |
+| Calendar | Range derived from points ÷ measured velocity | After velocity is measured over several increments |
+
+Estimates are conservative and revised at each phase gate.
+
+## Choosing the First Domain
+
+- Clear replacement candidate.
+- Motivated consumers ([4.6](04-major-areas-of-work/04-06-risks-mitigations.md): adoption failure).
+- Few dependencies on other domains.
+- Visible value: reduced toil, a retired system.

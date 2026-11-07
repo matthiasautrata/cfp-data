@@ -24,6 +24,7 @@ cfp-data/
     ├── 06-success-dimensions.md       # How we measure success
     ├── 07-glossary.md                 # Terms, acronyms, conventions
     ├── adr/                           # Architecture Decision Records (NNNN-title.md)
+    ├── ideas/                         # Early, non-binding thinking; promoted to ADRs when agreed
     ├── references/                    # External sources (short-name.md)
     └── templates/
         └── decision-record.md         # ADR template
@@ -48,6 +49,8 @@ cfp-data/
 | [Success Dimensions](docs/06-success-dimensions.md) | 🟡 Draft | TBD |
 | [Glossary](docs/07-glossary.md) | 🟡 Draft | TBD |
 | ADRs | 🔴 None yet | — |
+| [Idea: Discovery decoupled from inventory](docs/ideas/discovery-decoupled-from-inventory.md) | 🟡 Idea | Matthias |
+| [Idea: Bitemporal, modal inventory](docs/ideas/bitemporal-modal-inventory.md) | 🟡 Idea | Matthias |
 
 ---
 

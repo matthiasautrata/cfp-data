@@ -2,6 +2,8 @@
 
 How we measure whether the target state is better than the current state.
 
+Thresholds below are provisional targets, set against a measured baseline (Phase 1). They are not commitments.
+
 ---
 
 | Dimension | What Good Looks Like | How We Measure |
