@@ -1,5 +1,7 @@
 # Stakeholders & Use Cases
 
+> Use cases and competency questions live in [`use-cases.yaml`](../data/use-cases.yaml). The tables under *Use Cases* are generated from it; after editing the YAML, refresh them with `uv run tools/render_use_cases.py`. If they differ, the YAML wins.
+
 ## Stakeholders
 
 | Role | Who | Interest |
@@ -44,8 +46,6 @@ Other frames considered: [eTOM](../references/tmf-etom.md) (operator scope, too 
 ## Use Cases
 
 Each use case is a set of [competency questions](../references/competency-questions.md): questions the data must answer. Each question doubles as an acceptance test and an agent evaluation item. All are candidates until validated with Network Services and the activity owners.
-
-Single source: [`use-cases.yaml`](../data/use-cases.yaml). The tables below are generated from it (`uv run tools/render_use_cases.py`); edit the YAML, not the tables.
 
 <!-- BEGIN GENERATED: tools/render_use_cases.py from docs/data/use-cases.yaml. Do not edit. -->
 ### Use Cases
