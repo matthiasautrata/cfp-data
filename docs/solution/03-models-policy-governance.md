@@ -26,7 +26,7 @@ What data we model, how we name it, what it means, who owns it, and what rules a
 - Policy categories: naming conventions, classification, retention, access control, quality thresholds.
 - Policy lifecycle: authoring, testing, deployment, auditing.
 - Enforcement model: at ingestion, at query time, at reporting time.
-- Sequencing (P6): the policy model is designed with the data model in Phase 0; enforcement follows ([Initiatives & Roadmap](../delivery/01-roadmap.md)).
+- Sequencing (P6): the policy model is designed with the data model in Phase 0; enforcement follows ([Initiatives & Roadmap](../ways-of-working/01-roadmap.md)).
 
 ### Governance
 

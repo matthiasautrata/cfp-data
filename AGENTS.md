@@ -10,6 +10,7 @@ This file defines how we work in this repo. It is the operating agreement for an
 
 - **Precise engineering language.** Favour short words, short sentences, short paragraphs. If a concept needs a paragraph to explain, the concept needs rewriting — not the paragraph.
 - **Assume a knowledgeable audience.** No background primers on networking, databases, or architecture. Define only terms that are genuinely ambiguous or contested within the team (see [`glossary.md`](docs/glossary.md)).
+- **Current truth only.** A document states what is valid now. No strikethrough chains, no "formerly P7", no superseded sections left inline. History lives in [`archive/`](docs/archive/).
 - **No filler.** Every paragraph, every sentence, every word earns its place. If it does not add signal, delete it.
 - **Readable in 5 minutes.** Detail goes into linked sub-documents or ADRs.
 - **No unqualified absolutes in estimates or targets.** Size work as effort: T-shirt for phases and initiatives, points for backlog items. Calendar ranges derive from measured velocity. Every KPI needs a threshold; until baselined, write `[T]` rather than a number.
@@ -23,7 +24,8 @@ This file defines how we work in this repo. It is the operating agreement for an
 |---|---|---|
 | **Problem** | Why, for whom, what: problem, risks of inaction, stakeholders, use cases, requirements, current state, constraints | `docs/problem/` |
 | **Solution** | How: principles, conceptual model, design areas, platforms, features | `docs/solution/` |
-| **Delivery** | When and how we know: roadmap, migration cycle, risk register, success dimensions | `docs/delivery/` |
+| **Ways of Working** | How we execute: roadmap, migration cycle, risk register, success dimensions | `docs/ways-of-working/` |
+| **Archive** | Superseded material, kept for the record only. Never part of the current truth. | `docs/archive/` |
 | **Glossary** | Terms that cause ambiguity | `docs/glossary.md` |
 | **Data** | Structured registers (estate matrix, etc.) | `docs/data/*.csv`, `*.yaml` |
 | **Idea** | Early thinking: options, sketches, open questions. Not binding. | `docs/ideas/short-name.md` |
@@ -60,7 +62,9 @@ One file per reference. Keep it minimal — a few lines, not an essay. Link from
 
 ## Traceability
 
-Use case (`UC-n`) → requirement (`R-n`, `Q-n`) → principle (`Pn`). Links are recorded once, in the trace matrix in [`04-requirements.md`](docs/problem/04-requirements.md); reverse views are derived. IDs are stable and never reused; a retired ID stays retired.
+Use case (`UC-n`) → requirement (`R-n`, `Q-n`) → principle (`Pn`). Links are recorded once, in the trace matrix in [`04-requirements.md`](docs/problem/04-requirements.md); reverse views are derived.
+
+An ID identifies a live item. Replacing, retiring, or renumbering an item is allowed, but must update every reference in the same change. Superseded text moves to `archive/` with a date and a one-line reason; it does not stay inline.
 
 ## Status & Issues
 
@@ -70,7 +74,7 @@ Push status forward alongside content. A draft merged and reviewed becomes 🟢.
 
 ## File Conventions
 
-- **Layout.** Document set lives in `docs/`. Root holds only `README.md`, `AGENTS.md`, `CLAUDE.md`, `ISSUES.md`. Docs are banded: `problem/`, `solution/`, `delivery/`.
+- **Layout.** Document set lives in `docs/`. Root holds only `README.md`, `AGENTS.md`, `CLAUDE.md`, `ISSUES.md`. Docs are banded: `problem/`, `solution/`, `ways-of-working/`.
 - **Plain-text formats.** Documents in markdown; structured data in CSV or YAML. No Word, PDF, Google Docs, or other office formats.
 - **One thing per file.** A monolith document is a sign of undiscovered structure. Split when a section could stand alone and be cross-referenced.
 - **Files are numbered** (`01-`, `02-`...) within a band, only for reading order. Directories are unnumbered.

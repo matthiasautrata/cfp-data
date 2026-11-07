@@ -26,7 +26,7 @@ All requirements are candidates until their use cases are validated.
 | Q-1 | Resilience: the data plane serves critical queries during control-plane failures. | UC-2 | P1 |
 | Q-2 | Core processing is deterministic; latency and availability meet `[T]`. | UC-2, UC-6 | P10 |
 | Q-3 | Any component can be replaced without rebuilding its consumers. | UC-9 | P2, P3 |
-| Q-4 | Migration does not degrade operational capability. | UC-2 | — ([Migration](../delivery/02-migration.md) principles) |
+| Q-4 | Migration does not degrade operational capability. | UC-2 | — ([Migration](../ways-of-working/02-migration.md) principles) |
 
 ## Gaps
 

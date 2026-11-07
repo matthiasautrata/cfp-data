@@ -25,7 +25,7 @@ Candidates derived from the existing documents. Each is validated with Network S
 |---|---|---|---|---|
 | UC-1 | Auditor | Which devices hold customer data — now, and as of a past date? | [Risks: Compliance](02-risks-and-importance.md) | Candidate |
 | UC-2 | Incident responder | Find topology, config, and dependencies for an affected device during an incident | [Risks: Operational](02-risks-and-importance.md) | Candidate |
-| UC-3 | Engineer | Find what data exists, where it lives, what it means (e.g. authoritative device count) | [Success: Discoverability](../delivery/04-success-dimensions.md) | Candidate |
+| UC-3 | Engineer | Find what data exists, where it lives, what it means (e.g. authoritative device count) | [Success: Discoverability](../ways-of-working/04-success-dimensions.md) | Candidate |
 | UC-4 | Change engineer | Impact analysis: if I change this IP, link, or device, what breaks? | [Process](../solution/04-process-rules-activities.md) | Candidate |
 | UC-5 | Capacity planner | Know existing and planned capacity before buying | [Risks: Bad Decisions](02-risks-and-importance.md) | Candidate |
 | UC-6 | Data steward | Detect and resolve drift between discovered, asserted, and planned state | [Idea: bitemporal, modal inventory](../ideas/bitemporal-modal-inventory.md) | Candidate |

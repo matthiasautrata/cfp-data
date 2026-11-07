@@ -21,10 +21,10 @@
 | [Process, Rules & Activities](docs/solution/04-process-rules-activities.md) | 🔴 Not started | TBD |
 | [Core Platforms](docs/solution/05-core-platforms.md) | 🔴 Not started | TBD |
 | [Supporting Features](docs/solution/06-supporting-features.md) | 🔴 Not started | TBD |
-| [Roadmap](docs/delivery/01-roadmap.md) | 🟡 Draft | TBD |
-| [Migration](docs/delivery/02-migration.md) | 🔴 Not started | TBD |
-| [Risk Register](docs/delivery/03-risk-register.md) | 🔴 Not started | TBD |
-| [Success Dimensions](docs/delivery/04-success-dimensions.md) | 🟡 Draft — thresholds `[T]` | TBD |
+| [Roadmap](docs/ways-of-working/01-roadmap.md) | 🟡 Draft | TBD |
+| [Migration](docs/ways-of-working/02-migration.md) | 🔴 Not started | TBD |
+| [Risk Register](docs/ways-of-working/03-risk-register.md) | 🔴 Not started | TBD |
+| [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) | 🟡 Draft — thresholds `[T]` | TBD |
 | [Glossary](docs/glossary.md) | 🟡 Draft | TBD |
 | [Estate disposition](docs/data/estate-disposition.csv) | 🔴 Header only | TBD |
 | ADRs | — None yet | — |
@@ -37,16 +37,17 @@
 
 Cross-cutting issues only. Questions local to one document stay in that document's Key Questions.
 
+Current phase is structure: shape, models, conventions. Facts from the ground — systems, owners, domains, actor membership — arrive with the estate first pass. Issues that need those facts are marked *deferred*.
+
 | ID | Issue | Where | Next step |
 |---|---|---|---|
 | I-1 | Use cases are candidates, not validated | [Use cases](docs/problem/03-stakeholders-use-cases.md) | Review with Network Services |
-| I-2 | Thresholds not set | [Success Dimensions](docs/delivery/04-success-dimensions.md) | Baseline in Phase 1 |
+| I-2 | Thresholds not set | [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) | Baseline in Phase 1 |
 | I-3 | Domains, owners, and current systems unknown | [Current State](docs/problem/05-current-state-constraints.md) | Estate first pass |
 | I-4 | Constraints (firm-wide standards, platforms, regulatory) not captured | [Current State](docs/problem/05-current-state-constraints.md) | Collect from CFP management |
 | I-5 | R-7, Q-4 trace to no principle | [Requirements](docs/problem/04-requirements.md) | Decide: add principle or accept |
-| I-6 | Effort sizes not set | [Roadmap](docs/delivery/01-roadmap.md) | Size at Phase 0 start |
+| I-6 | Effort sizes not set | [Roadmap](docs/ways-of-working/01-roadmap.md) | Size at Phase 0 start |
 | I-7 | Precedence when modalities or oracles disagree | [Ideas](docs/ideas/source-of-truth-dimensions.md) | Discuss |
 | I-8 | Knowledge Platform history: derived or snapshots? | [Core Platforms](docs/solution/05-core-platforms.md) | Discuss |
 | I-9 | Trace matrix mixes two kinds of principle. System properties (P1, P2, P4, P6, P7, P9, P10) and decision/sequencing rules (P3, P5, P8) are traced uniformly, producing weak traces: R-2 → P8, R-6 → P7, Q-1 → P1. | [Requirements](docs/problem/04-requirements.md), [Principles](docs/solution/01-principles.md) | Split the principles table into two groups, or add a trace strength column |
-| I-10 | Nine use-case actors, three named stakeholders; no actor-to-stakeholder mapping | [Use cases](docs/problem/03-stakeholders-use-cases.md) | Map actors to stakeholder roles during validation |
-| I-11 | P-numbers were reassigned during the last restructure (P7, P8 changed meaning). The ID-stability rule in [AGENTS.md](AGENTS.md) now forbids this; earlier citations may be stale. | [Principles](docs/solution/01-principles.md) | Freeze P-numbers; anchor future traceability on concern names |
+| I-10 | Nine use-case actors, three named stakeholders; no actor-to-stakeholder mapping. **Deferred** — needs organisational facts. | [Use cases](docs/problem/03-stakeholders-use-cases.md) | Map during use-case validation with Network Services |
