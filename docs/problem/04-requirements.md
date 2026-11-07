@@ -18,6 +18,7 @@ All requirements are candidates until their use cases are validated.
 | R-8 | Every meaningful function is available via API and MCP. | UC-8, UC-9 | P2, P9 |
 | R-9 | New sources and consumers connect via contract, without core code. | UC-9 | P2 |
 | R-10 | Agent actions use the same APIs, policies, and audit trail as human actions. | UC-8 | P6, P10 |
+| R-11 | Every access path (SQL, GraphQL, REST, MCP, subscription, batch) returns the same facts with the same identities and semantics. | UC-3, UC-8 | P2, P9 |
 
 ## Quality
 
@@ -31,6 +32,6 @@ All requirements are candidates until their use cases are validated.
 ## Gaps
 
 - R-7 and Q-4 trace to no architecture principle. Either a principle is missing or none is needed; open.
-- Weak traces after the P-numbering change: R-2 → P8, R-6 → P7, Q-1 → P1. None of the three states the concern the requirement actually serves. Open issue I-9.
-- P3 and P5 are decision rules: they govern how every requirement is met, so they trace weakly by design. P8 is a sequencing rule, not a system property. The principles table mixes two kinds; the trace matrix treats them uniformly. See I-9.
-- Nine use-case actors, three named stakeholders. No UC actor maps to a stakeholder role. Open issue I-10.
+- Weak traces (R-2 → P8, R-6 → P7, Q-1 → P1) and mixed principle kinds: I-9.
+- Use-case actors not mapped to stakeholders: I-10.
+- Vision claims (access modes, freshness, quality and lineage alongside data, answer assembly) not yet covered by requirements: I-13.

@@ -8,8 +8,8 @@ How we move from the current fragmented state to the target architecture — wit
 
 ## Principles of Migration
 
-1. **Keep the network running.** The migration must not degrade operational capabilities at any point. If a legacy system is the only source of truth for a critical function, it stays until the replacement is proven.
-2. **Cannibalize, don't supplement.** Every new platform should enable the retirement of at least one legacy platform. We are not adding to the sprawl.
+1. **Keep the network running.** The migration must not degrade operational capabilities at any point. If a legacy system is the only source for a critical function, it stays until the replacement is proven.
+2. **Operational systems stay; their wrappers may go.** Systems of record remain the oracles and become modules behind contracts ([P2](../solution/01-principles.md)). What we supersede is the aggregation, presentation, and interaction layer around them: shadow copies, spreadsheets, duplicate tools, bespoke pipelines. Every new capability should retire at least one such wrapper; we are not adding to the sprawl.
 3. **Strangler fig pattern.** New capabilities are built alongside existing systems. Traffic shifts gradually. Legacy systems are retired when no consumers remain.
 4. **Data fidelity first.** Migration is not cleanup. We migrate data faithfully; we clean up in the target system after validation.
 5. **Prove value early.** Each migration phase must deliver visible value (reduced toil, faster queries, eliminated manual steps) before the next phase begins.
@@ -26,16 +26,16 @@ Phasing lives in [Initiatives & Roadmap](01-roadmap.md). This is the cycle each 
 | **2. Map** | Map domain data to the canonical and policy models. Fix model gaps fast. | Mapping reviewed; gaps resolved or captured as ideas |
 | **3. Build / acquire** | Target platform for the domain. | Accepted against model and policy |
 | **4. Parallel run** | Populate faithfully from legacy; consumers migrate. | Reconciliation within agreed threshold; consumer sign-off checklist complete |
-| **5. Cut over** | Target becomes source of truth. | Legacy read-only |
-| **6. Retire** | Decommission legacy. | No remaining consumers; at least two people understand any residual flows |
+| **5. Cut over** | Target becomes the source authority for serving the domain's data; oracle authority stays with the operational systems ([source of truth dimensions](../ideas/source-of-truth-dimensions.md)). | Superseded layer read-only |
+| **6. Retire** | Decommission the superseded aggregation or presentation layer. | No remaining consumers; at least two people understand any residual flows |
 
 Estate-wide work (first-pass inventory, cross-domain integration) is phased in [Initiatives & Roadmap](01-roadmap.md).
 
 ---
 
-## What "Cannibalize" Looks Like
+## What Gets Superseded
 
-| Legacy System | Target Replacement | Migration Trigger |
+| Superseded | Replaced by | Trigger |
 |---|---|---|
 | Spreadsheet-based IPAM | IPAM module in Instances Platform | All subnets migrated and verified |
 | Vendor-specific inventory tool | Instances Platform + API adapter | Vendor contract renewal |

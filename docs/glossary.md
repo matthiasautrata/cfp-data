@@ -4,7 +4,7 @@
 |---|---|
 | **Asserted** | Modality: a fact stated by a person or system of record. See [idea](ideas/bitemporal-modal-inventory.md). |
 | **Bitemporal** | A fact carries both valid time and record time. |
-| **Canonical model** | The authoritative, agreed-upon definition of an entity type and its attributes. There is exactly one canonical model per entity type. |
+| **Canonical model** | The authoritative definition of an entity type and its attributes: one per entity type. Domains consume projections of it, in the form that suits their work. |
 | **CFP Network Data** | The data describing the network estate owned by Core Foundational Platforms (CFP). The subject of this program. |
 | **Data platform** | A system that stores, serves, and manages a category of network data. Part of the target architecture. |
 | **Discovered** | Modality: a fact observed by a discovery mechanism. |
