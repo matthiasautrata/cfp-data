@@ -2,10 +2,12 @@
 
 | Term | Definition |
 |---|---|
+| **Activity** | An operational practice that consumes CFP Network Data (`AC-n`), named after ITIL 4 practices. |
 | **Asserted** | Modality: a fact stated by a person or system of record. See [idea](ideas/bitemporal-modal-inventory.md). |
 | **Bitemporal** | A fact carries both valid time and record time. |
 | **Canonical model** | The authoritative definition of an entity type and its attributes: one per entity type. Domains consume projections of it, in the form that suits their work. |
 | **CFP Network Data** | The data describing the network estate owned by Core Foundational Platforms (CFP). The subject of this program. |
+| **Competency question** | A question the data must be able to answer. The form of every use case; doubles as an acceptance test. |
 | **Data platform** | A system that stores, serves, and manages a category of network data. Part of the target architecture. |
 | **Discovered** | Modality: a fact observed by a discovery mechanism. |
 | **Discovery** | Observing the network to produce facts. Proposed as separate from inventory ([idea](ideas/discovery-decoupled-from-inventory.md)). |

@@ -9,16 +9,19 @@ All requirements are candidates until their use cases are validated.
 | ID | Requirement | From | Principles |
 |---|---|---|---|
 | R-1 | Every entity type has one canonical, versioned definition. | UC-3, UC-9 | P7, P8 |
-| R-2 | Facts are queryable as of any valid time and any record time. | UC-1, UC-2, UC-6 | P8 |
-| R-3 | Facts carry modality: discovered, asserted, or planned. | UC-5, UC-6, UC-7 | P4 |
+| R-2 | Facts are queryable as of any valid time and any record time. | UC-1, UC-2, UC-6, UC-11, UC-16 | P8 |
+| R-3 | Facts carry modality: discovered, asserted, or planned. | UC-5, UC-6, UC-7, UC-10, UC-14 | P4 |
 | R-4 | Every attribute declares oracle and source authority; every fact carries provenance. | UC-1, UC-6 | P6, P7 |
 | R-5 | Policy attaches to every entity type and data element and can be evaluated. | UC-1, UC-7 | P6 |
 | R-6 | Anyone can find what data exists, where it lives, and what it means. | UC-3 | P7 |
-| R-7 | Dependencies between entities are queryable for impact analysis. | UC-2, UC-4 | — |
+| R-7 | Dependencies between entities are queryable for impact analysis. | UC-2, UC-4, UC-11, UC-12, UC-15 | — |
 | R-8 | Every meaningful function is available via API and MCP. | UC-8, UC-9 | P2, P9 |
 | R-9 | New sources and consumers connect via contract, without core code. | UC-9 | P2 |
 | R-10 | Agent actions use the same APIs, policies, and audit trail as human actions. | UC-8 | P6, P10 |
 | R-11 | Every access path (SQL, GraphQL, REST, MCP, subscription, batch) returns the same facts with the same identities and semantics. | UC-3, UC-8 | P2, P9 |
+| R-12 | Every asset records owner, location, classification, support expiration date, and recovery objectives ([NYDFS 500.13](../references/nydfs-500-13.md)). | UC-13 | P7 |
+| R-13 | Assets map to the business functions they support, with criticality, reviewed on every major change ([DORA Art. 8](../references/dora-art8.md)). | UC-12 | P6 |
+| R-14 | Current operational state is available within freshness `[T]`. | UC-2, UC-10 | P10 |
 
 ## Quality
 
@@ -31,7 +34,7 @@ All requirements are candidates until their use cases are validated.
 
 ## Gaps
 
-- R-7 and Q-4 trace to no architecture principle. Either a principle is missing or none is needed; open.
+- R-7 and Q-4 trace to no architecture principle (I-5). R-7 now has a regulatory driver via R-13.
 - Weak traces (R-2 → P8, R-6 → P7, Q-1 → P1) and mixed principle kinds: I-9.
 - Use-case actors not mapped to stakeholders: I-10.
 - Vision claims (access modes, freshness, quality and lineage alongside data, answer assembly) not yet covered by requirements: I-13.

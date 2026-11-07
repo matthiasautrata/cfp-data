@@ -42,7 +42,7 @@ Current phase is structure: shape, models, conventions. Facts from the ground �
 
 | ID | Issue | Where | Next step |
 |---|---|---|---|
-| I-1 | Use cases are candidates, not validated | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Review with Network Services |
+| I-1 | Use cases (UC-1…16) are candidates, not validated | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Review with Network Services |
 | I-2 | Thresholds not set | [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) | Baseline in Phase 1 |
 | I-3 | Domains, owners, and current systems unknown | [Current State](docs/problem/04-current-state-constraints.md) | Estate first pass |
 | I-4 | Constraints (firm-wide standards, platforms, regulatory) not captured | [Current State](docs/problem/04-current-state-constraints.md) | Collect from CFP management |
@@ -51,6 +51,6 @@ Current phase is structure: shape, models, conventions. Facts from the ground �
 | I-7 | Precedence when modalities or oracles disagree | [Ideas](docs/ideas/source-of-truth-dimensions.md) | Discuss |
 | I-8 | Knowledge Platform history: derived or snapshots? | [Core Platforms](docs/solution/05-core-platforms.md) | Discuss |
 | I-9 | Trace matrix mixes two kinds of principle. System properties (P1, P2, P4, P6, P7, P9, P10) and decision/sequencing rules (P3, P5, P8) are traced uniformly, producing weak traces: R-2 → P8, R-6 → P7, Q-1 → P1. | [Requirements](docs/problem/03-requirements.md), [Principles](docs/solution/01-principles.md) | Split the principles table into two groups, or add a trace strength column |
-| I-10 | Nine use-case actors, three named stakeholders; no actor-to-stakeholder mapping. **Deferred** — needs organisational facts. | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Map during use-case validation with Network Services |
+| I-10 | Actors map to stakeholders through activity owners (AC-n); owners not yet named. **Deferred** — needs organisational facts. | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Map during use-case validation with Network Services |
 | I-12 | Policy language not chosen. Important; decide after the policy model (D1) is drafted. | [Standards landscape](docs/ideas/model-standards-landscape.md) | Evaluate candidates against D1 |
-| I-13 | Vision claims not yet covered by requirements: access modes, freshness, quality and lineage alongside data, answer assembly | [Vision](docs/problem/00-vision.md), [Requirements](docs/problem/03-requirements.md) | Add requirements traced to vision claims |
+| I-13 | Vision claims not yet covered by requirements: quality and lineage alongside data, answer assembly (access modes: R-11; freshness: R-14) | [Vision](docs/problem/00-vision.md), [Requirements](docs/problem/03-requirements.md) | Add requirements traced to vision claims |

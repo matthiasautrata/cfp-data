@@ -53,6 +53,7 @@ If the data is wrong, no conclusion drawn from it can be trusted. Resources are 
 |---|---|
 | **Inaccurate reporting** | Audit asks "which devices hold customer data" and we cannot answer definitively. |
 | **Policy violations undetected** | Security policies exist but cannot be enforced, because the data to check compliance does not exist in a usable form. |
+| **Regulatory inventory gaps** | [DORA Art. 8](../references/dora-art8.md) and [NYDFS 500.13](../references/nydfs-500-13.md) require a maintained inventory of assets, their dependencies, and lifecycle dates. Fragmented data makes that attestation unreliable. |
 | **Retention failures** | We cannot prove data is retained or destroyed according to policy, because we cannot see what data exists. |
 
 ### Security Risk
