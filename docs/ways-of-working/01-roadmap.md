@@ -48,7 +48,7 @@ Data quality monitoring, reconciliation, drift detection, and automated remediat
 
 ### F. Observe the Network
 
-Telemetry and observability for both the network and the data ecosystem itself.
+Connect the time-series subsystem, which we source rather than build (principle P12), and observe the health of the data layer itself.
 
 **Depends on**: E, because observability means little without a quality baseline.
 **Output**: Observability for network data health.

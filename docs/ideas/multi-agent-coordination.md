@@ -27,6 +27,6 @@ Agents propose; the core executes and enforces policy. Every agent action is att
 
 ## Open Questions
 
-- Which coordination pattern: a central orchestrator, a shared blackboard, or peer-to-peer?
+- Which coordination pattern: a central orchestrator, a shared blackboard, or peer-to-peer? [Erlang/OTP](../references/erlang-otp.md) supervision, where a supervisor restarts a failed process, is useful prior art for agents and producers that must fail without taking others down.
 - Should agent identity and authorization follow the same model as service accounts?
 - Which automation may act without human approval, and under which policy?

@@ -12,6 +12,7 @@ Terms that are new, specific to this program, or easily misread.
 | **Canonical model** | The agreed definition of an entity type and its attributes. There is one per entity type; each domain works with a view of it that suits its needs. |
 | **CFP Network Data** | The data that describes the network estate run by Core Foundational Platforms (CFP). The subject of this program. |
 | **Competency question** | A concrete question the data must be able to answer (`CQ-n`). Use cases are described by them, and each one doubles as an acceptance test. All are kept in [`use-cases.yaml`](data/use-cases.yaml). |
+| **Consumer** | A tool, person, or agent that uses data from the data layer, through queries, subscriptions, or batch access. |
 | **Contract** | The published, versioned interface through which a source or consumer connects. It covers the schema, the meaning of the data, and the service terms (principle P2). |
 | **Data platform** | A system that stores, serves, and manages one category of network data, as part of the target architecture. |
 | **Discovered** | A modality: the fact was observed by a discovery mechanism. |
@@ -19,6 +20,8 @@ Terms that are new, specific to this program, or easily misread.
 | **Effort size** | A T-shirt estimate (S, M, L, XL) for a phase or initiative. It is not a duration. |
 | **Entity** | A kind of thing we hold data about, such as a device, interface, circuit, location, service, or policy. |
 | **Estate** | All the data sources, stores, and pipelines that exist today, old and new. |
+| **Event sourcing** | Storing every change as an event, and deriving current state and history from the stream of events. |
+| **Fact protocol** | The single, extensible protocol through which all producers publish facts, with their modality, time, and provenance ([idea](ideas/extensible-fact-protocol.md)). |
 | **Freshness** | The maximum age of a fact when it is served, measured against a threshold `[T]` (R-14). An answer requirement, not a fact dimension. |
 | **Idea** | Thinking in progress, kept in `ideas/`. Not binding. An idea becomes an ADR once the team agrees. |
 | **Inventory** | The curated record of what exists, what has existed, and what is planned. |
@@ -31,12 +34,14 @@ Terms that are new, specific to this program, or easily misread.
 | **Planned** | A modality: the fact describes an intended or future state (principle P4). |
 | **Platform** | See *Data platform*. |
 | **Points** | A team-relative effort estimate for a backlog item. Points convert to time only through measured velocity. |
+| **Producer** | A module that publishes facts into the data layer, such as a discovery agent, a system of record, or a planning tool. |
 | **Provenance** | The recorded path by which a particular fact arrived: which collector, from which system, and when. |
 | **Reconciliation** | Comparing data across sources to find and resolve conflicts. |
 | **Record time** | When we held a fact in our records. Also called transaction time or system time. |
 | **Source authority** | The system that is authoritative for holding and serving an attribute, such as the inventory system. |
 | **Source of truth** | Not a single concept here. It splits into oracle authority, source authority, and provenance ([idea](ideas/source-of-truth-dimensions.md)). |
 | **Strangler fig pattern** | A migration pattern: new capabilities are built alongside existing systems, use shifts gradually to the new system, and the old system is retired once nothing depends on it. |
+| **Subsystem** | A capability we source, describe, and use rather than build, such as high-volume time-series storage (principle P12). |
 | **Target architecture** | The future state of the data landscape that this program aims for. |
 | **Telemetry (data platforms)** | Monitoring of the data platforms themselves: uptime, synchronization delay, quality measures, and pipeline health. |
 | **Threshold** | The value a KPI must reach. Every success dimension needs one; each is set from a measured baseline. |

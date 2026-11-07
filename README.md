@@ -49,7 +49,7 @@ cfp-data/
     │   ├── 03-models-policy-governance.md
     │   ├── 04-process-rules-activities.md
     │   ├── 05-core-platforms.md
-    │   └── 06-supporting-features.md
+    │   └── 06-producers-consumers.md      # How modules plug in: producers, consumers, subsystems
     ├── ways-of-working/                   # How we execute the program
     │   ├── 01-roadmap.md                  # Initiatives, phases, sizing
     │   ├── 02-migration.md                # How each domain migrates
@@ -76,7 +76,7 @@ flowchart LR
     CM --> R[Rules & Activities]
     M --> C[Core Platforms]
     R --> C
-    C --> F[Supporting Features]
+    C --> F[Producers & Consumers]
     C --> S[Migration]
     F --> D[Success Dimensions]
     REQ --> D
@@ -90,10 +90,10 @@ flowchart LR
 |---|---|
 | Defining the data we need | [Conceptual Model](docs/solution/02-conceptual-model.md), [Models, Policy and Governance](docs/solution/03-models-policy-governance.md) |
 | Deciding what stays and what goes | [Migration](docs/ways-of-working/02-migration.md), [estate register](docs/data/estate-disposition.csv) |
-| Making data discoverable | [Supporting Features](docs/solution/06-supporting-features.md) (Discovery) |
+| Discovery, monitoring, and other producers | [Producers, Consumers, and Extension Points](docs/solution/06-producers-consumers.md) |
 | Governing by policy | [Principles](docs/solution/01-principles.md) (P6), [Models, Policy and Governance](docs/solution/03-models-policy-governance.md) |
 | Trusted, resilient data | [Core Platforms](docs/solution/05-core-platforms.md), [Requirements](docs/problem/03-requirements.md) (Q-1) |
-| Observing the network | [Supporting Features](docs/solution/06-supporting-features.md) (Telemetry) |
+| Time-series data and observability | [Producers, Consumers, and Extension Points](docs/solution/06-producers-consumers.md) |
 | Enablement and adoption | [Process, Rules and Activities](docs/solution/04-process-rules-activities.md), [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) |
 | AI readiness | [Stakeholders and Use Cases](docs/problem/02-stakeholders-use-cases.md) (AI in three roles), [Principles](docs/solution/01-principles.md) (P9, P10) |
 | Topology, infrastructure assets, metadata registry | [Core Platforms](docs/solution/05-core-platforms.md) |

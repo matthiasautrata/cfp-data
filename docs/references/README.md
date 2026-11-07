@@ -23,6 +23,14 @@ One file per external source. Each file holds home, key concepts, relevance, and
 | [ISO/IEC 25012](iso-25012.md) | Standard | Data quality characteristics |
 | [ODCS](odcs.md) | Specification | Data contracts |
 | [LinkML](linkml.md) | Tooling | Schema authoring |
+| [CloudEvents](cloudevents.md) | Specification | Event envelope |
+| [AsyncAPI](asyncapi.md) | Specification | Event-driven interfaces |
+| [RFC 9232 — Network Telemetry Framework](rfc9232.md) | Standard (informational) | Streaming telemetry |
+| [Cortex](cortex.md) | Tooling | Recent time-series storage |
+| [Apache Iceberg](iceberg.md) | Tooling | Long-term table storage |
+| [Apache Doris](doris.md) | Tooling | Real-time analytics |
+| [Event sourcing](event-sourcing.md) | Pattern | Views derived from an event stream |
+| [Erlang/OTP](erlang-otp.md) | Prior art | Message-passing, supervised modules |
 | [Competency questions](competency-questions.md) | Method | Use cases, model scope (P11) |
 | [Kubernetes spec / status](kubernetes-spec-status.md) | Prior art | Desired vs observed state |
 

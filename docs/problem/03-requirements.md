@@ -24,6 +24,7 @@ All requirements are candidates. They will change as the use cases are reviewed 
 | R-12 | Each asset records its owner, location, classification, support expiration date, and recovery objectives, as [NYDFS 500.13](../references/nydfs-500-13.md) requires. | UC-13 | P7 |
 | R-13 | Each asset is mapped to the business functions it supports, with their criticality, and the mapping is reviewed after every major change, as [DORA Article 8](../references/dora-art8.md) requires. | UC-12 | P6 |
 | R-14 | The current operational state is available within an agreed freshness limit `[T]`. | UC-2, UC-10 | P10 |
+| R-15 | Facts can arrive as streams from pluggable producers, through a published, versioned protocol that carries each fact's modality, valid time, and provenance. | UC-6, UC-9, UC-10, UC-14 | P2, P12 |
 
 ## Quality Requirements
 

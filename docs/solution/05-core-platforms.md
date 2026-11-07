@@ -56,7 +56,7 @@ The platforms that store, serve, and synchronize network data. The sketch has fo
 
 ## Instances Platform — Time-Series Data
 
-**Purpose**: How the network behaves over time.
+**Purpose**: How the network behaves over time. High-volume time-series data is a subsystem that we source, describe, and use rather than build ([Producers, Consumers, and Extension Points](06-producers-consumers.md)).
 
 | Capability | Description |
 |---|---|

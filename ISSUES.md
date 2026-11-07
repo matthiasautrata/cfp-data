@@ -22,7 +22,7 @@ The status of every document, and the open issues that affect more than one docu
 | [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) | 🔴 Not started | TBD |
 | [Process, Rules & Activities](docs/solution/04-process-rules-activities.md) | 🔴 Not started | TBD |
 | [Core Platforms](docs/solution/05-core-platforms.md) | 🔴 Not started | TBD |
-| [Supporting Features](docs/solution/06-supporting-features.md) | 🔴 Not started | TBD |
+| [Producers, Consumers, and Extension Points](docs/solution/06-producers-consumers.md) | 🟡 Draft | TBD |
 | [Roadmap](docs/ways-of-working/01-roadmap.md) | 🟡 Draft | TBD |
 | [Migration](docs/ways-of-working/02-migration.md) | 🔴 Not started | TBD |
 | [Risk Register](docs/ways-of-working/03-risk-register.md) | 🔴 Not started | TBD |
@@ -35,6 +35,7 @@ The status of every document, and the open issues that affect more than one docu
 | [Idea: Bitemporal, modal inventory](docs/ideas/bitemporal-modal-inventory.md) | 🟡 Idea | Matthias |
 | [Idea: Source of truth dimensions](docs/ideas/source-of-truth-dimensions.md) | 🟡 Idea | Matthias |
 | [Idea: Multi-agent coordination](docs/ideas/multi-agent-coordination.md) | 🟡 Idea | Matthias |
+| [Idea: Extensible fact protocol](docs/ideas/extensible-fact-protocol.md) | 🟡 Idea | Matthias |
 | [Idea: Model and interface standards landscape](docs/ideas/model-standards-landscape.md) | 🟡 Idea — verdicts per layer, no decisions | Matthias |
 
 ## Open Issues
@@ -57,3 +58,4 @@ We are currently working on structure: the shape of the solution, the models, an
 | I-10 | Actors map to stakeholders through activity owners (AC-n); owners not yet named. **Deferred** — needs organizational facts. | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Map during use-case validation with Network Services |
 | I-12 | Policy language not chosen. Important; decide after the policy model (D1) is drafted. | [Standards landscape](docs/ideas/model-standards-landscape.md) | Evaluate candidates against D1 |
 | I-13 | Vision claims not yet covered by requirements: quality and lineage alongside data, answer assembly (access modes: R-11; freshness: R-14) | [Vision](docs/problem/00-vision.md), [Requirements](docs/problem/03-requirements.md) | Add requirements traced to vision claims |
+| I-14 | Boundary between the data layer and the time-series subsystem: how series link to entity identities, and whether the data layer keeps summaries. | [Producers, Consumers, and Extension Points](docs/solution/06-producers-consumers.md) | Discuss with the first domain |

@@ -37,6 +37,8 @@ This layer is about the format at each boundary, not the meaning of the data. Op
 
 ## 4. Telemetry, flows, events
 
+High-volume time-series data is treated as a subsystem that we source rather than build ([Producers, Consumers, and Extension Points](../solution/06-producers-consumers.md)). Event envelopes and streams: [idea: extensible fact protocol](extensible-fact-protocol.md).
+
 | Domain | Standard | Current leaning |
 |---|---|---|
 | Metrics, logs, traces | [OpenTelemetry](../references/opentelemetry.md) + semantic conventions; OpenMetrics exposition | **Adopt** |

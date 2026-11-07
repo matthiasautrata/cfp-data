@@ -70,7 +70,7 @@ These are early candidates. We are still collecting questions, and details such 
 | UC-5 | AC-7 | Capacity planner | Actual and planned capacity; projected shortfalls | CQ-8, CQ-9 | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) | candidate |
 | UC-6 | AC-14 | Data steward | Disagreements across modalities, and who decides | CQ-10, CQ-11 | [Source of truth dimensions](../ideas/source-of-truth-dimensions.md) | candidate |
 | UC-7 | AC-9 | Security | Unknown devices; segmentation not as intended | CQ-12, CQ-13 | [Security](01-problem-statement.md#security-risk) | candidate |
-| UC-8 | AC-15 | AI agent | Answers with cited facts, sources, and policy | CQ-14 | [Features: AI](../solution/06-supporting-features.md) | candidate |
+| UC-8 | AC-15 | AI agent | Answers with cited facts, sources, and policy | CQ-14 | [Consumers: AI agents](../solution/06-producers-consumers.md) | candidate |
 | UC-9 | AC-14 | Platform owner | Contracts in use, by source and consumer | CQ-15 | [P2](../solution/01-principles.md) | candidate |
 | UC-10 | AC-3 | Operator | Current state and related events | CQ-16, CQ-17 | [Operational](01-problem-statement.md#operational-risk) | candidate |
 | UC-11 | AC-5 | Problem manager | State at each recurrence of an incident class | CQ-18 | [Operational](01-problem-statement.md#operational-risk) | candidate |

@@ -37,4 +37,5 @@ The decision for each data source (keep, migrate, retire) will be recorded in [`
 
 - Not a monolith ([P1](../solution/01-principles.md)).
 - Not a reorganization: we change how data is modeled, governed, and shared, not who does what.
+- Not a set of operational tools: we do not build discovery, monitoring, or event-management systems; we enable them ([P12](../solution/01-principles.md)).
 - Further non-goals: to be agreed.

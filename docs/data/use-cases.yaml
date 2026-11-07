@@ -139,7 +139,7 @@ use_cases:
     activity: AC-15
     actor: AI agent
     need: "Answers with cited facts, sources, and policy"
-    driver: {label: "Features: AI", link: docs/solution/06-supporting-features.md}
+    driver: {label: "Consumers: AI agents", link: docs/solution/06-producers-consumers.md}
     questions:
       - id: CQ-14
         question: "For question <Q>, what is the answer, which facts and sources support it, and which policy applies?"

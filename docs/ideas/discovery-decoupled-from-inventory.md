@@ -18,7 +18,7 @@ Options:
 
 ## Proposal
 
-Option 2. Discovery and inventory are separate components that share the canonical model ([Models, Policy and Governance](../solution/03-models-policy-governance.md)). Discovery publishes observations through a defined contract. Inventory records them with the modality `discovered` ([idea](bitemporal-modal-inventory.md)), alongside asserted and planned facts.
+Option 2. Discovery and inventory are separate components that share the canonical model ([Models, Policy and Governance](../solution/03-models-policy-governance.md)). Discovery publishes observations through the shared fact protocol ([idea](extensible-fact-protocol.md)). Inventory records them with the modality `discovered` ([idea](bitemporal-modal-inventory.md)), alongside asserted and planned facts.
 
 ## Rationale
 
@@ -40,4 +40,4 @@ Discovery writes to inventory only through the observation contract. This is che
 - **Date**: 2026-11-07
 - **Author**: Matthias Autrata
 - **Reviewed by**: —
-- **References**: [Discovery](../solution/06-supporting-features.md), [Idea: bitemporal, modal inventory](bitemporal-modal-inventory.md)
+- **References**: [Discovery](../solution/06-producers-consumers.md), [Idea: bitemporal, modal inventory](bitemporal-modal-inventory.md)

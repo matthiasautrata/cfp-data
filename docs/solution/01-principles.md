@@ -17,6 +17,7 @@ The principles are drafts. Each covers one concern. Which requirements each prin
 | P9 | API-First, Agent-Accessible | Access |
 | P10 | Deterministic Core, Agentic Edge | Where agents act |
 | P11 | Question-Driven Modeling | Model scope |
+| P12 | Enable, Don't Build | Program scope |
 
 ---
 
@@ -111,3 +112,12 @@ Core processing, meaning ingestion, storage, running reconciliation, and evaluat
 Every entity, attribute, and dimension in the model must be needed by at least one [competency question](../data/use-cases.yaml). An element that no question needs is removed, or parked in `ideas/`. The questions are the model's acceptance tests.
 
 > **Rationale**: Questions keep data and metadata design grounded in real use. They favor useful designs over theoretically complete ones, and give every model review a simple test: which question needs this?
+
+---
+
+### P12. Enable, Don't Build
+
+This program builds the data layer: the models, the protocols, and the storage and serving of data. Operational capabilities, such as discovery, monitoring, event management, and analysis, connect to it as modules that are bought or built elsewhere. We define how they connect; we do not build them. If a needed subsystem has no suitable source, building it is a separate, later decision.
+
+> **Rationale**: Our value is consistent, trusted data. Building operational tools would spread our effort, duplicate products that already exist, and tie the data layer to one tool's view of the world. See [Producers, Consumers, and Extension Points](06-producers-consumers.md).
+
