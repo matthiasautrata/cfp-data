@@ -46,6 +46,7 @@ Current state is a view over these dimensions, not the store.
 
 - Easier: drift = `discovered` ≠ `asserted`; intent gap = `planned` ≠ actual; point-in-time audit is a query.
 - Harder: every model, API, and query handles three dimensions; storage must support or emulate bitemporality; consumers need a default view so simple queries stay simple.
+- Related: who is authoritative per modality — [idea: source of truth dimensions](source-of-truth-dimensions.md).
 - Open: precedence when modalities disagree; whether the modality set is closed; whether the Knowledge Platform's history derives from these facts ([4.3](../04-major-areas-of-work/04-03-core-platforms-mapping.md)).
 
 ## How We Would Check

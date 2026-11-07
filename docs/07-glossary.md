@@ -16,13 +16,17 @@
 | **Knowledge platform** | The system that holds the curated, relational, historical view of the network. The "what we know" layer. |
 | **Metadata registry** | The system that tells you what data exists, where it lives, and what it means. The "map" of the data ecosystem. |
 | **Modality** | The basis on which a fact is held: discovered, asserted, or planned. |
+| **Oracle authority** | Who decides what is true for an attribute (device, control plane, person, planning system). |
 | **Planned** | Modality: a fact stating intent — a desired or future state (P6). |
 | **Platform** | See *Data platform*. |
 | **Points** | Team-relative effort for a backlog item. Converts to time only via measured velocity. |
+| **Provenance** | The recorded path by which a specific fact arrived: collector, origin system, time. |
 | **Reconciliation** | The process of comparing data across sources to detect and resolve conflicts. |
 | **Record time** | When we held a fact. Also called transaction or system time. |
-| **Source of truth** | The authoritative system for a given data element. Every element has exactly one. |
+| **Source authority** | The system authoritative for holding and serving an attribute (e.g. the inventory system). |
+| **Source of truth** | Not one thing. Splits into oracle authority, source authority, and provenance ([idea](ideas/source-of-truth-dimensions.md)). |
 | **Strangler fig pattern** | A migration pattern where new capabilities are built alongside existing systems; traffic gradually shifts to the new system; the old system is retired when empty. |
 | **Target architecture** | The desired future state of the data ecosystem, as defined by this program. |
 | **Telemetry (data ecosystem)** | Observability of the data platforms themselves: uptime, sync latency, quality metrics, pipeline health. |
+| **Threshold** | The value a KPI must meet. Required for every success dimension; set from a measured baseline. |
 | **Valid time** | When a fact is true in the network. Also called application or business time. |
