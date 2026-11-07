@@ -33,6 +33,7 @@
 | [Idea: Bitemporal, modal inventory](docs/ideas/bitemporal-modal-inventory.md) | 🟡 Idea | Matthias |
 | [Idea: Source of truth dimensions](docs/ideas/source-of-truth-dimensions.md) | 🟡 Idea | Matthias |
 | [Idea: Multi-agent coordination](docs/ideas/multi-agent-coordination.md) | 🟡 Idea | Matthias |
+| [Idea: Model and interface standards landscape](docs/ideas/model-standards-landscape.md) | 🟡 Idea — verdicts per layer, no decisions | Matthias |
 
 ## Open Issues
 
