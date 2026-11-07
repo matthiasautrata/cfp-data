@@ -10,6 +10,7 @@ cfp-data/
 ├── AGENTS.md                              # Working conventions (humans + agents)
 ├── CLAUDE.md                              # Pointer to AGENTS.md
 ├── ISSUES.md                              # Document status, cross-cutting issues
+├── tools/                                 # Validate and render generated doc sections
 └── docs/
     ├── problem/                           # Where to, why, for whom, what
     │   ├── 00-vision.md
@@ -30,7 +31,7 @@ cfp-data/
     │   ├── 03-risk-register.md            # Risks of doing
     │   └── 04-success-dimensions.md       # KPIs and thresholds
     ├── glossary.md
-    ├── data/                              # CSV / YAML registers: estate, competency questions
+    ├── data/                              # CSV / YAML registers: estate, use cases + competency questions
     ├── ideas/                             # Early, non-binding thinking
     ├── adr/                               # Agreed decisions (NNNN-title.md)
     ├── references/                        # External sources; README.md is the register

@@ -1,0 +1,106 @@
+# /// script
+# requires-python = ">=3.9"
+# dependencies = ["pyyaml"]
+# ///
+"""Render docs/data/use-cases.yaml into the generated section of the use-case doc.
+
+Usage:
+  uv run tools/render_use_cases.py           # validate and write
+  uv run tools/render_use_cases.py --check   # validate; exit 1 if the doc is stale
+"""
+import os
+import posixpath
+import re
+import sys
+
+import yaml
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = "docs/data/use-cases.yaml"
+DOC = "docs/problem/02-stakeholders-use-cases.md"
+BEGIN = "<!-- BEGIN GENERATED: tools/render_use_cases.py from docs/data/use-cases.yaml. Do not edit. -->"
+END = "<!-- END GENERATED -->"
+DIMENSIONS = {"valid_time", "record_time", "modality", "dependencies", "authority", "freshness", "lifecycle"}
+STATUSES = {"candidate", "validated"}
+
+
+def fail(msg):
+    sys.exit(f"error: {msg}")
+
+
+def validate(data, doc_text):
+    activities = set(re.findall(r"^\| (AC-\d+) \|", doc_text, flags=re.M))
+    uc_ids, cq_ids = set(), set()
+    for uc in data["use_cases"]:
+        if uc["id"] in uc_ids:
+            fail(f"duplicate {uc['id']}")
+        uc_ids.add(uc["id"])
+        if uc["activity"] not in activities:
+            fail(f"{uc['id']}: unknown activity {uc['activity']}")
+        if not uc.get("questions"):
+            fail(f"{uc['id']}: no competency questions")
+        for q in uc["questions"]:
+            if q["id"] in cq_ids:
+                fail(f"duplicate {q['id']}")
+            cq_ids.add(q["id"])
+            bad = set(q["dimensions"]) - DIMENSIONS
+            if bad:
+                fail(f"{q['id']}: unknown dimensions {sorted(bad)}")
+            if q["status"] not in STATUSES:
+                fail(f"{q['id']}: unknown status {q['status']}")
+    unused = activities - {uc["activity"] for uc in data["use_cases"]}
+    if unused:
+        fail(f"activities without a use case: {sorted(unused)}")
+
+
+def code(text):
+    return re.sub(r"<([^>]+)>", r"`<\1>`", text)
+
+
+def link(driver):
+    path, _, anchor = driver["link"].partition("#")
+    rel = posixpath.relpath(path, posixpath.dirname(DOC))
+    return f"[{driver['label']}]({rel}{'#' + anchor if anchor else ''})"
+
+
+def render(data):
+    out = ["### Use Cases", "",
+           "| ID | Activity | Actor | Need | Questions | Driver | Status |",
+           "|---|---|---|---|---|---|---|"]
+    for uc in data["use_cases"]:
+        qs = ", ".join(q["id"] for q in uc["questions"])
+        status = "validated" if all(q["status"] == "validated" for q in uc["questions"]) else "candidate"
+        out.append(f"| {uc['id']} | {uc['activity']} | {uc['actor']} | {uc['need']} | {qs} | {link(uc['driver'])} | {status} |")
+    out += ["", "### Competency Questions", "",
+            "| ID | Use case | Question | Entities | Dimensions | Answer | Status |",
+            "|---|---|---|---|---|---|---|"]
+    for uc in data["use_cases"]:
+        for q in uc["questions"]:
+            out.append(f"| {q['id']} | {uc['id']} | {code(q['question'])} | {', '.join(q['entities'])} | "
+                       f"{', '.join(q['dimensions'])} | {q['answer']} | {q['status']} |")
+    return "\n".join(out)
+
+
+def main():
+    os.chdir(ROOT)
+    data = yaml.safe_load(open(SRC))
+    doc = open(DOC).read()
+    if BEGIN not in doc or END not in doc:
+        fail(f"markers missing in {DOC}")
+    validate(data, doc)
+    head, rest = doc.split(BEGIN, 1)
+    _, tail = rest.split(END, 1)
+    new = f"{head}{BEGIN}\n{render(data)}\n{END}{tail}"
+    if "--check" in sys.argv:
+        if new != doc:
+            fail(f"{DOC} is stale; run: uv run tools/render_use_cases.py")
+        print("ok")
+        return
+    if new != doc:
+        open(DOC, "w").write(new)
+    n = sum(len(uc["questions"]) for uc in data["use_cases"])
+    print(f"rendered {len(data['use_cases'])} use cases, {n} questions")
+
+
+if __name__ == "__main__":
+    main()

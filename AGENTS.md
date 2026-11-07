@@ -62,7 +62,7 @@ One file per reference, plus one row in the [register](docs/references/README.md
 
 ## Traceability
 
-Use case (`UC-n`) → competency question (`CQ-n`) and requirement (`R-n`, `Q-n`) → principle (`Pn`). Question text lives only in [`competency-questions.yaml`](docs/data/competency-questions.yaml). Every model element cites at least one `CQ-n` (P11); every use case has at least one. Links are recorded once, in the trace matrix in [`03-requirements.md`](docs/problem/03-requirements.md); reverse views are derived.
+Use case (`UC-n`) → competency question (`CQ-n`) and requirement (`R-n`, `Q-n`) → principle (`Pn`). Use cases and their questions live only in [`use-cases.yaml`](docs/data/use-cases.yaml); the use-case tables in the docs are generated from it. Every model element cites at least one `CQ-n` (P11); every use case has at least one. Links are recorded once, in the trace matrix in [`03-requirements.md`](docs/problem/03-requirements.md); reverse views are derived.
 
 An ID identifies a live item. Replacing, retiring, or renumbering an item is allowed, but must update every reference in the same change. Superseded text moves to `archive/` with a date and a one-line reason; it does not stay inline.
 
@@ -74,8 +74,9 @@ Push status forward alongside content. A draft merged and reviewed becomes 🟢.
 
 ## File Conventions
 
-- **Layout.** Document set lives in `docs/`. Root holds only `README.md`, `AGENTS.md`, `CLAUDE.md`, `ISSUES.md`. Docs are banded: `problem/`, `solution/`, `ways-of-working/`.
+- **Layout.** Document set lives in `docs/`. Root holds only `README.md`, `AGENTS.md`, `CLAUDE.md`, `ISSUES.md`, and `tools/` (scripts that validate and render the doc set). Docs are banded: `problem/`, `solution/`, `ways-of-working/`.
 - **Plain-text formats.** Documents in markdown; structured data in CSV or YAML. No Word, PDF, Google Docs, or other office formats.
+- **Generated sections.** Text between `<!-- BEGIN GENERATED ... -->` and `<!-- END GENERATED -->` is rendered from `docs/data/`. Edit the source, then run the named tool (e.g. `uv run tools/render_use_cases.py`). Before committing, `uv run tools/render_use_cases.py --check` must pass.
 - **One thing per file.** A monolith document is a sign of undiscovered structure. Split when a section could stand alone and be cross-referenced.
 - **Files are numbered** (`01-`, `02-`...) within a band, only for reading order. Directories are unnumbered.
 - **Relative links** (`../problem/01-problem-statement.md`), never `https://github.com/...` links within the doc set. External links are fine.

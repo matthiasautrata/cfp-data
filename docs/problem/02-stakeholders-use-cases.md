@@ -43,25 +43,59 @@ Other frames considered: [eTOM](../references/tmf-etom.md) (operator scope, too 
 
 ## Use Cases
 
-Each use case is a set of [competency questions](../references/competency-questions.md): questions the data must answer. Question text, entities, and data dimensions live in the [register](../data/competency-questions.yaml); this table references them. Each question doubles as an acceptance test and an agent evaluation item.
+Each use case is a set of [competency questions](../references/competency-questions.md): questions the data must answer. Each question doubles as an acceptance test and an agent evaluation item. All are candidates until validated with Network Services and the activity owners.
 
-All use cases are candidates until validated with Network Services and the activity owners.
+Single source: [`use-cases.yaml`](../data/use-cases.yaml). The tables below are generated from it (`uv run tools/render_use_cases.py`); edit the YAML, not the tables.
 
-| ID | Activity | Actor | Need | Questions | Driver |
-|---|---|---|---|---|---|
-| UC-1 | AC-12 | Auditor | Customer-data devices, as of a date and as recorded then | CQ-1, CQ-2 | [Compliance](01-problem-statement.md#compliance--audit-risk) |
-| UC-2 | AC-4 | Incident responder | Blast radius and recent changes for an affected device | CQ-3, CQ-4 | [Operational](01-problem-statement.md#operational-risk) |
-| UC-3 | AC-13 | Engineer | What data exists, where, what it means; which count is authoritative | CQ-5, CQ-6 | [Discoverability](../ways-of-working/04-success-dimensions.md) |
-| UC-4 | AC-6 | Change engineer | Impact of a planned change | CQ-7 | [Operational](01-problem-statement.md#operational-risk) |
-| UC-5 | AC-7 | Capacity planner | Actual and planned capacity; projected shortfalls | CQ-8, CQ-9 | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) |
-| UC-6 | AC-14 | Data steward | Disagreements across modalities, and who decides | CQ-10, CQ-11 | [Source of truth dimensions](../ideas/source-of-truth-dimensions.md) |
-| UC-7 | AC-9 | Security | Unknown devices; segmentation not as intended | CQ-12, CQ-13 | [Security](01-problem-statement.md#security-risk) |
-| UC-8 | AC-15 | AI agent | Answers with cited facts, sources, and policy | CQ-14 | [Features: AI](../solution/06-supporting-features.md) |
-| UC-9 | AC-14 | Platform owner | Contracts in use, by source and consumer | CQ-15 | [P2](../solution/01-principles.md) |
-| UC-10 | AC-3 | Operator | Current state and related events | CQ-16, CQ-17 | [Operational](01-problem-statement.md#operational-risk) |
-| UC-11 | AC-5 | Problem manager | State at each recurrence of an incident class | CQ-18 | [Operational](01-problem-statement.md#operational-risk) |
-| UC-12 | AC-8 | Resilience owner | Assets behind a critical function; single points of failure | CQ-19, CQ-20 | [DORA Art. 8](../references/dora-art8.md) |
-| UC-13 | AC-2 | Asset owner | Assets nearing end of support, with owner and location | CQ-21 | [NYDFS 500.13](../references/nydfs-500-13.md) |
-| UC-14 | AC-10 | Provisioning engineer | Planned vs built, per site | CQ-22 | [RFC 9315](../references/rfc9315-ibn.md) |
-| UC-15 | AC-11 | Architect | Consolidation candidates | CQ-23 | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) |
-| UC-16 | AC-1 | Network engineer | A device's configuration, now and as of a date, and its relationships | CQ-24, CQ-25 | [Problem statement](01-problem-statement.md) |
+<!-- BEGIN GENERATED: tools/render_use_cases.py from docs/data/use-cases.yaml. Do not edit. -->
+### Use Cases
+
+| ID | Activity | Actor | Need | Questions | Driver | Status |
+|---|---|---|---|---|---|---|
+| UC-1 | AC-12 | Auditor | Customer-data devices, as of a date and as recorded then | CQ-1, CQ-2 | [Compliance](01-problem-statement.md#compliance--audit-risk) | candidate |
+| UC-2 | AC-4 | Incident responder | Blast radius and recent changes for an affected device | CQ-3, CQ-4 | [Operational](01-problem-statement.md#operational-risk) | candidate |
+| UC-3 | AC-13 | Engineer | What data exists, where, what it means; which count is authoritative | CQ-5, CQ-6 | [Discoverability](../ways-of-working/04-success-dimensions.md) | candidate |
+| UC-4 | AC-6 | Change engineer | Impact of a planned change | CQ-7 | [Operational](01-problem-statement.md#operational-risk) | candidate |
+| UC-5 | AC-7 | Capacity planner | Actual and planned capacity; projected shortfalls | CQ-8, CQ-9 | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) | candidate |
+| UC-6 | AC-14 | Data steward | Disagreements across modalities, and who decides | CQ-10, CQ-11 | [Source of truth dimensions](../ideas/source-of-truth-dimensions.md) | candidate |
+| UC-7 | AC-9 | Security | Unknown devices; segmentation not as intended | CQ-12, CQ-13 | [Security](01-problem-statement.md#security-risk) | candidate |
+| UC-8 | AC-15 | AI agent | Answers with cited facts, sources, and policy | CQ-14 | [Features: AI](../solution/06-supporting-features.md) | candidate |
+| UC-9 | AC-14 | Platform owner | Contracts in use, by source and consumer | CQ-15 | [P2](../solution/01-principles.md) | candidate |
+| UC-10 | AC-3 | Operator | Current state and related events | CQ-16, CQ-17 | [Operational](01-problem-statement.md#operational-risk) | candidate |
+| UC-11 | AC-5 | Problem manager | State at each recurrence of an incident class | CQ-18 | [Operational](01-problem-statement.md#operational-risk) | candidate |
+| UC-12 | AC-8 | Resilience owner | Assets behind a critical function; single points of failure | CQ-19, CQ-20 | [DORA Art. 8](../references/dora-art8.md) | candidate |
+| UC-13 | AC-2 | Asset owner | Assets nearing end of support, with owner and location | CQ-21 | [NYDFS 500.13](../references/nydfs-500-13.md) | candidate |
+| UC-14 | AC-10 | Provisioning engineer | Planned vs built, per site | CQ-22 | [RFC 9315](../references/rfc9315-ibn.md) | candidate |
+| UC-15 | AC-11 | Architect | Consolidation candidates | CQ-23 | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) | candidate |
+| UC-16 | AC-1 | Network engineer | A device's configuration, now and as of a date, and its relationships | CQ-24, CQ-25 | [Problem statement](01-problem-statement.md) | candidate |
+
+### Competency Questions
+
+| ID | Use case | Question | Entities | Dimensions | Answer | Status |
+|---|---|---|---|---|---|---|
+| CQ-1 | UC-1 | Which devices held customer data on `<date>`? | device, data_classification | valid_time, authority | list of devices with classification and source | candidate |
+| CQ-2 | UC-1 | What did our records say about which devices held customer data, as recorded on `<date>`? | device, data_classification | record_time, authority | list of devices as recorded, with provenance | candidate |
+| CQ-3 | UC-2 | What is connected to `<device>`, and what depends on it? | device, interface, link, service | dependencies, freshness | dependency graph rooted at the device | candidate |
+| CQ-4 | UC-2 | What changed on or around `<device>` in the last `<hours>`? | device, change, configuration | record_time, dependencies, freshness | ordered list of changes with source and time | candidate |
+| CQ-5 | UC-3 | What data exists about `<entity type>`, where does it live, and what does it mean? | entity_type, source, definition | authority | registry entries with locations and definitions | candidate |
+| CQ-6 | UC-3 | Which count of `<entity type>` is authoritative, and on whose authority? | entity_type, source | authority | count with source authority and provenance | candidate |
+| CQ-7 | UC-4 | If `<IP | link | device>` changes, which devices and services are affected? | ip_address, link, device, service | dependencies, modality | impacted set with dependency paths | candidate |
+| CQ-8 | UC-5 | What capacity exists and is planned, per site? | site, device, capacity_metric | valid_time, modality | capacity per site, actual and planned | candidate |
+| CQ-9 | UC-5 | Where and when does projected demand exceed capacity? | site, capacity_metric | valid_time, modality | list of site, resource, and date of shortfall | candidate |
+| CQ-10 | UC-6 | Where do discovered, asserted, and planned state disagree for `<entity type>`? | entity_type | modality, authority | list of disagreements with values per modality | candidate |
+| CQ-11 | UC-6 | Which authority decides each disagreement? | entity_type, source | authority | per disagreement, the deciding oracle or source authority | candidate |
+| CQ-12 | UC-7 | Which devices are discovered but unknown to inventory? | device | modality | list of discovered-only devices with discovery provenance | candidate |
+| CQ-13 | UC-7 | Where does actual segmentation differ from intended segmentation? | segment, policy, device | modality | list of segment violations, intended vs observed | candidate |
+| CQ-14 | UC-8 | For question `<Q>`, what is the answer, which facts and sources support it, and which policy applies? | any | valid_time, record_time, modality, authority | answer with cited facts, sources, and applicable policy | candidate |
+| CQ-15 | UC-9 | Which contracts exist, in which versions, and which sources and consumers use each? | contract, source, consumer | valid_time | contract catalogue with users per version | candidate |
+| CQ-16 | UC-10 | What is the current operational state of `<entity>`? | device, interface, link | modality, freshness | state with observation time | candidate |
+| CQ-17 | UC-10 | Which events relate to `<entity>` within `<window>`? | event, device | valid_time, freshness | ordered list of events | candidate |
+| CQ-18 | UC-11 | What were configuration and topology of `<affected set>` at each occurrence of incident class `<Y>`? | incident, device, configuration, link | valid_time, record_time, dependencies | per occurrence, configuration and topology snapshot views | candidate |
+| CQ-19 | UC-12 | Which assets and dependencies support critical function `<F>`? | business_function, asset, service | dependencies, valid_time | dependency graph from function to assets | candidate |
+| CQ-20 | UC-12 | Which of those assets or links are single points of failure? | asset, link | dependencies | list of single points of failure per function | candidate |
+| CQ-21 | UC-13 | Which assets reach end of support within `<horizon>`, who owns them, and where are they? | asset, owner, site | lifecycle, valid_time | list of asset, owner, location, support end date | candidate |
+| CQ-22 | UC-14 | For site `<S>`, what is planned, and what is built? | site, device, link | modality, valid_time | planned vs built, per element | candidate |
+| CQ-23 | UC-15 | Which assets or functions are duplicated or under-used? | asset, service, capacity_metric | dependencies, valid_time | consolidation candidates with evidence | candidate |
+| CQ-24 | UC-16 | What is `<device>`, and how is it configured, now and as of `<date>`? | device, configuration | valid_time, record_time, modality | device record with configuration per modality | candidate |
+| CQ-25 | UC-16 | How is `<device>` related to other entities? | device, interface, link, site, service | dependencies | relationship graph | candidate |
+<!-- END GENERATED -->

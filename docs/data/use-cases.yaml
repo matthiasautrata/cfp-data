@@ -1,0 +1,257 @@
+# Use cases and their competency questions: what CFP Network Data must be able to answer.
+# Single source. The use-case section of docs/problem/02-stakeholders-use-cases.md is generated from this file:
+#   uv run tools/render_use_cases.py
+# Model elements cite CQ IDs (P11). Entity names are provisional until the canonical model (initiative A) exists.
+#
+# Use case:  id (UC-n, stable) | activity (AC-n) | actor | need (one line) | driver {label, link: repo-root path} | questions
+# Question:  id (CQ-n, stable, global) | question (<placeholders> are parameters) | entities | answer (expected shape) | status
+#            dimensions: subset of valid_time, record_time, modality, dependencies, authority, freshness, lifecycle
+#            status: candidate | validated  (a use case is validated when all its questions are)
+
+use_cases:
+  - id: UC-1
+    activity: AC-12
+    actor: Auditor
+    need: "Customer-data devices, as of a date and as recorded then"
+    driver: {label: "Compliance", link: docs/problem/01-problem-statement.md#compliance--audit-risk}
+    questions:
+      - id: CQ-1
+        question: "Which devices held customer data on <date>?"
+        entities: [device, data_classification]
+        dimensions: [valid_time, authority]
+        answer: "list of devices with classification and source"
+        status: candidate
+      - id: CQ-2
+        question: "What did our records say about which devices held customer data, as recorded on <date>?"
+        entities: [device, data_classification]
+        dimensions: [record_time, authority]
+        answer: "list of devices as recorded, with provenance"
+        status: candidate
+  - id: UC-2
+    activity: AC-4
+    actor: Incident responder
+    need: "Blast radius and recent changes for an affected device"
+    driver: {label: "Operational", link: docs/problem/01-problem-statement.md#operational-risk}
+    questions:
+      - id: CQ-3
+        question: "What is connected to <device>, and what depends on it?"
+        entities: [device, interface, link, service]
+        dimensions: [dependencies, freshness]
+        answer: "dependency graph rooted at the device"
+        status: candidate
+      - id: CQ-4
+        question: "What changed on or around <device> in the last <hours>?"
+        entities: [device, change, configuration]
+        dimensions: [record_time, dependencies, freshness]
+        answer: "ordered list of changes with source and time"
+        status: candidate
+  - id: UC-3
+    activity: AC-13
+    actor: Engineer
+    need: "What data exists, where, what it means; which count is authoritative"
+    driver: {label: "Discoverability", link: docs/ways-of-working/04-success-dimensions.md}
+    questions:
+      - id: CQ-5
+        question: "What data exists about <entity type>, where does it live, and what does it mean?"
+        entities: [entity_type, source, definition]
+        dimensions: [authority]
+        answer: "registry entries with locations and definitions"
+        status: candidate
+      - id: CQ-6
+        question: "Which count of <entity type> is authoritative, and on whose authority?"
+        entities: [entity_type, source]
+        dimensions: [authority]
+        answer: "count with source authority and provenance"
+        status: candidate
+  - id: UC-4
+    activity: AC-6
+    actor: Change engineer
+    need: "Impact of a planned change"
+    driver: {label: "Operational", link: docs/problem/01-problem-statement.md#operational-risk}
+    questions:
+      - id: CQ-7
+        question: "If <IP | link | device> changes, which devices and services are affected?"
+        entities: [ip_address, link, device, service]
+        dimensions: [dependencies, modality]
+        answer: "impacted set with dependency paths"
+        status: candidate
+  - id: UC-5
+    activity: AC-7
+    actor: Capacity planner
+    need: "Actual and planned capacity; projected shortfalls"
+    driver: {label: "Untrusted decisions", link: docs/problem/01-problem-statement.md#untrusted-decisions}
+    questions:
+      - id: CQ-8
+        question: "What capacity exists and is planned, per site?"
+        entities: [site, device, capacity_metric]
+        dimensions: [valid_time, modality]
+        answer: "capacity per site, actual and planned"
+        status: candidate
+      - id: CQ-9
+        question: "Where and when does projected demand exceed capacity?"
+        entities: [site, capacity_metric]
+        dimensions: [valid_time, modality]
+        answer: "list of site, resource, and date of shortfall"
+        status: candidate
+  - id: UC-6
+    activity: AC-14
+    actor: Data steward
+    need: "Disagreements across modalities, and who decides"
+    driver: {label: "Source of truth dimensions", link: docs/ideas/source-of-truth-dimensions.md}
+    questions:
+      - id: CQ-10
+        question: "Where do discovered, asserted, and planned state disagree for <entity type>?"
+        entities: [entity_type]
+        dimensions: [modality, authority]
+        answer: "list of disagreements with values per modality"
+        status: candidate
+      - id: CQ-11
+        question: "Which authority decides each disagreement?"
+        entities: [entity_type, source]
+        dimensions: [authority]
+        answer: "per disagreement, the deciding oracle or source authority"
+        status: candidate
+  - id: UC-7
+    activity: AC-9
+    actor: Security
+    need: "Unknown devices; segmentation not as intended"
+    driver: {label: "Security", link: docs/problem/01-problem-statement.md#security-risk}
+    questions:
+      - id: CQ-12
+        question: "Which devices are discovered but unknown to inventory?"
+        entities: [device]
+        dimensions: [modality]
+        answer: "list of discovered-only devices with discovery provenance"
+        status: candidate
+      - id: CQ-13
+        question: "Where does actual segmentation differ from intended segmentation?"
+        entities: [segment, policy, device]
+        dimensions: [modality]
+        answer: "list of segment violations, intended vs observed"
+        status: candidate
+  - id: UC-8
+    activity: AC-15
+    actor: AI agent
+    need: "Answers with cited facts, sources, and policy"
+    driver: {label: "Features: AI", link: docs/solution/06-supporting-features.md}
+    questions:
+      - id: CQ-14
+        question: "For question <Q>, what is the answer, which facts and sources support it, and which policy applies?"
+        entities: [any]
+        dimensions: [valid_time, record_time, modality, authority]
+        answer: "answer with cited facts, sources, and applicable policy"
+        status: candidate
+  - id: UC-9
+    activity: AC-14
+    actor: Platform owner
+    need: "Contracts in use, by source and consumer"
+    driver: {label: "P2", link: docs/solution/01-principles.md}
+    questions:
+      - id: CQ-15
+        question: "Which contracts exist, in which versions, and which sources and consumers use each?"
+        entities: [contract, source, consumer]
+        dimensions: [valid_time]
+        answer: "contract catalogue with users per version"
+        status: candidate
+  - id: UC-10
+    activity: AC-3
+    actor: Operator
+    need: "Current state and related events"
+    driver: {label: "Operational", link: docs/problem/01-problem-statement.md#operational-risk}
+    questions:
+      - id: CQ-16
+        question: "What is the current operational state of <entity>?"
+        entities: [device, interface, link]
+        dimensions: [modality, freshness]
+        answer: "state with observation time"
+        status: candidate
+      - id: CQ-17
+        question: "Which events relate to <entity> within <window>?"
+        entities: [event, device]
+        dimensions: [valid_time, freshness]
+        answer: "ordered list of events"
+        status: candidate
+  - id: UC-11
+    activity: AC-5
+    actor: Problem manager
+    need: "State at each recurrence of an incident class"
+    driver: {label: "Operational", link: docs/problem/01-problem-statement.md#operational-risk}
+    questions:
+      - id: CQ-18
+        question: "What were configuration and topology of <affected set> at each occurrence of incident class <Y>?"
+        entities: [incident, device, configuration, link]
+        dimensions: [valid_time, record_time, dependencies]
+        answer: "per occurrence, configuration and topology snapshot views"
+        status: candidate
+  - id: UC-12
+    activity: AC-8
+    actor: Resilience owner
+    need: "Assets behind a critical function; single points of failure"
+    driver: {label: "DORA Art. 8", link: docs/references/dora-art8.md}
+    questions:
+      - id: CQ-19
+        question: "Which assets and dependencies support critical function <F>?"
+        entities: [business_function, asset, service]
+        dimensions: [dependencies, valid_time]
+        answer: "dependency graph from function to assets"
+        status: candidate
+      - id: CQ-20
+        question: "Which of those assets or links are single points of failure?"
+        entities: [asset, link]
+        dimensions: [dependencies]
+        answer: "list of single points of failure per function"
+        status: candidate
+  - id: UC-13
+    activity: AC-2
+    actor: Asset owner
+    need: "Assets nearing end of support, with owner and location"
+    driver: {label: "NYDFS 500.13", link: docs/references/nydfs-500-13.md}
+    questions:
+      - id: CQ-21
+        question: "Which assets reach end of support within <horizon>, who owns them, and where are they?"
+        entities: [asset, owner, site]
+        dimensions: [lifecycle, valid_time]
+        answer: "list of asset, owner, location, support end date"
+        status: candidate
+  - id: UC-14
+    activity: AC-10
+    actor: Provisioning engineer
+    need: "Planned vs built, per site"
+    driver: {label: "RFC 9315", link: docs/references/rfc9315-ibn.md}
+    questions:
+      - id: CQ-22
+        question: "For site <S>, what is planned, and what is built?"
+        entities: [site, device, link]
+        dimensions: [modality, valid_time]
+        answer: "planned vs built, per element"
+        status: candidate
+  - id: UC-15
+    activity: AC-11
+    actor: Architect
+    need: "Consolidation candidates"
+    driver: {label: "Untrusted decisions", link: docs/problem/01-problem-statement.md#untrusted-decisions}
+    questions:
+      - id: CQ-23
+        question: "Which assets or functions are duplicated or under-used?"
+        entities: [asset, service, capacity_metric]
+        dimensions: [dependencies, valid_time]
+        answer: "consolidation candidates with evidence"
+        status: candidate
+  - id: UC-16
+    activity: AC-1
+    actor: Network engineer
+    need: "A device's configuration, now and as of a date, and its relationships"
+    driver: {label: "Problem statement", link: docs/problem/01-problem-statement.md}
+    questions:
+      - id: CQ-24
+        question: "What is <device>, and how is it configured, now and as of <date>?"
+        entities: [device, configuration]
+        dimensions: [valid_time, record_time, modality]
+        answer: "device record with configuration per modality"
+        status: candidate
+      - id: CQ-25
+        question: "How is <device> related to other entities?"
+        entities: [device, interface, link, site, service]
+        dimensions: [dependencies]
+        answer: "relationship graph"
+        status: candidate

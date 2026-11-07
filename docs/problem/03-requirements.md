@@ -1,6 +1,6 @@
 # Requirements
 
-The trace matrix: [use case](02-stakeholders-use-cases.md) → requirement → [principle](../solution/01-principles.md). Model elements trace to [competency questions](../data/competency-questions.yaml) (P11). Links are recorded here only. Reverse views (which requirements a principle serves) are derived from this table, not maintained separately.
+The trace matrix: [use case](02-stakeholders-use-cases.md) → requirement → [principle](../solution/01-principles.md). Model elements trace to [competency questions](../data/use-cases.yaml) (P11). Links are recorded here only. Reverse views (which requirements a principle serves) are derived from this table, not maintained separately.
 
 All requirements are candidates until their use cases are validated.
 

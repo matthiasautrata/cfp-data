@@ -108,6 +108,6 @@ Core processing — ingestion, storage, reconciliation execution, policy evaluat
 
 ### P11. Question-Driven Modelling
 
-Every entity, attribute, and dimension in the model is needed by at least one [competency question](../data/competency-questions.yaml). An element no question needs is removed, or parked in `ideas/`. The questions are the model's acceptance tests.
+Every entity, attribute, and dimension in the model is needed by at least one [competency question](../data/use-cases.yaml). An element no question needs is removed, or parked in `ideas/`. The questions are the model's acceptance tests.
 
 > **Rationale**: Questions ground (meta-)data design in use. They favour useful designs over theoretically complete ones, and give every model review a concrete test: which question needs this?
