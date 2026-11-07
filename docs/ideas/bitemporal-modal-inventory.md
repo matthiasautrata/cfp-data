@@ -9,7 +9,7 @@ Idea — under discussion. Promote to an ADR when agreed.
 Inventory changes. We must answer:
 
 - What was true in the network at time *t*? (incident review, what-if)
-- What did we believe at time *t*? (audit — see [Compliance & Audit Risk](../problem/02-risks-and-importance.md))
+- What did we believe at time *t*? (audit — see [Compliance & Audit Risk](../problem/01-problem-statement.md#compliance--audit-risk))
 - What is planned?
 
 Facts also differ by basis: observed by discovery, asserted by a person or system of record, or planned as intent.

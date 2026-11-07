@@ -62,7 +62,7 @@ One file per reference. Keep it minimal — a few lines, not an essay. Link from
 
 ## Traceability
 
-Use case (`UC-n`) → requirement (`R-n`, `Q-n`) → principle (`Pn`). Links are recorded once, in the trace matrix in [`04-requirements.md`](docs/problem/04-requirements.md); reverse views are derived.
+Use case (`UC-n`) → requirement (`R-n`, `Q-n`) → principle (`Pn`). Links are recorded once, in the trace matrix in [`03-requirements.md`](docs/problem/03-requirements.md); reverse views are derived.
 
 An ID identifies a live item. Replacing, retiring, or renumbering an item is allowed, but must update every reference in the same change. Superseded text moves to `archive/` with a date and a one-line reason; it does not stay inline.
 
@@ -78,7 +78,7 @@ Push status forward alongside content. A draft merged and reviewed becomes 🟢.
 - **Plain-text formats.** Documents in markdown; structured data in CSV or YAML. No Word, PDF, Google Docs, or other office formats.
 - **One thing per file.** A monolith document is a sign of undiscovered structure. Split when a section could stand alone and be cross-referenced.
 - **Files are numbered** (`01-`, `02-`...) within a band, only for reading order. Directories are unnumbered.
-- **Relative links** (`../02-risks-and-importance.md`), never `https://github.com/...` links within the doc set. External links are fine.
+- **Relative links** (`../problem/01-problem-statement.md`), never `https://github.com/...` links within the doc set. External links are fine.
 
 ## Agent Behaviour
 

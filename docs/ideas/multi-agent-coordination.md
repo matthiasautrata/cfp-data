@@ -6,7 +6,7 @@ Idea — under discussion. Promote to an ADR when agreed.
 
 ## Context
 
-AI is key in three roles: building, designing, and using the system ([Stakeholders & Use Cases](../problem/03-stakeholders-use-cases.md)). Analysis, decisions, and automation benefit from agents. Core processing needs speed and reliability, not agents ([P10](../solution/01-principles.md)).
+AI is key in three roles: building, designing, and using the system ([Stakeholders & Use Cases](../problem/02-stakeholders-use-cases.md)). Analysis, decisions, and automation benefit from agents. Core processing needs speed and reliability, not agents ([P10](../solution/01-principles.md)).
 
 ## Proposal
 

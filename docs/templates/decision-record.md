@@ -14,7 +14,7 @@ What did we decide? Be specific. Include the option chosen and the exact configu
 
 ## Rationale
 
-Why this decision over the alternatives? Map each reason to a requirement ([`04-requirements.md`](../problem/04-requirements.md)) and principle ([`01-principles.md`](../solution/01-principles.md)) where applicable.
+Why this decision over the alternatives? Map each reason to a requirement ([`03-requirements.md`](../problem/03-requirements.md)) and principle ([`01-principles.md`](../solution/01-principles.md)) where applicable.
 
 ## Consequences
 

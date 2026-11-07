@@ -2,7 +2,7 @@
 
 ## Scope
 
-Risks inherent to the program itself — not the risks of *not* doing it (those are in [`02-risks-and-importance.md`](../problem/02-risks-and-importance.md)).
+Risks inherent to the program itself — not the risks of *not* doing it (those are in [problem statement](../problem/01-problem-statement.md#consequences)).
 
 ---
 

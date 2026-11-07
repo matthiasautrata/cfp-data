@@ -13,11 +13,10 @@ cfp-data/
 └── docs/
     ├── problem/                           # Where to, why, for whom, what
     │   ├── 00-vision.md
-    │   ├── 01-problem-statement.md
-    │   ├── 02-risks-and-importance.md     # Risks of inaction
-    │   ├── 03-stakeholders-use-cases.md   # UC-n
-    │   ├── 04-requirements.md             # R-n, Q-n; trace matrix UC → R → P
-    │   └── 05-current-state-constraints.md
+    │   ├── 01-problem-statement.md        # Current state, consequences, cost
+    │   ├── 02-stakeholders-use-cases.md   # UC-n
+    │   ├── 03-requirements.md             # R-n, Q-n; trace matrix UC → R → P
+    │   └── 04-current-state-constraints.md
     ├── solution/                          # How
     │   ├── 01-principles.md               # Pn
     │   ├── 02-conceptual-model.md         # The shape; ideas settle here
@@ -67,15 +66,15 @@ flowchart LR
 
 | Your input | Lives in |
 |---|---|
-| Who needs what | [Stakeholders & Use Cases](docs/problem/03-stakeholders-use-cases.md) |
+| Who needs what | [Stakeholders & Use Cases](docs/problem/02-stakeholders-use-cases.md) |
 | "Define data we need" | [Conceptual Model](docs/solution/02-conceptual-model.md), [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
 | "Decide what stays and what goes" | [Migration](docs/ways-of-working/02-migration.md), [estate matrix](docs/data/estate-disposition.csv) |
 | "Make data discoverable" | [Supporting Features](docs/solution/06-supporting-features.md) (Discovery) |
 | "Govern by policy" | [P6](docs/solution/01-principles.md), [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
-| "Trusted, resilient data" | [Core Platforms](docs/solution/05-core-platforms.md), [Q-1](docs/problem/04-requirements.md) |
+| "Trusted, resilient data" | [Core Platforms](docs/solution/05-core-platforms.md), [Q-1](docs/problem/03-requirements.md) |
 | "Observe the network" | [Supporting Features](docs/solution/06-supporting-features.md) (Telemetry) |
 | "Enabler and adoption" | [Process, Rules & Activities](docs/solution/04-process-rules-activities.md), [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) |
-| AI readiness | [Stakeholders & Use Cases](docs/problem/03-stakeholders-use-cases.md) (three roles), [P9, P10](docs/solution/01-principles.md) |
+| AI readiness | [Stakeholders & Use Cases](docs/problem/02-stakeholders-use-cases.md) (three roles), [P9, P10](docs/solution/01-principles.md) |
 | Topology, infrastructure assets, metadata registry | [Core Platforms](docs/solution/05-core-platforms.md) |
 | Keep existing infrastructure alive | [Migration](docs/ways-of-working/02-migration.md) |
 | State and intent is declarative | [P4](docs/solution/01-principles.md) |

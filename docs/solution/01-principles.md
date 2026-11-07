@@ -2,7 +2,7 @@
 
 These principles guide every decision in this program. A proposal that violates a principle carries a heavy burden of proof.
 
-Each principle covers one concern. Which requirements each principle serves is recorded once, in the [trace matrix](../problem/04-requirements.md).
+Each principle covers one concern. Which requirements each principle serves is recorded once, in the [trace matrix](../problem/03-requirements.md).
 
 | ID | Principle | Concern |
 |---|---|---|
