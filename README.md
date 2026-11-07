@@ -36,18 +36,18 @@ cfp-data/
 
 | Section | Status | Owner |
 |---|---|---|
-| [Problem Statement](docs/01-problem-statement.md) | 🟡 Draft | TBD |
-| [Risks & Importance](docs/02-risks-and-importance.md) | 🟡 Draft | TBD |
-| [Architecture Principles](docs/03-architecture-principles.md) | 🟡 Draft | TBD |
-| [Models, Policy, Governance](docs/04-major-areas-of-work/04-01-models-policy-governance.md) | 🔴 Not started | TBD |
-| [Process, Rules, Activities](docs/04-major-areas-of-work/04-02-process-rules-activities.md) | 🔴 Not started | TBD |
-| [Core Platforms Mapping](docs/04-major-areas-of-work/04-03-core-platforms-mapping.md) | 🔴 Not started | TBD |
-| [Supporting Features](docs/04-major-areas-of-work/04-04-supporting-features.md) | 🔴 Not started | TBD |
-| [Migration Strategy](docs/04-major-areas-of-work/04-05-migration-strategy.md) | 🔴 Not started | TBD |
-| [Risks & Mitigations](docs/04-major-areas-of-work/04-06-risks-mitigations.md) | 🔴 Not started | TBD |
-| [Initiatives Roadmap](docs/05-initiatives-roadmap.md) | 🟡 Draft | TBD |
-| [Success Dimensions](docs/06-success-dimensions.md) | 🟡 Draft | TBD |
-| [Glossary](docs/07-glossary.md) | 🟡 Draft | TBD |
+| [Problem Statement](docs/problem/01-problem-statement.md) | 🟡 Draft | TBD |
+| [Risks & Importance](docs/problem/02-risks-and-importance.md) | 🟡 Draft | TBD |
+| [Architecture Principles](docs/solution/01-principles.md) | 🟡 Draft | TBD |
+| [Models, Policy, Governance](docs/solution/03-models-policy-governance.md) | 🔴 Not started | TBD |
+| [Process, Rules, Activities](docs/solution/04-process-rules-activities.md) | 🔴 Not started | TBD |
+| [Core Platforms Mapping](docs/solution/05-core-platforms.md) | 🔴 Not started | TBD |
+| [Supporting Features](docs/solution/06-supporting-features.md) | 🔴 Not started | TBD |
+| [Migration Strategy](docs/delivery/02-migration.md) | 🔴 Not started | TBD |
+| [Risks & Mitigations](docs/delivery/03-risk-register.md) | 🔴 Not started | TBD |
+| [Initiatives Roadmap](docs/delivery/01-roadmap.md) | 🟡 Draft | TBD |
+| [Success Dimensions](docs/delivery/04-success-dimensions.md) | 🟡 Draft | TBD |
+| [Glossary](docs/glossary.md) | 🟡 Draft | TBD |
 | ADRs | 🔴 None yet | — |
 | [Idea: Discovery decoupled from inventory](docs/ideas/discovery-decoupled-from-inventory.md) | 🟡 Idea | Matthias |
 | [Idea: Bitemporal, modal inventory](docs/ideas/bitemporal-modal-inventory.md) | 🟡 Idea | Matthias |
@@ -77,16 +77,16 @@ flowchart LR
 
 | Your input | Lives in |
 |---|---|
-| "Define data we need" | [04-01](docs/04-major-areas-of-work/04-01-models-policy-governance.md) |
-| "Decide what stays and what goes" | [04-05](docs/04-major-areas-of-work/04-05-migration-strategy.md) + [06](docs/06-success-dimensions.md) (Estate Decisions) |
-| "Make data discoverable" | [04-04](docs/04-major-areas-of-work/04-04-supporting-features.md) (Discovery) |
-| "Govern by policy" | [04-01](docs/04-major-areas-of-work/04-01-models-policy-governance.md) |
-| "Trusted, resilient data" | [04-03](docs/04-major-areas-of-work/04-03-core-platforms-mapping.md) + [06](docs/06-success-dimensions.md) (Resilience, Quality) |
-| "Observe the network" | [04-04](docs/04-major-areas-of-work/04-04-supporting-features.md) (Telemetry) |
-| "Enabler and adoption" | [04-02](docs/04-major-areas-of-work/04-02-process-rules-activities.md) + [06](docs/06-success-dimensions.md) (Adoption) |
-| Topology | [04-03](docs/04-major-areas-of-work/04-03-core-platforms-mapping.md) (Instances: static + time-series) |
-| Infrastructure assets | [04-03](docs/04-major-areas-of-work/04-03-core-platforms-mapping.md) (Instances: static) |
-| Registry for meta-data | [04-03](docs/04-major-areas-of-work/04-03-core-platforms-mapping.md) (Meta-data platform) |
-| Keep existing infrastructure alive | [04-05](docs/04-major-areas-of-work/04-05-migration-strategy.md) |
-| State and intent is declarative | [03](docs/03-architecture-principles.md) (P6) |
-| Policy drive | [04-01](docs/04-major-areas-of-work/04-01-models-policy-governance.md) |
+| "Define data we need" | [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
+| "Decide what stays and what goes" | [Migration Strategy](docs/delivery/02-migration.md) + [Success Dimensions](docs/delivery/04-success-dimensions.md) (Estate Decisions) |
+| "Make data discoverable" | [Supporting Features](docs/solution/06-supporting-features.md) (Discovery) |
+| "Govern by policy" | [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
+| "Trusted, resilient data" | [Mapping to Core Platforms](docs/solution/05-core-platforms.md) + [Success Dimensions](docs/delivery/04-success-dimensions.md) (Resilience, Quality) |
+| "Observe the network" | [Supporting Features](docs/solution/06-supporting-features.md) (Telemetry) |
+| "Enabler and adoption" | [Process, Rules & Activities](docs/solution/04-process-rules-activities.md) + [Success Dimensions](docs/delivery/04-success-dimensions.md) (Adoption) |
+| Topology | [Mapping to Core Platforms](docs/solution/05-core-platforms.md) (Instances: static + time-series) |
+| Infrastructure assets | [Mapping to Core Platforms](docs/solution/05-core-platforms.md) (Instances: static) |
+| Registry for meta-data | [Mapping to Core Platforms](docs/solution/05-core-platforms.md) (Meta-data platform) |
+| Keep existing infrastructure alive | [Migration Strategy](docs/delivery/02-migration.md) |
+| State and intent is declarative | [Architecture Principles](docs/solution/01-principles.md) (P6) |
+| Policy drive | [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |

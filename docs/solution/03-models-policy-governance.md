@@ -1,4 +1,4 @@
-# 4.1 Models, Policy & Governance
+# Models, Policy & Governance
 
 ## Scope
 
@@ -6,7 +6,7 @@ What data we model, how we name it, what it means, who owns it, and what rules a
 
 ## Sub-Areas
 
-### 4.1.1 Data Models
+### Data Models
 
 - Canonical models for core network entities (device, interface, circuit, VLAN, IP, service, customer, location, ...).
 - Relationship model: how entities connect, contain, depend on each other.
@@ -14,21 +14,21 @@ What data we model, how we name it, what it means, who owns it, and what rules a
 - Versioning and evolution: how models change over time without breaking consumers.
 - Temporal and modal dimensions: valid time, record time, and basis (discovered, asserted, planned). See [idea](../ideas/bitemporal-modal-inventory.md).
 
-### 4.1.2 Metadata Registry
+### Metadata Registry
 
 - What metadata exists, where it lives, what it means.
 - Registry of registries: the system that tells you where to find each data type.
 - Cross-referencing: how the same device is identified across IPAM, monitoring, CMDB, and vendor tools.
 
-### 4.1.3 Policy Engine
+### Policy Engine
 
 - Policy as code: what rules apply to what data.
 - Policy categories: naming conventions, classification, retention, access control, quality thresholds.
 - Policy lifecycle: authoring, testing, deployment, auditing.
 - Enforcement model: at ingestion, at query time, at reporting time.
-- Sequencing (P12): the policy model is designed with the data model in Phase 0; enforcement follows ([5](../05-initiatives-roadmap.md)).
+- Sequencing (P12): the policy model is designed with the data model in Phase 0; enforcement follows ([Initiatives & Roadmap](../delivery/01-roadmap.md)).
 
-### 4.1.4 Governance
+### Governance
 
 - Data ownership: who is responsible for each domain's data quality.
 - Stewardship: who curates and maintains the models.

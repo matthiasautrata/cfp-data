@@ -18,18 +18,18 @@ Options:
 
 ## Proposal
 
-Option 2. Discovery and inventory are separate components that share the canonical model ([4.1](../04-major-areas-of-work/04-01-models-policy-governance.md)). Discovery emits observations through a defined contract. Inventory records them with modality `discovered` ([idea](bitemporal-modal-inventory.md)), alongside `asserted` and `planned` facts.
+Option 2. Discovery and inventory are separate components that share the canonical model ([Models, Policy & Governance](../solution/03-models-policy-governance.md)). Discovery emits observations through a defined contract. Inventory records them with modality `discovered` ([idea](bitemporal-modal-inventory.md)), alongside `asserted` and `planned` facts.
 
 ## Rationale
 
 - P1 (one thing, one task): observing and recording are different jobs.
 - P3, P4 (no vendor dependency, plug-and-play): a discovery tool is replaceable without touching inventory.
-- Option 3 contradicts the canonical-model definition ([glossary](../07-glossary.md)).
+- Option 3 contradicts the canonical-model definition ([glossary](../glossary.md)).
 
 ## Consequences
 
 - Easier: adding discovery sources; holding non-discoverable assets; drift detection as `discovered` ≠ `asserted`.
-- Harder: identity resolution between observations and records (cross-reference index, [4.3.1](../04-major-areas-of-work/04-03-core-platforms-mapping.md)); one more contract to version.
+- Harder: identity resolution between observations and records (cross-reference index, [Mapping to Core Platforms](../solution/05-core-platforms.md)); one more contract to version.
 
 ## How We Would Check
 
@@ -40,4 +40,4 @@ Discovery writes to inventory only through the observation contract. Checked in 
 - **Date**: 2026-11-07
 - **Author**: Matthias Autrata
 - **Reviewed by**: —
-- **References**: [4.4.1 Discovery](../04-major-areas-of-work/04-04-supporting-features.md), [Idea: bitemporal, modal inventory](bitemporal-modal-inventory.md)
+- **References**: [Discovery](../solution/06-supporting-features.md), [Idea: bitemporal, modal inventory](bitemporal-modal-inventory.md)

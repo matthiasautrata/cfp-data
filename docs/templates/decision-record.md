@@ -14,7 +14,7 @@ What did we decide? Be specific. Include the option chosen and the exact configu
 
 ## Rationale
 
-Why this decision over the alternatives? Map each reason to a principle from [`03-architecture-principles.md`](../03-architecture-principles.md) where applicable.
+Why this decision over the alternatives? Map each reason to a principle from [`01-principles.md`](../solution/01-principles.md) where applicable.
 
 ## Consequences
 

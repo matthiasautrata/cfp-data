@@ -9,11 +9,11 @@ This file defines how we work in this repo. It is the operating agreement for an
 ## Language & Style
 
 - **Precise engineering language.** Favour short words, short sentences, short paragraphs. If a concept needs a paragraph to explain, the concept needs rewriting — not the paragraph.
-- **Assume a knowledgeable audience.** No background primers on networking, databases, or architecture. Define only terms that are genuinely ambiguous or contested within the team (see [`docs/07-glossary.md`](docs/07-glossary.md)).
+- **Assume a knowledgeable audience.** No background primers on networking, databases, or architecture. Define only terms that are genuinely ambiguous or contested within the team (see [`glossary.md`](docs/glossary.md)).
 - **No filler.** Every paragraph, every sentence, every word earns its place. If it does not add signal, delete it.
 - **Readable in 5 minutes.** Detail goes into linked sub-documents or ADRs.
 - **No unqualified absolutes in estimates or targets.** Size work as effort: T-shirt for phases and initiatives, points for backlog items. Calendar ranges derive from measured velocity. Every KPI needs a threshold; until baselined, write `[T]` rather than a number.
-- **Standards-first, hype-last.** See principle P7 in [`docs/03-architecture-principles.md`](docs/03-architecture-principles.md).
+- **Standards-first, hype-last.** See principle P7 in [`01-principles.md`](docs/solution/01-principles.md).
 - **Tables over prose** for enumerations (risks, principles, success dimensions, platform capabilities). One row per item, concrete values where possible.
 - **Cross-reference by relative path**, never by absolute URL. The document tree is the navigation system.
 
@@ -34,7 +34,7 @@ This file defines how we work in this repo. It is the operating agreement for an
 
 ## Decision Log
 
-Every architectural decision gets an ADR in `docs/adr/`. Number sequentially (0001, 0002...). The ADR template is at [`docs/templates/decision-record.md`](docs/templates/decision-record.md).
+Every architectural decision gets an ADR in `docs/adr/`. Number sequentially (0001, 0002...). The ADR template is at [`decision-record.md`](docs/templates/decision-record.md).
 
 Most early thinking is not yet a decision. Capture it in `docs/ideas/` first. Ideas may be revised, merged, or dropped. Promote an idea to an ADR only when the team agrees; the idea's status then reads `Promoted to ADR-NNNN`.
 

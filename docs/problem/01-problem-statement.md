@@ -1,4 +1,4 @@
-# 1. The Problem Statement
+# The Problem Statement
 
 ## The One-Liner
 

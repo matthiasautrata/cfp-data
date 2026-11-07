@@ -1,4 +1,4 @@
-# 3. Architecture Principles
+# Architecture Principles
 
 These principles guide every decision in this program. A proposal that violates a principle carries a heavy burden of proof.
 

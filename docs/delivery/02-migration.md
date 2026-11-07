@@ -1,4 +1,4 @@
-# 4.5 Migration Strategy
+# Migration Strategy
 
 ## Scope
 
@@ -18,7 +18,7 @@ How we move from the current fragmented state to the target architecture — wit
 
 ## Migration Cycle (per domain)
 
-Phasing lives in [5](../05-initiatives-roadmap.md). This is the cycle each domain runs: the first domain in Phase 1, the rest in Phase 2.
+Phasing lives in [Initiatives & Roadmap](01-roadmap.md). This is the cycle each domain runs: the first domain in Phase 1, the rest in Phase 2.
 
 | Step | Activity | Exit |
 |---|---|---|
@@ -29,7 +29,7 @@ Phasing lives in [5](../05-initiatives-roadmap.md). This is the cycle each domai
 | **5. Cut over** | Target becomes source of truth. | Legacy read-only |
 | **6. Retire** | Decommission legacy. | No remaining consumers; at least two people understand any residual flows |
 
-Estate-wide work (first-pass inventory, cross-domain integration) is phased in [5](../05-initiatives-roadmap.md).
+Estate-wide work (first-pass inventory, cross-domain integration) is phased in [Initiatives & Roadmap](01-roadmap.md).
 
 ---
 

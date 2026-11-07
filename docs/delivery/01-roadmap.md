@@ -1,12 +1,12 @@
-# 5. Initiatives & Roadmap
+# Initiatives & Roadmap
 
-Phasing lives here. How each domain migrates: [4.5 Migration Cycle](04-major-areas-of-work/04-05-migration-strategy.md).
+Phasing lives here. How each domain migrates: [Migration Cycle](02-migration.md).
 
 ## Initiatives
 
 ### A. Define Data We Need
 
-What entities, attributes, and relationships must we model to run the network? The foundational modelling exercise, including temporal and modal dimensions ([idea](ideas/bitemporal-modal-inventory.md)).
+What entities, attributes, and relationships must we model to run the network? The foundational modelling exercise, including temporal and modal dimensions ([idea](../ideas/bitemporal-modal-inventory.md)).
 
 **Depends on**: Nothing. Co-designed with D1.
 **Output**: Canonical model v1 for the core entity types (expected 10–15).
@@ -69,7 +69,7 @@ Training, documentation, self-service tooling, community model, onboarding proce
 | **0: Foundation** | Shape: canonical model, policy model, registry structure, estate first pass | A, D1, B (first pass), C (structure) | Model v1 and policy model v1 drafted and reviewed; first domain chosen |
 | **1: First Domain** | Migration cycle end to end on one domain | A, D1 applied; B, C for the domain; E (baseline); G (domain consumers) | Domain consumers on target; legacy read-only or retired; quality baseline measured |
 | **2: Expand** | Migration cycle per further domain, by value and independence | A–E per domain; D2 (first policy set) | Per domain as Phase 1; first policies enforced |
-| **3: Integrate, Govern, Observe** | Cross-domain integration, enforcement at scale, telemetry, adoption at scale | D2, F, G | Measured against [6](06-success-dimensions.md) |
+| **3: Integrate, Govern, Observe** | Cross-domain integration, enforcement at scale, telemetry, adoption at scale | D2, F, G | Measured against [Success Dimensions](04-success-dimensions.md) |
 
 Each phase delivers usable output before the next begins. Structure is designed early (P11, P12); detail arrives in increments.
 
@@ -88,6 +88,6 @@ Estimates are conservative and revised at each phase gate.
 ## Choosing the First Domain
 
 - Clear replacement candidate.
-- Motivated consumers ([4.6](04-major-areas-of-work/04-06-risks-mitigations.md): adoption failure).
+- Motivated consumers ([Risk Register](03-risk-register.md): adoption failure).
 - Few dependencies on other domains.
 - Visible value: reduced toil, a retired system.

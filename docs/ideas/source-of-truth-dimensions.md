@@ -31,7 +31,7 @@ Provenance is recorded per fact, not per entity type.
 ## Trade-offs
 
 - Gains: conflicts become explainable (which oracle, which path); one attribute can have several legitimate origins; source authority can move during migration without losing provenance.
-- Costs: authority declarations to maintain in the registry ([4.3.1](../04-major-areas-of-work/04-03-core-platforms-mapping.md)); per-fact provenance adds volume.
+- Costs: authority declarations to maintain in the registry ([Mapping to Core Platforms](../solution/05-core-platforms.md)); per-fact provenance adds volume.
 - Prior art: [W3C PROV](../references/prov.md) (entity, activity, agent) for the provenance dimension.
 
 ## Open Questions

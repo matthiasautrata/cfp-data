@@ -1,10 +1,10 @@
-# 2. Risks & Importance
+# Risks & Importance
 
 ## Why This Matters
 
 If we do not fix network data, the risks compound. Each risk category below is real and current — not hypothetical.
 
-### 1. Bad Decisions
+### Bad Decisions
 
 | Risk | Example |
 |---|---|
@@ -12,7 +12,7 @@ If we do not fix network data, the risks compound. Each risk category below is r
 | **Wrong architecture** | Designing for capacity we already have but cannot see. |
 | **False negatives in planning** | Missing a consolidation opportunity because no one has a complete picture. |
 
-### 2. Operational Risk
+### Operational Risk
 
 | Risk | Example |
 |---|---|
@@ -20,7 +20,7 @@ If we do not fix network data, the risks compound. Each risk category below is r
 | **Change-induced failures** | An unrelated change breaks a data pipeline, corrupting downstream systems silently. |
 | **Manual drift** | Engineers bypass broken tooling and maintain their own spreadsheets — which then become the *de facto* source of truth, known to one person. |
 
-### 3. Compliance & Audit Risk
+### Compliance & Audit Risk
 
 | Risk | Example |
 |---|---|
@@ -28,14 +28,14 @@ If we do not fix network data, the risks compound. Each risk category below is r
 | **Policy violations undetected** | Security policies exist but cannot be enforced because the data to check compliance does not exist in a usable form. |
 | **Retention failures** | Cannot prove data is retained or destroyed according to policy because there is no single view of what data exists. |
 
-### 4. Reputation Risk
+### Reputation Risk
 
 | Risk | Example |
 |---|---|
 | **Credibility with the business** | Every new initiative starts with "first we need to clean up our data" — the business stops believing we can execute. |
 | **Talent retention** | Engineers burn out fighting data quality instead of solving interesting problems. |
 
-### 5. Security Risk
+### Security Risk
 
 | Risk | Example |
 |---|---|
@@ -43,7 +43,7 @@ If we do not fix network data, the risks compound. Each risk category below is r
 | **Inconsistent segmentation** | Policy intent (VLAN A is isolated from VLAN B) is not reflected in the data model, so violations go unnoticed. |
 | **Slow incident response** | During a security event, the data needed to trace impact (what talks to what, what runs where) is scattered across N tools. |
 
-### 6. Financial Risk
+### Financial Risk
 
 | Risk | Example |
 |---|---|

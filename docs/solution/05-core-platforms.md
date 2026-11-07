@@ -1,4 +1,4 @@
-# 4.3 Mapping to Core Platforms
+# Mapping to Core Platforms
 
 ## Scope
 
@@ -6,7 +6,7 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 
 ---
 
-## 4.3.1 Meta-Data Platform
+## Meta-Data Platform
 
 **Purpose**: Know what data exists, where it lives, what it means.
 
@@ -21,7 +21,7 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 
 ---
 
-## 4.3.2 Knowledge Platform
+## Knowledge Platform
 
 **Purpose**: Store and serve the canonical, relational, curated view of the network.
 
@@ -36,7 +36,7 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 
 ---
 
-## 4.3.3 Instances Platform — Static Data
+## Instances Platform — Static Data
 
 **Purpose**: Inventory and configuration data. Candidate shape: bitemporal and modal, with current state as a view ([idea](../ideas/bitemporal-modal-inventory.md)).
 
@@ -52,7 +52,7 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 
 ---
 
-## 4.3.4 Instances Platform — Time-Series Data
+## Instances Platform — Time-Series Data
 
 **Purpose**: How the network behaves over time.
 
