@@ -1,57 +1,42 @@
 # Network Data — Target State Architecture & Migration
 
-Working conventions for humans and agents: [`AGENTS.md`](AGENTS.md).
+Working conventions: [`AGENTS.md`](AGENTS.md). Status and open issues: [`ISSUES.md`](ISSUES.md).
 
 ## Document Map
 
 ```
 cfp-data/
-├── README.md                          # This file — document map, status
-├── AGENTS.md                          # Working conventions (humans + agents)
-├── CLAUDE.md                          # Pointer to AGENTS.md
+├── README.md                              # This file — map and navigation
+├── AGENTS.md                              # Working conventions (humans + agents)
+├── CLAUDE.md                              # Pointer to AGENTS.md
+├── ISSUES.md                              # Document status, cross-cutting issues
 └── docs/
-    ├── 01-problem-statement.md        # The problem we're solving (short, pithy, precise)
-    ├── 02-risks-and-importance.md     # Why this matters — risk categories
-    ├── 03-architecture-principles.md  # Guiding principles for the target state
-    ├── 04-major-areas-of-work/
-    │   ├── 04-01-models-policy-governance.md
-    │   ├── 04-02-process-rules-activities.md
-    │   ├── 04-03-core-platforms-mapping.md
-    │   ├── 04-04-supporting-features.md
-    │   ├── 04-05-migration-strategy.md
-    │   └── 04-06-risks-mitigations.md
-    ├── 05-initiatives-roadmap.md      # Initiatives, priorities, sequencing
-    ├── 06-success-dimensions.md       # How we measure success
-    ├── 07-glossary.md                 # Terms, acronyms, conventions
-    ├── adr/                           # Architecture Decision Records (NNNN-title.md)
-    ├── ideas/                         # Early, non-binding thinking; promoted to ADRs when agreed
-    ├── references/                    # External sources (short-name.md)
+    ├── problem/                           # Why, for whom, what
+    │   ├── 01-problem-statement.md
+    │   ├── 02-risks-and-importance.md     # Risks of inaction
+    │   ├── 03-stakeholders-use-cases.md   # UC-n
+    │   ├── 04-requirements.md             # R-n, Q-n; trace matrix UC → R → P
+    │   └── 05-current-state-constraints.md
+    ├── solution/                          # How
+    │   ├── 01-principles.md               # Pn
+    │   ├── 02-conceptual-model.md         # The shape; ideas settle here
+    │   ├── 03-models-policy-governance.md
+    │   ├── 04-process-rules-activities.md
+    │   ├── 05-core-platforms.md
+    │   └── 06-supporting-features.md
+    ├── delivery/                          # When, and how we know
+    │   ├── 01-roadmap.md                  # Initiatives, phases, sizing
+    │   ├── 02-migration.md                # Per-domain migration cycle
+    │   ├── 03-risk-register.md            # Risks of doing
+    │   └── 04-success-dimensions.md       # KPIs and thresholds
+    ├── glossary.md
+    ├── data/                              # CSV / YAML registers
+    ├── ideas/                             # Early, non-binding thinking
+    ├── adr/                               # Agreed decisions (NNNN-title.md)
+    ├── references/                        # External sources
     └── templates/
-        └── decision-record.md         # ADR template
+        └── decision-record.md             # ADR template
 ```
-
----
-
-## Status
-
-| Section | Status | Owner |
-|---|---|---|
-| [Problem Statement](docs/problem/01-problem-statement.md) | 🟡 Draft | TBD |
-| [Risks & Importance](docs/problem/02-risks-and-importance.md) | 🟡 Draft | TBD |
-| [Architecture Principles](docs/solution/01-principles.md) | 🟡 Draft | TBD |
-| [Models, Policy, Governance](docs/solution/03-models-policy-governance.md) | 🔴 Not started | TBD |
-| [Process, Rules, Activities](docs/solution/04-process-rules-activities.md) | 🔴 Not started | TBD |
-| [Core Platforms Mapping](docs/solution/05-core-platforms.md) | 🔴 Not started | TBD |
-| [Supporting Features](docs/solution/06-supporting-features.md) | 🔴 Not started | TBD |
-| [Migration Strategy](docs/delivery/02-migration.md) | 🔴 Not started | TBD |
-| [Risks & Mitigations](docs/delivery/03-risk-register.md) | 🔴 Not started | TBD |
-| [Initiatives Roadmap](docs/delivery/01-roadmap.md) | 🟡 Draft | TBD |
-| [Success Dimensions](docs/delivery/04-success-dimensions.md) | 🟡 Draft | TBD |
-| [Glossary](docs/glossary.md) | 🟡 Draft | TBD |
-| ADRs | 🔴 None yet | — |
-| [Idea: Discovery decoupled from inventory](docs/ideas/discovery-decoupled-from-inventory.md) | 🟡 Idea | Matthias |
-| [Idea: Bitemporal, modal inventory](docs/ideas/bitemporal-modal-inventory.md) | 🟡 Idea | Matthias |
-| [Idea: Source of truth dimensions](docs/ideas/source-of-truth-dimensions.md) | 🟡 Idea | Matthias |
 
 ---
 
@@ -59,16 +44,19 @@ cfp-data/
 
 ```mermaid
 flowchart LR
-    P[Principles] --> M[Models & Policy]
-    P --> R[Rules & Activities]
+    UC[Use Cases] --> REQ[Requirements]
+    REQ --> P[Principles]
+    P --> CM[Conceptual Model]
+    CM --> M[Models & Policy]
+    CM --> R[Rules & Activities]
     M --> C[Core Platforms]
     R --> C
     C --> F[Supporting Features]
-    C --> S[Migration Strategy]
-    S --> L[Legacy Platforms]
-    L --> F
+    C --> S[Migration]
     F --> D[Success Dimensions]
-    R --> D
+    REQ --> D
+    I[Ideas] -.settle into.-> CM
+    I -.promoted to.-> ADR[ADRs]
 ```
 
 ---
@@ -77,16 +65,15 @@ flowchart LR
 
 | Your input | Lives in |
 |---|---|
-| "Define data we need" | [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
-| "Decide what stays and what goes" | [Migration Strategy](docs/delivery/02-migration.md) + [Success Dimensions](docs/delivery/04-success-dimensions.md) (Estate Decisions) |
+| Who needs what | [Stakeholders & Use Cases](docs/problem/03-stakeholders-use-cases.md) |
+| "Define data we need" | [Conceptual Model](docs/solution/02-conceptual-model.md), [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
+| "Decide what stays and what goes" | [Migration](docs/delivery/02-migration.md), [estate matrix](docs/data/estate-disposition.csv) |
 | "Make data discoverable" | [Supporting Features](docs/solution/06-supporting-features.md) (Discovery) |
-| "Govern by policy" | [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
-| "Trusted, resilient data" | [Mapping to Core Platforms](docs/solution/05-core-platforms.md) + [Success Dimensions](docs/delivery/04-success-dimensions.md) (Resilience, Quality) |
+| "Govern by policy" | [P6](docs/solution/01-principles.md), [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
+| "Trusted, resilient data" | [Core Platforms](docs/solution/05-core-platforms.md), [Q-1](docs/problem/04-requirements.md) |
 | "Observe the network" | [Supporting Features](docs/solution/06-supporting-features.md) (Telemetry) |
-| "Enabler and adoption" | [Process, Rules & Activities](docs/solution/04-process-rules-activities.md) + [Success Dimensions](docs/delivery/04-success-dimensions.md) (Adoption) |
-| Topology | [Mapping to Core Platforms](docs/solution/05-core-platforms.md) (Instances: static + time-series) |
-| Infrastructure assets | [Mapping to Core Platforms](docs/solution/05-core-platforms.md) (Instances: static) |
-| Registry for meta-data | [Mapping to Core Platforms](docs/solution/05-core-platforms.md) (Meta-data platform) |
-| Keep existing infrastructure alive | [Migration Strategy](docs/delivery/02-migration.md) |
-| State and intent is declarative | [Architecture Principles](docs/solution/01-principles.md) (P6) |
-| Policy drive | [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
+| "Enabler and adoption" | [Process, Rules & Activities](docs/solution/04-process-rules-activities.md), [Success Dimensions](docs/delivery/04-success-dimensions.md) |
+| AI readiness | [Stakeholders & Use Cases](docs/problem/03-stakeholders-use-cases.md) (three roles), [P9, P10](docs/solution/01-principles.md) |
+| Topology, infrastructure assets, metadata registry | [Core Platforms](docs/solution/05-core-platforms.md) |
+| Keep existing infrastructure alive | [Migration](docs/delivery/02-migration.md) |
+| State and intent is declarative | [P4](docs/solution/01-principles.md) |
