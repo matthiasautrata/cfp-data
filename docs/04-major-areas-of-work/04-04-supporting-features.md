@@ -11,6 +11,7 @@ Features that sit above the core platforms and make the data ecosystem useful, u
 - Automated discovery of devices, links, and services (LLDP/CDP, SNMP, API polling, cloud APIs).
 - Import adapters for existing data sources (spreadsheets, legacy tools, vendor databases).
 - Change detection: what changed since the last discovery cycle.
+- Decoupled from inventory; shares the canonical model ([idea](../ideas/discovery-decoupled-from-inventory.md)).
 
 ### 4.4.2 Analysis & What-If
 

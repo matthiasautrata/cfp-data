@@ -38,7 +38,7 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 
 ## 4.3.3 Instances Platform — Static Data
 
-**Purpose**: Current-state inventory and configuration data.
+**Purpose**: Inventory and configuration data. Candidate shape: bitemporal and modal, with current state as a view ([idea](../ideas/bitemporal-modal-inventory.md)).
 
 | Capability | Description |
 |---|---|
@@ -72,3 +72,4 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 - **Synchronization**: How do platforms stay consistent? Event-driven? Polling? Periodic reconciliation?
 - **Identity**: How does the same device get the same ID across all four categories?
 - **Access control**: Who can read/write what, enforced consistently across platforms?
+- **Time**: Does Knowledge Platform history derive from bitemporal facts or keep its own snapshots?

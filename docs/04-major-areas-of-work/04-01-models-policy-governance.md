@@ -12,6 +12,7 @@ What data we model, how we name it, what it means, who owns it, and what rules a
 - Relationship model: how entities connect, contain, depend on each other.
 - Extensibility: how teams add domain-specific attributes without breaking the core model.
 - Versioning and evolution: how models change over time without breaking consumers.
+- Temporal and modal dimensions: valid time, record time, and basis (discovered, asserted, planned). See [idea](../ideas/bitemporal-modal-inventory.md).
 
 ### 4.1.2 Metadata Registry
 
@@ -25,6 +26,7 @@ What data we model, how we name it, what it means, who owns it, and what rules a
 - Policy categories: naming conventions, classification, retention, access control, quality thresholds.
 - Policy lifecycle: authoring, testing, deployment, auditing.
 - Enforcement model: at ingestion, at query time, at reporting time.
+- Sequencing (P12): the policy model is designed with the data model in Phase 0; enforcement follows ([5](../05-initiatives-roadmap.md)).
 
 ### 4.1.4 Governance
 
