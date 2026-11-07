@@ -1,6 +1,6 @@
 # Requirements
 
-The trace matrix: [use case](02-stakeholders-use-cases.md) → requirement → [principle](../solution/01-principles.md). Links are recorded here only. Reverse views (which requirements a principle serves) are derived from this table, not maintained separately.
+The trace matrix: [use case](02-stakeholders-use-cases.md) → requirement → [principle](../solution/01-principles.md). Model elements trace to [competency questions](../data/competency-questions.yaml) (P11). Links are recorded here only. Reverse views (which requirements a principle serves) are derived from this table, not maintained separately.
 
 All requirements are candidates until their use cases are validated.
 
@@ -8,7 +8,7 @@ All requirements are candidates until their use cases are validated.
 
 | ID | Requirement | From | Principles |
 |---|---|---|---|
-| R-1 | Every entity type has one canonical, versioned definition. | UC-3, UC-9 | P7, P8 |
+| R-1 | Every entity type has one canonical, versioned definition. | UC-3, UC-9 | P7, P8, P11 |
 | R-2 | Facts are queryable as of any valid time and any record time. | UC-1, UC-2, UC-6, UC-11, UC-16 | P8 |
 | R-3 | Facts carry modality: discovered, asserted, or planned. | UC-5, UC-6, UC-7, UC-10, UC-14 | P4 |
 | R-4 | Every attribute declares oracle and source authority; every fact carries provenance. | UC-1, UC-6 | P6, P7 |

@@ -16,6 +16,7 @@ Each principle covers one concern. Which requirements each principle serves is r
 | P8 | Structure First, Detail Later | Design sequencing |
 | P9 | API-First, Agent-Accessible | Access |
 | P10 | Deterministic Core, Agentic Edge | Where agents act |
+| P11 | Question-Driven Modelling | Model scope |
 
 ---
 
@@ -102,3 +103,11 @@ Every meaningful function is exposed through a versioned API. Agent access (MCP 
 Core processing — ingestion, storage, reconciliation execution, policy evaluation — is deterministic, fast, and reliable. Agents work at the edge: analysis, decisions, automation. Agents act through the same APIs and policies as humans, and their actions are audited.
 
 > **Rationale**: Core paths need predictable latency and repeatable results. Agents add value where judgement and synthesis are needed. Coordination model: [idea: multi-agent coordination](../ideas/multi-agent-coordination.md).
+
+---
+
+### P11. Question-Driven Modelling
+
+Every entity, attribute, and dimension in the model is needed by at least one [competency question](../data/competency-questions.yaml). An element no question needs is removed, or parked in `ideas/`. The questions are the model's acceptance tests.
+
+> **Rationale**: Questions ground (meta-)data design in use. They favour useful designs over theoretically complete ones, and give every model review a concrete test: which question needs this?

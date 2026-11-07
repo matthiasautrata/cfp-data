@@ -30,7 +30,7 @@ cfp-data/
     │   ├── 03-risk-register.md            # Risks of doing
     │   └── 04-success-dimensions.md       # KPIs and thresholds
     ├── glossary.md
-    ├── data/                              # CSV / YAML registers
+    ├── data/                              # CSV / YAML registers: estate, competency questions
     ├── ideas/                             # Early, non-binding thinking
     ├── adr/                               # Agreed decisions (NNNN-title.md)
     ├── references/                        # External sources

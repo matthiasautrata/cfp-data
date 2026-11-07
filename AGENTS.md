@@ -62,7 +62,7 @@ One file per reference. Keep it minimal — a few lines, not an essay. Link from
 
 ## Traceability
 
-Use case (`UC-n`) → requirement (`R-n`, `Q-n`) → principle (`Pn`). Links are recorded once, in the trace matrix in [`03-requirements.md`](docs/problem/03-requirements.md); reverse views are derived.
+Use case (`UC-n`) → competency question (`CQ-n`) and requirement (`R-n`, `Q-n`) → principle (`Pn`). Question text lives only in [`competency-questions.yaml`](docs/data/competency-questions.yaml). Every model element cites at least one `CQ-n` (P11); every use case has at least one. Links are recorded once, in the trace matrix in [`03-requirements.md`](docs/problem/03-requirements.md); reverse views are derived.
 
 An ID identifies a live item. Replacing, retiring, or renumbering an item is allowed, but must update every reference in the same change. Superseded text moves to `archive/` with a date and a one-line reason; it does not stay inline.
 

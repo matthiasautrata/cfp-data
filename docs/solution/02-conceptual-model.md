@@ -1,6 +1,6 @@
 # Conceptual Model
 
-The shape of the system (P8). Ideas settle here once agreed; decisions behind them become ADRs.
+The shape of the system (P8). Ideas settle here once agreed; decisions behind them become ADRs. Every element cites the competency questions that need it (P11).
 
 ## Entities
 

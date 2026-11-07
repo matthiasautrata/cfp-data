@@ -27,6 +27,7 @@
 | [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) | 🟡 Draft — thresholds `[T]` | TBD |
 | [Glossary](docs/glossary.md) | 🟡 Draft | TBD |
 | [Estate disposition](docs/data/estate-disposition.csv) | 🔴 Header only | TBD |
+| [Competency questions](docs/data/competency-questions.yaml) | 🟡 Draft — 25 candidates | TBD |
 | ADRs | — None yet | — |
 | [Idea: Discovery decoupled from inventory](docs/ideas/discovery-decoupled-from-inventory.md) | 🟡 Idea | Matthias |
 | [Idea: Bitemporal, modal inventory](docs/ideas/bitemporal-modal-inventory.md) | 🟡 Idea | Matthias |

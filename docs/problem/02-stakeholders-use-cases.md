@@ -43,27 +43,25 @@ Other frames considered: [eTOM](../references/tmf-etom.md) (operator scope, too 
 
 ## Use Cases
 
-Each use case is a set of [competency questions](../references/competency-questions.md): questions the data must answer. Each question doubles as an acceptance test and an agent evaluation item.
-
-Data needs: **VT** valid time · **RT** record time · **M** modality · **Dep** dependencies · **Auth** authority and provenance · **Fr** freshness `[T]` · **Life** lifecycle dates.
+Each use case is a set of [competency questions](../references/competency-questions.md): questions the data must answer. Question text, entities, and data dimensions live in the [register](../data/competency-questions.yaml); this table references them. Each question doubles as an acceptance test and an agent evaluation item.
 
 All use cases are candidates until validated with Network Services and the activity owners.
 
-| ID | Activity | Actor | Competency question | Data needs | Driver |
+| ID | Activity | Actor | Need | Questions | Driver |
 |---|---|---|---|---|---|
-| UC-1 | AC-12 | Auditor | Which devices held customer data on date *d*, and what did our records say then? | VT, RT, Auth | [Compliance](01-problem-statement.md#compliance--audit-risk) |
-| UC-2 | AC-4 | Incident responder | For device *X*: what is connected, what depends on it, what changed in the last *h* hours? | Dep, RT, Fr | [Operational](01-problem-statement.md#operational-risk) |
-| UC-3 | AC-13 | Engineer | What data exists about entity type *E*, where does it live, what does it mean, and which count is authoritative? | Auth | [Discoverability](../ways-of-working/04-success-dimensions.md) |
-| UC-4 | AC-6 | Change engineer | If I change IP, link, or device *X*, which devices and services are affected? | Dep, M | [Operational](01-problem-statement.md#operational-risk) |
-| UC-5 | AC-7 | Capacity planner | What capacity exists and is planned per site; where and when does projected demand exceed it? | VT, M | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) |
-| UC-6 | AC-14 | Data steward | Where do discovered, asserted, and planned state disagree, and which authority decides? | M, Auth | [Source of truth dimensions](../ideas/source-of-truth-dimensions.md) |
-| UC-7 | AC-9 | Security | Which devices are discovered but unknown to inventory? Where does actual segmentation differ from intent? | M | [Security](01-problem-statement.md#security-risk) |
-| UC-8 | AC-15 | AI agent | Given question *Q*, what is the answer, which facts and sources support it, and which policy applies? | all | [Features: AI](../solution/06-supporting-features.md) |
-| UC-9 | AC-14 | Platform owner | Can source or consumer *S* connect through a published contract, without core code? | — | [P2](../solution/01-principles.md) |
-| UC-10 | AC-3 | Operator | What is the current operational state of *X*, and which events relate to it? | M, Fr | [Operational](01-problem-statement.md#operational-risk) |
-| UC-11 | AC-5 | Problem manager | What were configuration and topology each time incident class *Y* recurred? | VT, RT, Dep | [Operational](01-problem-statement.md#operational-risk) |
-| UC-12 | AC-8 | Resilience owner | Which assets and dependencies support critical function *F*; where are single points of failure? | Dep, VT | [DORA Art. 8](../references/dora-art8.md) |
-| UC-13 | AC-2 | Asset owner | Which assets reach end of support within horizon *h*; who owns them and where are they? | VT, Life | [NYDFS 500.13](../references/nydfs-500-13.md) |
-| UC-14 | AC-10 | Provisioning engineer | For site *S*: what does the plan say, and what is built so far? | M, VT | [RFC 9315](../references/rfc9315-ibn.md) |
-| UC-15 | AC-11 | Architect | Which assets or functions are duplicated or under-used, and are candidates to consolidate? | Dep, VT | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) |
-| UC-16 | AC-1 | Network engineer | What is device *X*, how is it configured now and as of date *d*, and how is it related to others? | VT, RT, M, Dep | [Problem statement](01-problem-statement.md) |
+| UC-1 | AC-12 | Auditor | Customer-data devices, as of a date and as recorded then | CQ-1, CQ-2 | [Compliance](01-problem-statement.md#compliance--audit-risk) |
+| UC-2 | AC-4 | Incident responder | Blast radius and recent changes for an affected device | CQ-3, CQ-4 | [Operational](01-problem-statement.md#operational-risk) |
+| UC-3 | AC-13 | Engineer | What data exists, where, what it means; which count is authoritative | CQ-5, CQ-6 | [Discoverability](../ways-of-working/04-success-dimensions.md) |
+| UC-4 | AC-6 | Change engineer | Impact of a planned change | CQ-7 | [Operational](01-problem-statement.md#operational-risk) |
+| UC-5 | AC-7 | Capacity planner | Actual and planned capacity; projected shortfalls | CQ-8, CQ-9 | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) |
+| UC-6 | AC-14 | Data steward | Disagreements across modalities, and who decides | CQ-10, CQ-11 | [Source of truth dimensions](../ideas/source-of-truth-dimensions.md) |
+| UC-7 | AC-9 | Security | Unknown devices; segmentation not as intended | CQ-12, CQ-13 | [Security](01-problem-statement.md#security-risk) |
+| UC-8 | AC-15 | AI agent | Answers with cited facts, sources, and policy | CQ-14 | [Features: AI](../solution/06-supporting-features.md) |
+| UC-9 | AC-14 | Platform owner | Contracts in use, by source and consumer | CQ-15 | [P2](../solution/01-principles.md) |
+| UC-10 | AC-3 | Operator | Current state and related events | CQ-16, CQ-17 | [Operational](01-problem-statement.md#operational-risk) |
+| UC-11 | AC-5 | Problem manager | State at each recurrence of an incident class | CQ-18 | [Operational](01-problem-statement.md#operational-risk) |
+| UC-12 | AC-8 | Resilience owner | Assets behind a critical function; single points of failure | CQ-19, CQ-20 | [DORA Art. 8](../references/dora-art8.md) |
+| UC-13 | AC-2 | Asset owner | Assets nearing end of support, with owner and location | CQ-21 | [NYDFS 500.13](../references/nydfs-500-13.md) |
+| UC-14 | AC-10 | Provisioning engineer | Planned vs built, per site | CQ-22 | [RFC 9315](../references/rfc9315-ibn.md) |
+| UC-15 | AC-11 | Architect | Consolidation candidates | CQ-23 | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) |
+| UC-16 | AC-1 | Network engineer | A device's configuration, now and as of a date, and its relationships | CQ-24, CQ-25 | [Problem statement](01-problem-statement.md) |
