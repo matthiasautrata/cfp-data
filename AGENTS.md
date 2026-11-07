@@ -22,7 +22,7 @@ This file defines how we work in this repo. It is the operating agreement for an
 
 | Type | Purpose | Lives in |
 |---|---|---|
-| **Problem** | Why, for whom, what: problem, risks of inaction, stakeholders, use cases, requirements, current state, constraints | `docs/problem/` |
+| **Problem** | Where to and why: vision, problem, risks of inaction, stakeholders, use cases, requirements, current state, constraints | `docs/problem/` |
 | **Solution** | How: principles, conceptual model, design areas, platforms, features | `docs/solution/` |
 | **Ways of Working** | How we execute: roadmap, migration cycle, risk register, success dimensions | `docs/ways-of-working/` |
 | **Archive** | Superseded material, kept for the record only. Never part of the current truth. | `docs/archive/` |

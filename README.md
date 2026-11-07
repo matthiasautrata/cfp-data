@@ -11,7 +11,8 @@ cfp-data/
 ├── CLAUDE.md                              # Pointer to AGENTS.md
 ├── ISSUES.md                              # Document status, cross-cutting issues
 └── docs/
-    ├── problem/                           # Why, for whom, what
+    ├── problem/                           # Where to, why, for whom, what
+    │   ├── 00-vision.md
     │   ├── 01-problem-statement.md
     │   ├── 02-risks-and-importance.md     # Risks of inaction
     │   ├── 03-stakeholders-use-cases.md   # UC-n

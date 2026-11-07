@@ -10,6 +10,7 @@
 
 | Document | Status | Owner |
 |---|---|---|
+| [Vision](docs/problem/00-vision.md) | 🟡 Draft | TBD |
 | [Problem Statement](docs/problem/01-problem-statement.md) | 🟡 Draft | TBD |
 | [Risks & Importance](docs/problem/02-risks-and-importance.md) | 🟡 Draft | TBD |
 | [Stakeholders & Use Cases](docs/problem/03-stakeholders-use-cases.md) | 🟡 Draft — use cases are candidates | TBD |
