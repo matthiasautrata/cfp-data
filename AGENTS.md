@@ -4,13 +4,15 @@ This file defines how we work in this repo. It is the operating agreement for an
 
 ## Purpose of This Repo
 
-`cfp-data/` houses the working documents for the Network Data Target State program: vision, requirements, strategy, architecture, designs, and roadmap. It is a living document set, not a deliverable. Status is always honest; perfection is not required to commit.
+`cfp-data/` houses, under `docs/`, the working documents for the Network Data Target State program: vision, requirements, strategy, architecture, designs, and roadmap. It is a living document set, not a deliverable. Status is always honest; perfection is not required to commit.
 
 ## Language & Style
 
 - **Precise engineering language.** Favour short words, short sentences, short paragraphs. If a concept needs a paragraph to explain, the concept needs rewriting — not the paragraph.
-- **Assume a knowledgeable audience.** No background primers on networking, databases, or architecture. Define only terms that are genuinely ambiguous or contested within the team (see `07-glossary.md`).
+- **Assume a knowledgeable audience.** No background primers on networking, databases, or architecture. Define only terms that are genuinely ambiguous or contested within the team (see [`docs/07-glossary.md`](docs/07-glossary.md)).
 - **No filler.** Every paragraph, every sentence, every word earns its place. If it does not add signal, delete it.
+- **Readable in 5 minutes.** Detail goes into linked sub-documents or ADRs.
+- **Standards-first, hype-last.** See principle P7 in [`docs/03-architecture-principles.md`](docs/03-architecture-principles.md).
 - **Tables over prose** for enumerations (risks, principles, success dimensions, platform capabilities). One row per item, concrete values where possible.
 - **Cross-reference by relative path**, never by absolute URL. The document tree is the navigation system.
 
@@ -18,19 +20,19 @@ This file defines how we work in this repo. It is the operating agreement for an
 
 | Type | Purpose | Lives in |
 |---|---|---|
-| **Vision / Problem** | Why this exists, what we are solving, what we are not solving | `01-*.md` |
-| **Risk / Context** | Why it matters, what happens if we fail | `02-*.md` |
-| **Principles** | Non-negotiable constraints that guide every decision | `03-*.md` |
-| **Area of work** | Scope, sub-areas, open questions for one workstream | `04-major-areas-of-work/*.md` |
-| **Roadmap / Plan** | Phasing, dependencies, sequencing | `05-*.md` |
-| **Success criteria** | How we know it worked — concrete, measurable | `06-*.md` |
-| **Glossary** | Terms that cause ambiguity | `07-*.md` |
-| **ADR** | A specific architectural decision: context, options, choice, rationale, consequences | `adr/NNNN-title.md` |
-| **Reference** | External standard, paper, tool, or pattern that informed a decision | `references/short-name.md` |
+| **Vision / Problem** | Why this exists, what we are solving, what we are not solving | `docs/01-*.md` |
+| **Risk / Context** | Why it matters, what happens if we fail | `docs/02-*.md` |
+| **Principles** | Non-negotiable constraints that guide every decision | `docs/03-*.md` |
+| **Area of work** | Scope, sub-areas, open questions for one workstream | `docs/04-major-areas-of-work/*.md` |
+| **Roadmap / Plan** | Phasing, dependencies, sequencing | `docs/05-*.md` |
+| **Success criteria** | How we know it worked — concrete, measurable | `docs/06-*.md` |
+| **Glossary** | Terms that cause ambiguity | `docs/07-*.md` |
+| **ADR** | A specific architectural decision: context, options, choice, rationale, consequences | `docs/adr/NNNN-title.md` |
+| **Reference** | External standard, paper, tool, or pattern that informed a decision | `docs/references/short-name.md` |
 
 ## Decision Log
 
-Every architectural decision gets an ADR in `adr/`. Number sequentially (0001, 0002...). The ADR template is at `templates/decision-record.md`.
+Every architectural decision gets an ADR in `docs/adr/`. Number sequentially (0001, 0002...). The ADR template is at [`docs/templates/decision-record.md`](docs/templates/decision-record.md).
 
 Do not record:
 - Project management decisions (sprint scope, meeting cadence).
@@ -39,10 +41,10 @@ Do not record:
 
 ## References
 
-When a decision references an external source (standard, RFC, paper, tool, blog post), capture it in `references/`:
+When a decision references an external source (standard, RFC, paper, tool, blog post), capture it in `docs/references/`:
 
 ```markdown
-# references/openconfig.md
+# docs/references/openconfig.md
 
 ## OpenConfig
 
@@ -68,9 +70,10 @@ Push status-forward alongside content. A draft merged and reviewed becomes 🟢.
 
 ## File Conventions
 
+- **Layout.** Document set lives in `docs/`. Root holds only `README.md`, `AGENTS.md`, `CLAUDE.md`.
 - **Markdown only.** No Word, no PDF, no Google Docs. If it cannot be written in markdown it does not belong here.
 - **One thing per file.** A monolith document is a sign of undiscovered structure. Split when a section could stand alone and be cross-referenced.
-- **Files are numbered** (`01-`, `02-`...) only for reading order. Sub-directories (`04-major-areas-of-work/`) are unnumbered.
+- **Files are numbered** (`01-`, `02-`...) only for reading order. Sub-directories (`04-major-areas-of-work/`, `adr/`, `references/`, `templates/`) are unnumbered.
 - **Relative links** (`../02-risks-and-importance.md`), never `https://github.com/...` links within the doc set. External links are fine.
 
 ## Agent Behaviour
@@ -84,3 +87,4 @@ When an agent (any agent) works in this repo:
 5. **Record decisions as you go.** If you make a substantive choice, write the ADR the same session. Do not accumulate undocumented decisions.
 6. **Prefer append to rewrite.** Additions are safer than deletions. Rewrite only when the old content is clearly wrong, not just when you would phrase it differently.
 7. **Commit with meaningful messages.** One commit per logical change. The message says what changed, not why the change matters (that lives in the document body).
+8. **Agent instructions live here.** Updates to agent/LLM instructions go into this file. Tool-specific files (`CLAUDE.md`, etc.) only point here.
