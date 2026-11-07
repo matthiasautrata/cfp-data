@@ -4,7 +4,7 @@
 
 | Role | Who | Interest |
 |---|---|---|
-| **Key stakeholder** | Core Foundational Services (CFP) management | Sponsor; owns outcome, scope, priorities |
+| **Key stakeholder** | Core Foundational Platforms (CFP) management | Sponsor; owns outcome, scope, priorities |
 | **First customer** | Network Services | First-domain consumers; validate use cases; set first thresholds |
 | **AI agents** | Build-, design-, and run-time agents | See below |
 | **Others** | TBD (audit, security, capacity planning, operations) | TBD |
