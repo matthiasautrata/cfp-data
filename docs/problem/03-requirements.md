@@ -14,7 +14,7 @@ All requirements are candidates. They will change as the use cases are reviewed 
 | R-2 | We can ask what was true in the network at any point in time (valid time), and what our records said at any point in time (record time). | UC-1, UC-2, UC-6, UC-11, UC-16 | P8 |
 | R-3 | Each fact records how we know it: discovered, asserted, or planned (its modality). | UC-5, UC-6, UC-7, UC-10, UC-14 | P4 |
 | R-4 | For each attribute, we know who decides its true value (oracle authority) and which system is authoritative for serving it (source authority). Each fact records where it came from (provenance). | UC-1, UC-6 | P6, P7 |
-| R-5 | Policies can be attached to every entity type and data element, and evaluated. | UC-1, UC-7 | P6 |
+| R-5 | Policies are independent, versioned objects that can be attached to entity types, data elements, flows, and transformations, and evaluated. | UC-1, UC-7, UC-17 | P6 |
 | R-6 | Anyone can find what data exists, where it is held, and what it means. | UC-3 | P7 |
 | R-7 | Dependencies between entities can be queried, for example for impact analysis. | UC-2, UC-4, UC-11, UC-12, UC-15 | — |
 | R-8 | Every meaningful function is available through an API, and through MCP for AI agents. | UC-8, UC-9 | P2, P9 |
@@ -25,6 +25,7 @@ All requirements are candidates. They will change as the use cases are reviewed 
 | R-13 | Each asset is mapped to the business functions it supports, with their criticality, and the mapping is reviewed after every major change, as [DORA Article 8](../references/dora-art8.md) requires. | UC-12 | P6 |
 | R-14 | The current operational state is available within an agreed freshness limit `[T]`. | UC-2, UC-10 | P10 |
 | R-15 | Facts can arrive as streams from pluggable producers, through a published, versioned protocol that carries each fact's modality, valid time, and provenance. | UC-6, UC-9, UC-10, UC-14 | P2, P12 |
+| R-16 | The structure of the data, its flows, and the rules that act on it are described as metadata that is versioned in time and queryable through the same access paths as the data. | UC-3, UC-8, UC-17 | P11, P13 |
 
 ## Quality Requirements
 

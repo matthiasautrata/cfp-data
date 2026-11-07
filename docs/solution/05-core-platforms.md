@@ -10,14 +10,17 @@ The platforms that store, serve, and synchronize network data. The sketch has fo
 
 ## Metadata Platform
 
-**Purpose**: Know what data exists, where it lives, what it means.
+**Purpose**: Know what data exists, where it lives, what it means, how it flows, and what rules and policies apply. The capabilities map to the three layers of metadata ([conceptual model](02-conceptual-model.md)).
 
-| Capability | Description |
-|---|---|
-| **Entity registry** | Canonical list of every named entity type and its attributes. |
-| **Location registry** | For each data type: which platform holds the authoritative copy, which platforms hold replicas/caches. |
-| **Schema registry** | Versioned schemas for each entity type, with field-level documentation. |
-| **Cross-reference index** | Map of identifiers across systems (e.g., device hostname ↔ SNMP sysName ↔ IPAM ID ↔ monitoring ID). |
+| Capability | Description | Layer |
+|---|---|---|
+| **Entity registry** | Canonical list of every named entity type and its attributes. | 1 |
+| **Location registry** | For each data type: which platform holds the authoritative copy, which hold replicas or caches. | 2 |
+| **Schema registry** | Versioned schemas for each entity type, with field-level documentation. | 1 |
+| **Cross-reference index** | Maps identifiers across systems, such as a device's hostname, SNMP name, IPAM identifier, and monitoring identifier. | 1 |
+| **Flow registry** | Producers, consumers, streams, subscriptions, and contracts. | 2 |
+| **Rule registry** | Transformations, correlation rules, and processes, with versions. | 3 |
+| **Policy registry** | Policies and where they are attached. | Policy |
 
 **Examples**: a data catalog tool, a schema registry (such as Apicurio or a Kafka schema registry), or a custom metadata store.
 
@@ -29,7 +32,7 @@ The platforms that store, serve, and synchronize network data. The sketch has fo
 
 | Capability | Description |
 |---|---|
-| **Graph model** | Entities and their relationships (device ↔ interface ↔ circuit ↔ location). |
+| **Graph model** | Entities and their relationships, such as device, interface, circuit, and location. |
 | **Historical view** | Point-in-time views for audit and what-if analysis. Whether these come from snapshots or from time-stamped facts is open (issue I-8). |
 | **Policy attachment** | Which policies apply to which entities. |
 | **Query interface** | Structured queries (graph, SQL, API) for consumers. |

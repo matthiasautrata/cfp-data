@@ -79,6 +79,7 @@ These are early candidates. We are still collecting questions, and details such 
 | UC-14 | AC-10 | Provisioning engineer | Planned vs built, per site | CQ-22 | [RFC 9315](../references/rfc9315-ibn.md) | candidate |
 | UC-15 | AC-11 | Architect | Consolidation candidates | CQ-23 | [Untrusted decisions](01-problem-statement.md#untrusted-decisions) | candidate |
 | UC-16 | AC-1 | Network engineer | A device's configuration, now and as of a date, and its relationships | CQ-24, CQ-25 | [Problem statement](01-problem-statement.md) | candidate |
+| UC-17 | AC-14 | Data steward | Trace data through its structure, flows, rules, and policies | CQ-26, CQ-27, CQ-28, CQ-29 | [Idea: three layers of metadata](../ideas/metadata-layers.md) | candidate |
 
 ### Competency Questions
 
@@ -109,4 +110,8 @@ These are early candidates. We are still collecting questions, and details such 
 | CQ-23 | UC-15 | Which assets or functions are duplicated or under-used? | asset, service, capacity metric | valid time | dependencies | consolidation candidates with evidence | candidate |
 | CQ-24 | UC-16 | What is `<device>`, and how is it configured, now and as of `<date>`? | device, configuration | valid time, record time, modality | — | device record with configuration per modality | candidate |
 | CQ-25 | UC-16 | How is `<device>` related to other entities? | device, interface, link, site, service | — | dependencies | relationship graph | candidate |
+| CQ-26 | UC-17 | Which producers and streams feed `<entity type>`, and which consumers subscribe to it? | entity type, producer, stream, subscription, consumer | valid time | dependencies | flow graph from producers to consumers | candidate |
+| CQ-27 | UC-17 | Which source facts and events were combined into derived or aggregated fact `<X>`, by which rule, in which version? | fact, event, rule | record time, provenance | dependencies | derivation tree with rule versions | candidate |
+| CQ-28 | UC-17 | Which rules and transformations apply to `<entity type | stream>`, in which versions, and which policies are attached to them? | rule, transformation, policy, entity type, stream | valid time | — | list of rules and attached policies, with versions | candidate |
+| CQ-29 | UC-17 | What did the schema of `<entity type>` look like on `<date>`, and what has changed since? | entity type, schema version | valid time, record time | — | schema as of the date, with a list of changes | candidate |
 <!-- END GENERATED -->

@@ -18,6 +18,7 @@ The principles are drafts. Each covers one concern. Which requirements each prin
 | P10 | Deterministic Core, Agentic Edge | Where agents act |
 | P11 | Question-Driven Modeling | Model scope |
 | P12 | Enable, Don't Build | Program scope |
+| P13 | Self-Describing Data Layer | Metadata |
 
 ---
 
@@ -120,4 +121,12 @@ Every entity, attribute, and dimension in the model must be needed by at least o
 This program builds the data layer: the models, the protocols, and the storage and serving of data. Operational capabilities, such as discovery, monitoring, event management, and analysis, connect to it as modules that are bought or built elsewhere. We define how they connect; we do not build them. If a needed subsystem has no suitable source, building it is a separate, later decision.
 
 > **Rationale**: Our value is consistent, trusted data. Building operational tools would spread our effort, duplicate products that already exist, and tie the data layer to one tool's view of the world. See [Producers, Consumers, and Extension Points](06-producers-consumers.md).
+
+---
+
+### P13. Self-Describing Data Layer
+
+The structure of the data, the flows that move it, and the rules and policies that act on it are described as metadata. That metadata is itself data: versioned in time, governed by policy, queryable through the same access paths as the data, and covered by competency questions. The meta-model has a small, fixed core and grows toward the leaves.
+
+> **Rationale**: A data layer that describes itself can be understood, audited, and extended by people and agents, without separate documentation drifting away from reality. See [idea: three layers of metadata](../ideas/metadata-layers.md).
 

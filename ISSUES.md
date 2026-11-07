@@ -29,13 +29,14 @@ The status of every document, and the open issues that affect more than one docu
 | [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) | 🟡 Draft — thresholds `[T]` | TBD |
 | [Glossary](docs/glossary.md) | 🟡 Draft | TBD |
 | [Estate disposition](docs/data/estate-disposition.csv) | 🔴 Header only | TBD |
-| [Use cases & competency questions](docs/data/use-cases.yaml) | 🟡 Draft — 16 use cases, 25 questions, all candidates | TBD |
+| [Use cases & competency questions](docs/data/use-cases.yaml) | 🟡 Draft — 17 use cases, 29 questions, all candidates | TBD |
 | ADRs | — None yet | — |
 | [Idea: Discovery decoupled from inventory](docs/ideas/discovery-decoupled-from-inventory.md) | 🟡 Idea | Matthias |
 | [Idea: Bitemporal, modal inventory](docs/ideas/bitemporal-modal-inventory.md) | 🟡 Idea | Matthias |
 | [Idea: Source of truth dimensions](docs/ideas/source-of-truth-dimensions.md) | 🟡 Idea | Matthias |
 | [Idea: Multi-agent coordination](docs/ideas/multi-agent-coordination.md) | 🟡 Idea | Matthias |
 | [Idea: Extensible fact protocol](docs/ideas/extensible-fact-protocol.md) | 🟡 Idea | Matthias |
+| [Idea: Three layers of metadata](docs/ideas/metadata-layers.md) | 🟡 Idea | Matthias |
 | [Idea: Model and interface standards landscape](docs/ideas/model-standards-landscape.md) | 🟡 Idea — verdicts per layer, no decisions | Matthias |
 
 ## Open Issues
@@ -46,7 +47,7 @@ We are currently working on structure: the shape of the solution, the models, an
 
 | ID | Issue | Where | Next step |
 |---|---|---|---|
-| I-1 | Use cases (UC-1…16) are candidates, not validated | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Review with Network Services |
+| I-1 | Use cases (UC-1 to UC-17) are candidates, not validated | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Review with Network Services |
 | I-2 | Thresholds not set | [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) | Baseline in Phase 1 |
 | I-3 | Domains, owners, and current systems unknown | [Current State](docs/problem/04-current-state-constraints.md) | Estate first pass |
 | I-4 | Constraints (firm-wide standards, platforms, regulatory) not captured | [Current State](docs/problem/04-current-state-constraints.md) | Collect from CFP management |
@@ -59,3 +60,4 @@ We are currently working on structure: the shape of the solution, the models, an
 | I-12 | Policy language not chosen. Important; decide after the policy model (D1) is drafted. | [Standards landscape](docs/ideas/model-standards-landscape.md) | Evaluate candidates against D1 |
 | I-13 | Vision claims not yet covered by requirements: quality and lineage alongside data, answer assembly (access modes: R-11; freshness: R-14) | [Vision](docs/problem/00-vision.md), [Requirements](docs/problem/03-requirements.md) | Add requirements traced to vision claims |
 | I-14 | Boundary between the data layer and the time-series subsystem: how series link to entity identities, and whether the data layer keeps summaries. | [Producers, Consumers, and Extension Points](docs/solution/06-producers-consumers.md) | Discuss with the first domain |
+| I-15 | How the structural (layer 1) models link to one another as layers of a hypergraph, and how that is represented. | [Idea: three layers of metadata](docs/ideas/metadata-layers.md) | Discuss; inspect candidate models |

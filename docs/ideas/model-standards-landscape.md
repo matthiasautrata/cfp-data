@@ -8,6 +8,8 @@ Idea: a survey of candidate standards, not a decision. Decisions will be recorde
 
 "How do we model this?" has no single answer. Standards apply at several different layers, each with its own costs. Adopting a whole technology stack instead of choosing layer by layer is exactly what principle P5 is meant to prevent. This document records the candidates and our current leaning on each, so that future ADRs can refer to one place. A leaning is not a decision.
 
+We prefer to adopt, but do not expect one model to cover everything: the structural layer will more likely be several models linked as layers of a hypergraph ([idea: three layers of metadata](metadata-layers.md)).
+
 ## 1. Device and configuration models
 
 | Standard | Covers | Current leaning |
@@ -55,7 +57,7 @@ High-volume time-series data is treated as a subsystem that we source rather tha
 | Units, time format | UCUM; ISO 8601 | **Adopt** — trivial, prevents silent unit bugs |
 | Metadata registry | ISO/IEC 11179 data element concepts | **Reference** — borrow the definitions, not the process ceremony |
 | Data quality dimensions | [ISO/IEC 25012](../references/iso-25012.md) | **Reference** — shared vocabulary for the Quality success dimension |
-| Lineage events | OpenLineage | **Reference** — only if pipeline lineage becomes a requirement |
+| Lineage events | [OpenLineage](../references/openlineage.md) | **Reference** — only if pipeline lineage becomes a requirement |
 | Catalog vocabulary | DCAT | **Defer** — RDF-based; adopt only if the catalog is RDF anyway |
 
 ## 6. Policy language

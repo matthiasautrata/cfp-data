@@ -269,3 +269,35 @@ use_cases:
         answer_requirements: [dependencies]
         answer: "relationship graph"
         status: candidate
+  - id: UC-17
+    activity: AC-14
+    actor: Data steward
+    need: "Trace data through its structure, flows, rules, and policies"
+    driver: {label: "Idea: three layers of metadata", link: docs/ideas/metadata-layers.md}
+    questions:
+      - id: CQ-26
+        question: "Which producers and streams feed <entity type>, and which consumers subscribe to it?"
+        entities: [entity_type, producer, stream, subscription, consumer]
+        fact_dimensions: [valid_time]
+        answer_requirements: [dependencies]
+        answer: "flow graph from producers to consumers"
+        status: candidate
+      - id: CQ-27
+        question: "Which source facts and events were combined into derived or aggregated fact <X>, by which rule, in which version?"
+        entities: [fact, event, rule]
+        fact_dimensions: [record_time, provenance]
+        answer_requirements: [dependencies]
+        answer: "derivation tree with rule versions"
+        status: candidate
+      - id: CQ-28
+        question: "Which rules and transformations apply to <entity type | stream>, in which versions, and which policies are attached to them?"
+        entities: [rule, transformation, policy, entity_type, stream]
+        fact_dimensions: [valid_time]
+        answer: "list of rules and attached policies, with versions"
+        status: candidate
+      - id: CQ-29
+        question: "What did the schema of <entity type> look like on <date>, and what has changed since?"
+        entities: [entity_type, schema_version]
+        fact_dimensions: [valid_time, record_time]
+        answer: "schema as of the date, with a list of changes"
+        status: candidate
