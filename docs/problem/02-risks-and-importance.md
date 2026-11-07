@@ -2,7 +2,7 @@
 
 ## Why This Matters
 
-If we do not fix network data, the risks compound. Each risk category below is real and current — not hypothetical.
+If we do not fix CFP Network Data, the risks compound. Each risk category below is real and current — not hypothetical.
 
 ### Bad Decisions
 

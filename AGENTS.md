@@ -4,7 +4,7 @@ This file defines how we work in this repo. It is the operating agreement for an
 
 ## Purpose of This Repo
 
-`cfp-data/` houses, under `docs/`, the working documents for the Network Data Target State program: vision, use cases, requirements, principles, architecture, designs, and roadmap. It is a living document set, not a deliverable. Status is always honest; perfection is not required to commit.
+`cfp-data/` houses, under `docs/`, the working documents for the CFP Network Data Target State program: vision, use cases, requirements, principles, architecture, designs, and roadmap. It is a living document set, not a deliverable. Status is always honest; perfection is not required to commit.
 
 ## Language & Style
 

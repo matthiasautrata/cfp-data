@@ -1,6 +1,6 @@
 # Vision
 
-Answers about our network data are available when, where, and how they are needed. We know the state and status of our environment, present and past. Anyone can ask a question and get a timely, accurate, and complete answer — from one place, without assembling it across systems, APIs, and databases.
+Answers about CFP Network Data are available when, where, and how they are needed. We know the state and status of our environment, present and past. Anyone can ask a question and get a timely, accurate, and complete answer — from one place, without assembling it across systems, APIs, and databases.
 
 ## The Claims
 

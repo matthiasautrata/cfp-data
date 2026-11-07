@@ -4,7 +4,7 @@ Target state: [Vision](00-vision.md). This document is the current state and why
 
 ## The One-Liner
 
-**Our network data is fragmented, inconsistent, and untrusted. Every team that needs data builds their own copy, their own model, their own pipeline — and none of them agree.**
+**CFP Network Data is fragmented, inconsistent, and untrusted. Every team that needs data builds their own copy, their own model, their own pipeline — and none of them agree.**
 
 ## The Details
 

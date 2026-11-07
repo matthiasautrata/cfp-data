@@ -1,4 +1,4 @@
-# Network Data — Target State Architecture & Migration
+# CFP Network Data — Target State Architecture & Migration
 
 Working conventions: [`AGENTS.md`](AGENTS.md). Status and open issues: [`ISSUES.md`](ISSUES.md).
 
