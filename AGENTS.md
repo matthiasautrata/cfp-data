@@ -12,6 +12,7 @@ This file defines how we work in this repo. It is the operating agreement for an
 - **Assume a knowledgeable audience.** No background primers on networking, databases, or architecture. Define only terms that are genuinely ambiguous or contested within the team (see [`docs/07-glossary.md`](docs/07-glossary.md)).
 - **No filler.** Every paragraph, every sentence, every word earns its place. If it does not add signal, delete it.
 - **Readable in 5 minutes.** Detail goes into linked sub-documents or ADRs.
+- **No unqualified absolutes in estimates or targets.** Size work as effort: T-shirt for phases and initiatives, points for backlog items. Calendar ranges derive from measured velocity. Thresholds are provisional until baselined.
 - **Standards-first, hype-last.** See principle P7 in [`docs/03-architecture-principles.md`](docs/03-architecture-principles.md).
 - **Tables over prose** for enumerations (risks, principles, success dimensions, platform capabilities). One row per item, concrete values where possible.
 - **Cross-reference by relative path**, never by absolute URL. The document tree is the navigation system.
@@ -27,12 +28,15 @@ This file defines how we work in this repo. It is the operating agreement for an
 | **Roadmap / Plan** | Phasing, dependencies, sequencing | `docs/05-*.md` |
 | **Success criteria** | How we know it worked — concrete, measurable | `docs/06-*.md` |
 | **Glossary** | Terms that cause ambiguity | `docs/07-*.md` |
+| **Idea** | Early thinking: options, sketches, open questions. Not binding. | `docs/ideas/short-name.md` |
 | **ADR** | A specific architectural decision: context, options, choice, rationale, consequences | `docs/adr/NNNN-title.md` |
 | **Reference** | External standard, paper, tool, or pattern that informed a decision | `docs/references/short-name.md` |
 
 ## Decision Log
 
 Every architectural decision gets an ADR in `docs/adr/`. Number sequentially (0001, 0002...). The ADR template is at [`docs/templates/decision-record.md`](docs/templates/decision-record.md).
+
+Most early thinking is not yet a decision. Capture it in `docs/ideas/` first. Ideas may be revised, merged, or dropped. Promote an idea to an ADR only when the team agrees; the idea's status then reads `Promoted to ADR-NNNN`.
 
 Do not record:
 - Project management decisions (sprint scope, meeting cadence).
@@ -73,7 +77,7 @@ Push status-forward alongside content. A draft merged and reviewed becomes 🟢.
 - **Layout.** Document set lives in `docs/`. Root holds only `README.md`, `AGENTS.md`, `CLAUDE.md`.
 - **Markdown only.** No Word, no PDF, no Google Docs. If it cannot be written in markdown it does not belong here.
 - **One thing per file.** A monolith document is a sign of undiscovered structure. Split when a section could stand alone and be cross-referenced.
-- **Files are numbered** (`01-`, `02-`...) only for reading order. Sub-directories (`04-major-areas-of-work/`, `adr/`, `references/`, `templates/`) are unnumbered.
+- **Files are numbered** (`01-`, `02-`...) only for reading order. Sub-directories (`04-major-areas-of-work/`, `adr/`, `ideas/`, `references/`, `templates/`) are unnumbered.
 - **Relative links** (`../02-risks-and-importance.md`), never `https://github.com/...` links within the doc set. External links are fine.
 
 ## Agent Behaviour
@@ -81,10 +85,10 @@ Push status-forward alongside content. A draft merged and reviewed becomes 🟢.
 When an agent (any agent) works in this repo:
 
 1. **Read the current state first.** Load `README.md` for status, then the file you need to modify.
-2. **Check existing ADRs.** Before proposing a decision, verify it has not already been made.
+2. **Check existing ADRs and ideas.** Before proposing a decision, verify it has not already been made or explored.
 3. **Leave status honest.** If you add content to a 🟡 draft, leave it 🟡 unless the user explicitly approves. If you create something new, mark it 🔴 or 🟡 as appropriate.
 4. **Cross-reference.** When you add content that relates to another file, add the relative link. Update the README's status table if you add a new file.
-5. **Record decisions as you go.** If you make a substantive choice, write the ADR the same session. Do not accumulate undocumented decisions.
+5. **Record thinking as you go.** Write substantive choices down the same session: as an idea while open, as an ADR once agreed. Do not create an ADR without the user's agreement.
 6. **Prefer append to rewrite.** Additions are safer than deletions. Rewrite only when the old content is clearly wrong, not just when you would phrase it differently.
 7. **Commit with meaningful messages.** One commit per logical change. The message says what changed, not why the change matters (that lives in the document body).
 8. **Agent instructions live here.** Updates to agent/LLM instructions go into this file. Tool-specific files (`CLAUDE.md`, etc.) only point here.
