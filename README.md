@@ -33,7 +33,7 @@ cfp-data/
     ├── data/                              # CSV / YAML registers: estate, competency questions
     ├── ideas/                             # Early, non-binding thinking
     ├── adr/                               # Agreed decisions (NNNN-title.md)
-    ├── references/                        # External sources
+    ├── references/                        # External sources; README.md is the register
     ├── archive/                           # Superseded material, out of the main flow
     └── templates/
         └── decision-record.md             # ADR template

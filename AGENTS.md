@@ -58,7 +58,7 @@ When a decision references an external source (standard, RFC, paper, tool, blog 
 - **Used by**: ADR-0003 (device model format)
 ```
 
-One file per reference. Keep it minimal — a few lines, not an essay. Link from ADRs, ideas, and solution docs by relative path.
+One file per reference, plus one row in the [register](docs/references/README.md). Keep it minimal — a few lines, not an essay. Link from ADRs, ideas, and solution docs by relative path.
 
 ## Traceability
 
