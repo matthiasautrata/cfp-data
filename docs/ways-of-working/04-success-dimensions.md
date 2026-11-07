@@ -1,8 +1,8 @@
 # Success Dimensions
 
-How we measure whether the target state is better than the current state.
+How we will measure whether the target state is better than the current state.
 
-Every dimension needs a threshold: no KPI, no reliable plan or result. We do not have them yet. `[T]` marks a threshold to be set from a measured baseline (Phase 1); thresholds evolve as the program matures.
+Every dimension needs a threshold: without measurable targets we can neither plan reliably nor show results. We do not have the thresholds yet. `[T]` marks each one. They will be set from a baseline measured in Phase 1, and refined as the program matures.
 
 ---
 
@@ -18,4 +18,4 @@ Every dimension needs a threshold: no KPI, no reliable plan or result. We do not
 | **Adoption** | Teams choose the target platforms over their spreadsheets and point solutions. | % of data consumers using target platforms ≥ `[T]`. Legacy query volume trend ≤ `[T]`. Spreadsheets replaced by automated feeds: count ≤ `[T]`. |
 | **Reconciliation / Source of Truth** | Every attribute declares its oracle and source authority; every fact carries provenance ([idea](../ideas/source-of-truth-dimensions.md)). Conflicts are detected and resolved automatically or through a defined process. | Cross-system conflicts per entity type ≤ `[T]`. Time to resolve a detected conflict ≤ `[T]`. |
 | **Remediations** | Data quality issues are found and fixed proactively, not reactively. | Remediation rate: % of known issues fixed within SLA. Proactive vs. reactive remediation ratio (≥ `[T]` proactive). |
-| **Risk Reduction** | The [consequences](../problem/01-problem-statement.md#consequences) of the current state are materially lower. | Annual risk assessment shows reduction in each category ≥ `[T]`. Audit findings related to data quality ≤ `[T]`. Consequential cost (rework, redundancy, reconciliation, redundant licences and infrastructure) ≤ `[T]` of baseline. |
+| **Risk Reduction** | The [consequences](../problem/01-problem-statement.md#consequences) of the current state are materially lower. | Annual risk assessment shows reduction in each category ≥ `[T]`. Audit findings related to data quality ≤ `[T]`. Consequential cost (rework, redundancy, reconciliation, redundant licenses and infrastructure) ≤ `[T]` of baseline. |

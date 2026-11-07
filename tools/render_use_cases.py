@@ -61,6 +61,10 @@ def code(text):
     return re.sub(r"<([^>]+)>", r"`<\1>`", text)
 
 
+def words(items):
+    return ", ".join(i.replace("_", " ") for i in items) or "—"
+
+
 def link(driver):
     path, _, anchor = driver["link"].partition("#")
     rel = posixpath.relpath(path, posixpath.dirname(DOC))
@@ -76,15 +80,15 @@ def render(data):
         status = "validated" if all(q["status"] == "validated" for q in uc["questions"]) else "candidate"
         out.append(f"| {uc['id']} | {uc['activity']} | {uc['actor']} | {uc['need']} | {qs} | {link(uc['driver'])} | {status} |")
     out += ["", "### Competency Questions", "",
-            "| ID | Use case | Question | Entities | Fact dimensions | Answer requirements | Answer | Status |",
+            "| ID | Use case | Question | Entities | Fact dimensions | Answer requirements | Expected answer | Status |",
             "|---|---|---|---|---|---|---|---|"]
     for uc in data["use_cases"]:
         for q in uc["questions"]:
-            ents = ", ".join(q["entities"])
+            ents = words(q["entities"])
             if q.get("attributes"):
-                ents += " · attributes: " + ", ".join(q["attributes"])
+                ents += "; attributes: " + words(q["attributes"])
             out.append(f"| {q['id']} | {uc['id']} | {code(q['question'])} | {ents} | "
-                       f"{', '.join(q['fact_dimensions']) or '—'} | {', '.join(q.get('answer_requirements', [])) or '—'} | "
+                       f"{words(q['fact_dimensions'])} | {words(q.get('answer_requirements', []))} | "
                        f"{q['answer']} | {q['status']} |")
     return "\n".join(out)
 

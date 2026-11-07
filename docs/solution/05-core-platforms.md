@@ -1,12 +1,14 @@
-# Mapping to Core Platforms
+# Core Platforms
+
+A first sketch of the logical platforms. Names, boundaries, and examples are illustrative; they are not a design.
 
 ## Scope
 
-The concrete platforms that store, serve, and synchronize network data. Three logical categories, potentially multiple physical implementations.
+The platforms that store, serve, and synchronize network data. The sketch has four logical categories: metadata, knowledge, and two kinds of instance data (static and time-series). Each may have several physical implementations.
 
 ---
 
-## Meta-Data Platform
+## Metadata Platform
 
 **Purpose**: Know what data exists, where it lives, what it means.
 
@@ -17,7 +19,7 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 | **Schema registry** | Versioned schemas for each entity type, with field-level documentation. |
 | **Cross-reference index** | Map of identifiers across systems (e.g., device hostname ↔ SNMP sysName ↔ IPAM ID ↔ monitoring ID). |
 
-**Examples**: Data catalog tool, schema registry (e.g., Apicurio, schema registry in Kafka), custom metadata store.
+**Examples**: a data catalog tool, a schema registry (such as Apicurio or a Kafka schema registry), or a custom metadata store.
 
 ---
 
@@ -28,17 +30,17 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 | Capability | Description |
 |---|---|
 | **Graph model** | Entities and their relationships (device ↔ interface ↔ circuit ↔ location). |
-| **Historical view** | Point-in-time snapshots for audit and what-if analysis. |
+| **Historical view** | Point-in-time views for audit and what-if analysis. Whether these come from snapshots or from time-stamped facts is open (issue I-8). |
 | **Policy attachment** | Which policies apply to which entities. |
 | **Query interface** | Structured queries (graph, SQL, API) for consumers. |
 
-**Examples**: Network graph database, CMDB replacement, knowledge graph.
+**Examples**: a network graph database, a CMDB replacement, or a knowledge graph.
 
 ---
 
 ## Instances Platform — Static Data
 
-**Purpose**: Inventory and configuration data. Candidate shape: bitemporal and modal, with current state as a view ([idea](../ideas/bitemporal-modal-inventory.md)).
+**Purpose**: Inventory and configuration data. One candidate shape keeps every fact with its time and modality, and derives the current state as a view ([idea](../ideas/bitemporal-modal-inventory.md)).
 
 | Capability | Description |
 |---|---|
@@ -48,7 +50,7 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 | **Configuration state** | Running and startup configurations, templated vs. actual. |
 | **Software/version catalog** | OS versions, features, licenses, end-of-life tracking. |
 
-**Examples**: IPAM tool, config management database, asset management system.
+**Examples**: an IPAM tool, a configuration management database, or an asset management system.
 
 ---
 
@@ -63,13 +65,13 @@ The concrete platforms that store, serve, and synchronize network data. Three lo
 | **Event logs** | Syslog, SNMP traps, change events, alarm history. |
 | **Performance metrics** | Latency, jitter, packet loss, utilization trends. |
 
-**Examples**: Time-series database (e.g., TimescaleDB, InfluxDB, Prometheus), observability platform.
+**Examples**: a time-series database (such as TimescaleDB, InfluxDB, or Prometheus), or an observability platform.
 
 ---
 
-## Key Cross-Cutting Concerns
+## Open Questions Across Platforms
 
-- **Synchronization**: How do platforms stay consistent? Event-driven? Polling? Periodic reconciliation?
-- **Identity**: How does the same device get the same ID across all four categories?
-- **Access control**: Who can read/write what, enforced consistently across platforms?
-- **Time**: Does Knowledge Platform history derive from bitemporal facts or keep its own snapshots?
+- **Synchronization**: How do the platforms stay consistent: through events, polling, or periodic reconciliation?
+- **Identity**: How does the same device get the same identifier across all four categories?
+- **Access control**: Who may read and write what, and how is that enforced consistently across platforms?
+- **Time**: Is the Knowledge Platform's history derived from time-stamped facts, or does it keep its own snapshots?

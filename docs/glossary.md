@@ -1,39 +1,44 @@
 # Glossary
 
+Terms that are new, specific to this program, or easily misread.
+
 | Term | Definition |
 |---|---|
-| **Activity** | An operational practice that consumes CFP Network Data (`AC-n`), named after ITIL 4 practices. |
-| **Answer requirement** | A constraint on an answer rather than a property of a fact: dependency traversal, freshness. |
-| **Asserted** | Modality: a fact stated by a person or system of record. See [idea](ideas/bitemporal-modal-inventory.md). |
-| **Bitemporal** | A fact carries both valid time and record time. |
-| **Canonical model** | The authoritative definition of an entity type and its attributes: one per entity type. Domains consume projections of it, in the form that suits their work. |
-| **CFP Network Data** | The data describing the network estate owned by Core Foundational Platforms (CFP). The subject of this program. |
-| **Competency question** | A question the data must be able to answer (`CQ-n`). The form of every use case; doubles as an acceptance test. Register: [`use-cases.yaml`](data/use-cases.yaml). |
-| **Contract** | The published, versioned interface through which a source or consumer connects (P2): schema, semantics, and service terms. |
-| **Data platform** | A system that stores, serves, and manages a category of network data. Part of the target architecture. |
-| **Discovered** | Modality: a fact observed by a discovery mechanism. |
-| **Discovery** | Observing the network to produce facts. Proposed as separate from inventory ([idea](ideas/discovery-decoupled-from-inventory.md)). |
-| **Effort size** | T-shirt estimate (S, M, L, XL) for a phase or initiative. Not a duration. |
-| **Entity** | A thing we model: device, interface, circuit, location, service, customer, policy, etc. |
-| **Estate** | The complete set of data sources, stores, and pipelines that exist today (legacy + target). |
-| **Freshness** | Maximum age of a fact when served, against threshold `[T]` (R-14). An answer requirement, not a fact dimension. |
-| **Idea** | Early, non-binding thinking in `ideas/`. Promoted to an ADR when agreed. |
-| **Inventory** | Curated record of what exists, existed, or is planned. |
-| **Knowledge platform** | The system that holds the curated, relational, historical view of the network. The "what we know" layer. |
-| **Lifecycle dates** | Asset attributes such as support expiration date (R-12). Attributes, not fact dimensions. |
-| **Metadata registry** | The system that tells you what data exists, where it lives, and what it means. The "map" of the data ecosystem. |
-| **Modality** | The basis on which a fact is held: discovered, asserted, or planned. |
-| **Oracle authority** | Who decides what is true for an attribute (device, control plane, person, planning system). |
-| **Planned** | Modality: a fact stating intent — a desired or future state (P4). |
+| **Activity** | An operational practice that uses CFP Network Data, such as incident management or capacity planning (`AC-n`). Most are named after ITIL 4 practices. |
+| **ADR** | Architecture decision record: a short document that records one decision the team has agreed. Kept in `adr/`. |
+| **Answer requirement** | A need that applies to an answer rather than to a stored fact, such as following dependencies, or a limit on how old the data may be (freshness). |
+| **Asserted** | A modality: the fact was stated by a person or by a system of record. See the [idea](ideas/bitemporal-modal-inventory.md). |
+| **Bitemporal** | Recording two times for each fact: when it is true in the network (valid time), and when we held it in our records (record time). |
+| **Canonical model** | The agreed definition of an entity type and its attributes. There is one per entity type; each domain works with a view of it that suits its needs. |
+| **CFP Network Data** | The data that describes the network estate run by Core Foundational Platforms (CFP). The subject of this program. |
+| **Competency question** | A concrete question the data must be able to answer (`CQ-n`). Use cases are described by them, and each one doubles as an acceptance test. All are kept in [`use-cases.yaml`](data/use-cases.yaml). |
+| **Contract** | The published, versioned interface through which a source or consumer connects. It covers the schema, the meaning of the data, and the service terms (principle P2). |
+| **Data platform** | A system that stores, serves, and manages one category of network data, as part of the target architecture. |
+| **Discovered** | A modality: the fact was observed by a discovery mechanism. |
+| **Discovery** | Observing the network to produce facts. Current thinking keeps it separate from inventory ([idea](ideas/discovery-decoupled-from-inventory.md)). |
+| **Effort size** | A T-shirt estimate (S, M, L, XL) for a phase or initiative. It is not a duration. |
+| **Entity** | A kind of thing we hold data about, such as a device, interface, circuit, location, service, or policy. |
+| **Estate** | All the data sources, stores, and pipelines that exist today, old and new. |
+| **Freshness** | The maximum age of a fact when it is served, measured against a threshold `[T]` (R-14). An answer requirement, not a fact dimension. |
+| **Idea** | Thinking in progress, kept in `ideas/`. Not binding. An idea becomes an ADR once the team agrees. |
+| **Inventory** | The curated record of what exists, what has existed, and what is planned. |
+| **Knowledge platform** | The platform that holds the curated, connected, historical view of the network: "what we know". |
+| **KPI** | Key performance indicator: a measure with a threshold, used to track a success dimension. |
+| **Lifecycle dates** | Asset attributes such as the support expiration date (R-12). They are ordinary attributes, not fact dimensions. |
+| **Metadata registry** | The system that records what data exists, where it is held, and what it means: the map of the data. |
+| **Modality** | How we know a fact: it was discovered, asserted, or planned. |
+| **Oracle authority** | Whoever decides the true value of an attribute: for example a device, a control plane, a person, or a planning system. |
+| **Planned** | A modality: the fact describes an intended or future state (principle P4). |
 | **Platform** | See *Data platform*. |
-| **Points** | Team-relative effort for a backlog item. Converts to time only via measured velocity. |
-| **Provenance** | The recorded path by which a specific fact arrived: collector, origin system, time. |
-| **Reconciliation** | The process of comparing data across sources to detect and resolve conflicts. |
-| **Record time** | When we held a fact. Also called transaction or system time. |
-| **Source authority** | The system authoritative for holding and serving an attribute (e.g. the inventory system). |
-| **Source of truth** | Not one thing. Splits into oracle authority, source authority, and provenance ([idea](ideas/source-of-truth-dimensions.md)). |
-| **Strangler fig pattern** | A migration pattern where new capabilities are built alongside existing systems; traffic gradually shifts to the new system; the old system is retired when empty. |
-| **Target architecture** | The desired future state of the data ecosystem, as defined by this program. |
-| **Telemetry (data ecosystem)** | Observability of the data platforms themselves: uptime, sync latency, quality metrics, pipeline health. |
-| **Threshold** | The value a KPI must meet. Required for every success dimension; set from a measured baseline. |
-| **Valid time** | When a fact is true in the network. Also called application or business time. |
+| **Points** | A team-relative effort estimate for a backlog item. Points convert to time only through measured velocity. |
+| **Provenance** | The recorded path by which a particular fact arrived: which collector, from which system, and when. |
+| **Reconciliation** | Comparing data across sources to find and resolve conflicts. |
+| **Record time** | When we held a fact in our records. Also called transaction time or system time. |
+| **Source authority** | The system that is authoritative for holding and serving an attribute, such as the inventory system. |
+| **Source of truth** | Not a single concept here. It splits into oracle authority, source authority, and provenance ([idea](ideas/source-of-truth-dimensions.md)). |
+| **Strangler fig pattern** | A migration pattern: new capabilities are built alongside existing systems, use shifts gradually to the new system, and the old system is retired once nothing depends on it. |
+| **Target architecture** | The future state of the data landscape that this program aims for. |
+| **Telemetry (data platforms)** | Monitoring of the data platforms themselves: uptime, synchronization delay, quality measures, and pipeline health. |
+| **Threshold** | The value a KPI must reach. Every success dimension needs one; each is set from a measured baseline. |
+| **Use case** | A need of a specific actor in a specific activity (`UC-n`), described by one or more competency questions. |
+| **Valid time** | When a fact is true in the network. Also called application time or business time. |

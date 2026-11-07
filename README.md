@@ -1,48 +1,71 @@
-# CFP Network Data — Target State Architecture & Migration
+# CFP Network Data — Target State Architecture and Migration
 
-Working conventions: [`AGENTS.md`](AGENTS.md). Status and open issues: [`ISSUES.md`](ISSUES.md).
+This repository holds the working documents for the CFP Network Data program: where we want to go, why, and how we plan to get there.
+
+Everything here is a draft. We are still collecting the questions the data must answer, so most answers are provisional and will change. Status of each document: [`ISSUES.md`](ISSUES.md). How we work, for people and AI agents alike: [`AGENTS.md`](AGENTS.md).
+
+## Where to Start
+
+Read the vision and the problem statement first. Then read the use cases: they say who needs what, and everything else follows from them.
+
+| If you want to know… | Read |
+|---|---|
+| Where we want to go | [Vision](docs/problem/00-vision.md) |
+| What is wrong today, and what it costs | [Problem Statement](docs/problem/01-problem-statement.md) |
+| Who needs what, and which questions the data must answer | [Stakeholders and Use Cases](docs/problem/02-stakeholders-use-cases.md) |
+| What the system must do | [Requirements](docs/problem/03-requirements.md) |
+| What we know about today's systems and constraints | [Current State and Constraints](docs/problem/04-current-state-constraints.md) |
+| The rules we design by | [Principles](docs/solution/01-principles.md) |
+| The current working shape of the solution | [Conceptual Model](docs/solution/02-conceptual-model.md) |
+| How we plan to deliver, and how we will measure success | [Roadmap](docs/ways-of-working/01-roadmap.md), [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) |
+| What is still open | [`ISSUES.md`](ISSUES.md) |
+| What a term means | [Glossary](docs/glossary.md) |
+
+## Conventions
+
+- **IDs.** Items carry short IDs so that other documents can refer to them: `UC` use case, `CQ` competency question, `R` functional requirement, `Q` quality requirement, `P` principle, `AC` activity, `I` open issue. Roadmap initiatives are lettered A to G. Each document that defines IDs explains them.
+- **`[T]`** marks a threshold we know we need but have not yet set.
+- **Ideas** in `docs/ideas/` are thinking in progress. **ADRs** (architecture decision records) in `docs/adr/` record decisions the team has agreed. There are no ADRs yet.
 
 ## Document Map
 
 ```
 cfp-data/
-├── README.md                              # This file — map and navigation
-├── AGENTS.md                              # Working conventions (humans + agents)
-├── CLAUDE.md                              # Pointer to AGENTS.md
-├── ISSUES.md                              # Document status, cross-cutting issues
-├── tools/                                 # Validate and render generated doc sections
+├── README.md                              # This file
+├── AGENTS.md                              # How we work (people and AI agents)
+├── CLAUDE.md                              # Points to AGENTS.md
+├── ISSUES.md                              # Document status and open issues
+├── tools/                                 # Scripts that check and generate parts of the documents
 └── docs/
-    ├── problem/                           # Where to, why, for whom, what
+    ├── problem/                           # Where we want to go, why, and for whom
     │   ├── 00-vision.md
     │   ├── 01-problem-statement.md        # Current state, consequences, cost
-    │   ├── 02-stakeholders-use-cases.md   # UC-n
-    │   ├── 03-requirements.md             # R-n, Q-n; trace matrix UC → R → P
+    │   ├── 02-stakeholders-use-cases.md   # Stakeholders, activities, use cases
+    │   ├── 03-requirements.md             # Requirements, traced to use cases and principles
     │   └── 04-current-state-constraints.md
-    ├── solution/                          # How
-    │   ├── 01-principles.md               # Pn
-    │   ├── 02-conceptual-model.md         # The shape; ideas settle here
+    ├── solution/                          # How we intend to solve it
+    │   ├── 01-principles.md
+    │   ├── 02-conceptual-model.md         # Working shape of the solution
     │   ├── 03-models-policy-governance.md
     │   ├── 04-process-rules-activities.md
     │   ├── 05-core-platforms.md
     │   └── 06-supporting-features.md
-    ├── ways-of-working/                   # How we execute
+    ├── ways-of-working/                   # How we execute the program
     │   ├── 01-roadmap.md                  # Initiatives, phases, sizing
-    │   ├── 02-migration.md                # Per-domain migration cycle
-    │   ├── 03-risk-register.md            # Risks of doing
-    │   └── 04-success-dimensions.md       # KPIs and thresholds
+    │   ├── 02-migration.md                # How each domain migrates
+    │   ├── 03-risk-register.md            # Risks of running the program
+    │   └── 04-success-dimensions.md       # Measures and thresholds
     ├── glossary.md
-    ├── data/                              # CSV / YAML registers: estate, use cases + competency questions
-    ├── ideas/                             # Early, non-binding thinking
-    ├── adr/                               # Agreed decisions (NNNN-title.md)
-    ├── references/                        # External sources; README.md is the register
-    ├── archive/                           # Superseded material, out of the main flow
+    ├── data/                              # Structured registers (CSV, YAML): estate, use cases
+    ├── ideas/                             # Thinking in progress
+    ├── adr/                               # Agreed decisions
+    ├── references/                        # External sources; README.md lists them all
+    ├── archive/                           # Superseded material
     └── templates/
         └── decision-record.md             # ADR template
 ```
 
----
-
-## Key Relationships
+## How the Documents Relate
 
 ```mermaid
 flowchart LR
@@ -61,21 +84,18 @@ flowchart LR
     I -.promoted to.-> ADR[ADRs]
 ```
 
----
+## Topics
 
-## Quick Reference — Inputs Mapped to Structure
-
-| Your input | Lives in |
+| Topic | Where |
 |---|---|
-| Who needs what | [Stakeholders & Use Cases](docs/problem/02-stakeholders-use-cases.md) |
-| "Define data we need" | [Conceptual Model](docs/solution/02-conceptual-model.md), [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
-| "Decide what stays and what goes" | [Migration](docs/ways-of-working/02-migration.md), [estate matrix](docs/data/estate-disposition.csv) |
-| "Make data discoverable" | [Supporting Features](docs/solution/06-supporting-features.md) (Discovery) |
-| "Govern by policy" | [P6](docs/solution/01-principles.md), [Models, Policy & Governance](docs/solution/03-models-policy-governance.md) |
-| "Trusted, resilient data" | [Core Platforms](docs/solution/05-core-platforms.md), [Q-1](docs/problem/03-requirements.md) |
-| "Observe the network" | [Supporting Features](docs/solution/06-supporting-features.md) (Telemetry) |
-| "Enabler and adoption" | [Process, Rules & Activities](docs/solution/04-process-rules-activities.md), [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) |
-| AI readiness | [Stakeholders & Use Cases](docs/problem/02-stakeholders-use-cases.md) (three roles), [P9, P10](docs/solution/01-principles.md) |
+| Defining the data we need | [Conceptual Model](docs/solution/02-conceptual-model.md), [Models, Policy and Governance](docs/solution/03-models-policy-governance.md) |
+| Deciding what stays and what goes | [Migration](docs/ways-of-working/02-migration.md), [estate register](docs/data/estate-disposition.csv) |
+| Making data discoverable | [Supporting Features](docs/solution/06-supporting-features.md) (Discovery) |
+| Governing by policy | [Principles](docs/solution/01-principles.md) (P6), [Models, Policy and Governance](docs/solution/03-models-policy-governance.md) |
+| Trusted, resilient data | [Core Platforms](docs/solution/05-core-platforms.md), [Requirements](docs/problem/03-requirements.md) (Q-1) |
+| Observing the network | [Supporting Features](docs/solution/06-supporting-features.md) (Telemetry) |
+| Enablement and adoption | [Process, Rules and Activities](docs/solution/04-process-rules-activities.md), [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) |
+| AI readiness | [Stakeholders and Use Cases](docs/problem/02-stakeholders-use-cases.md) (AI in three roles), [Principles](docs/solution/01-principles.md) (P9, P10) |
 | Topology, infrastructure assets, metadata registry | [Core Platforms](docs/solution/05-core-platforms.md) |
-| Keep existing infrastructure alive | [Migration](docs/ways-of-working/02-migration.md) |
-| State and intent is declarative | [P4](docs/solution/01-principles.md) |
+| Keeping existing systems running | [Migration](docs/ways-of-working/02-migration.md) |
+| Declarative state and intent | [Principles](docs/solution/01-principles.md) (P4) |

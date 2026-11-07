@@ -1,8 +1,10 @@
-# Current State & Constraints
+# Current State and Constraints
+
+This document collects facts about today's systems, their owners, and the constraints we must work within. Most of it is still empty: it will be filled in during the first pass over the estate (issues I-3 and I-4).
 
 ## Domains
 
-Candidate domains, from [Core Platforms](../solution/05-core-platforms.md). Systems and owners to be filled in during the estate first pass.
+Candidate domains, taken from [Core Platforms](../solution/05-core-platforms.md).
 
 | Domain | Current systems | Owner | Notes |
 |---|---|---|---|
@@ -19,7 +21,7 @@ Candidate domains, from [Core Platforms](../solution/05-core-platforms.md). Syst
 
 ## Estate
 
-Per-source disposition lives in [`estate-disposition.csv`](../data/estate-disposition.csv) (initiative B).
+The decision for each data source (keep, migrate, retire) will be recorded in [`estate-disposition.csv`](../data/estate-disposition.csv), as part of initiative B.
 
 ## Constraints
 
@@ -34,5 +36,5 @@ Per-source disposition lives in [`estate-disposition.csv`](../data/estate-dispos
 ## Non-Goals
 
 - Not a monolith ([P1](../solution/01-principles.md)).
-- Not a reorg: we change how data is modelled, governed, and shared, not who does what.
-- TBD
+- Not a reorganization: we change how data is modeled, governed, and shared, not who does what.
+- Further non-goals: to be agreed.

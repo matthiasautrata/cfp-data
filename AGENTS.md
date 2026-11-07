@@ -8,7 +8,9 @@ This file defines how we work in this repo. It is the operating agreement for an
 
 ## Language & Style
 
-- **Precise engineering language.** Favour short words, short sentences, short paragraphs. If a concept needs a paragraph to explain, the concept needs rewriting — not the paragraph.
+- **Written for people.** These are working documents for colleagues, not specifications for machines. Write complete, plain sentences. Name a principle, requirement, or initiative in words the first time a document refers to it, not only by its ID. Avoid arrows and symbols in prose. Use American English.
+- **Working, not final.** We are still collecting the questions. State current thinking as current thinking, mark what is open, and do not present an assumption as a decision.
+- **Precise engineering language.** Favor short words, short sentences, short paragraphs. If a concept needs a paragraph to explain, the concept needs rewriting — not the paragraph.
 - **Assume a knowledgeable audience.** No background primers on networking, databases, or architecture. Define only terms that are genuinely ambiguous or contested within the team (see [`glossary.md`](docs/glossary.md)).
 - **Current truth only.** A document states what is valid now. No strikethrough chains, no "formerly P7", no superseded sections left inline. History lives in [`archive/`](docs/archive/).
 - **No filler.** Every paragraph, every sentence, every word earns its place. If it does not add signal, delete it.
@@ -54,7 +56,7 @@ When a decision references an external source (standard, RFC, paper, tool, blog 
 
 - **Home**: https://openconfig.net/
 - **Key documents**: [Model catalog](https://openconfig.net/models/)
-- **Relevance**: Primary candidate for device model standardisation
+- **Relevance**: Primary candidate for device model standardization
 - **Used by**: ADR-0003 (device model format)
 ```
 
@@ -81,7 +83,7 @@ Push status forward alongside content. A draft merged and reviewed becomes 🟢.
 - **Files are numbered** (`01-`, `02-`...) within a band, only for reading order. Directories are unnumbered.
 - **Relative links** (`../problem/01-problem-statement.md`), never `https://github.com/...` links within the doc set. External links are fine.
 
-## Agent Behaviour
+## Agent Behavior
 
 When an agent (any agent) works in this repo:
 

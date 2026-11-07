@@ -1,6 +1,6 @@
 # References Register
 
-One file per external source. Each file holds home, key concepts, relevance, and where it is used. This register lists them; it does not repeat their content. Working stance on modelling and interface standards: [standards landscape](../ideas/model-standards-landscape.md).
+One file per external source. Each file holds home, key concepts, relevance, and where it is used. This register lists them; it does not repeat their content. Working stance on modeling and interface standards: [standards landscape](../ideas/model-standards-landscape.md).
 
 | Reference | Kind | Area |
 |---|---|---|
@@ -11,7 +11,7 @@ One file per external source. Each file holds home, key concepts, relevance, and
 | [TM Forum eTOM](tmf-etom.md) | Framework | Operator process map |
 | [TM Forum SID and Open APIs](tmf-sid.md) | Framework | Telecom information model |
 | [FCAPS — ITU-T M.3400](fcaps-m3400.md) | Standard | Network management functions |
-| [YANG 1.1](yang-rfc7950.md) | Standard | Device modelling language |
+| [YANG 1.1](yang-rfc7950.md) | Standard | Device modeling language |
 | [RFC 8342 — NMDA](rfc8342.md) | Standard | Datastores: intended vs operational |
 | [RFC 8345 — Network Topologies](rfc8345.md) | Standard | Topology model |
 | [RFC 9315 — Intent-Based Networking](rfc9315-ibn.md) | Standard (informational) | Intent |

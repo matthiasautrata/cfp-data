@@ -1,4 +1,6 @@
-# Models, Policy & Governance
+# Models, Policy and Governance
+
+This document outlines a work area. It lists topics and open questions, not decisions.
 
 ## Scope
 
@@ -12,12 +14,12 @@ What data we model, how we name it, what it means, who owns it, and what rules a
 - Relationship model: how entities connect, contain, depend on each other.
 - Extensibility: how teams add domain-specific attributes without breaking the core model.
 - Versioning and evolution: how models change over time without breaking consumers.
-- Temporal and modal dimensions: valid time, record time, and basis (discovered, asserted, planned). See [idea](../ideas/bitemporal-modal-inventory.md).
+- Time and modality: when a fact is true, when we recorded it, and how we know it (discovered, asserted, or planned). See the [idea](../ideas/bitemporal-modal-inventory.md).
 
 ### Metadata Registry
 
 - What metadata exists, where it lives, what it means.
-- Registry of registries: the system that tells you where to find each data type.
+- Registry of registries: where to find each type of data.
 - Cross-referencing: how the same device is identified across IPAM, monitoring, CMDB, and vendor tools.
 
 ### Policy Engine
@@ -26,7 +28,7 @@ What data we model, how we name it, what it means, who owns it, and what rules a
 - Policy categories: naming conventions, classification, retention, access control, quality thresholds.
 - Policy lifecycle: authoring, testing, deployment, auditing.
 - Enforcement model: at ingestion, at query time, at reporting time.
-- Sequencing (P6): the policy model is designed with the data model in Phase 0; enforcement follows ([Initiatives & Roadmap](../ways-of-working/01-roadmap.md)).
+- Sequencing (principle P6): the policy model is designed with the data model in Phase 0; enforcement comes later ([roadmap](../ways-of-working/01-roadmap.md)).
 
 ### Governance
 
@@ -37,6 +39,6 @@ What data we model, how we name it, what it means, who owns it, and what rules a
 
 ## Key Questions
 
-- Do we adopt or adapt an existing model (e.g., OpenConfig, YANG, TMF SID, SNMP MIB structure) or define our own?
+- Do we adopt or adapt an existing model (for example OpenConfig, YANG, TM Forum SID, or the SNMP MIB structure), or define our own? The [standards landscape](../ideas/model-standards-landscape.md) collects the options.
 - What is the minimum viable set of entities we must model to break the current fragmentation?
 - How do we handle entities that exist in multiple sources with conflicting attributes?

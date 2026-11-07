@@ -1,26 +1,26 @@
 # Initiatives & Roadmap
 
-Phasing lives here. How each domain migrates: [Migration Cycle](02-migration.md).
+A draft plan. It sets out the initiatives and the phases in which we expect to deliver them. Initiatives, phases, and exit criteria will change as the use cases and the estate become better understood. How each domain migrates is described in [Migration](02-migration.md).
 
 ## Initiatives
 
 ### A. Define Data We Need
 
-What entities, attributes, and relationships must we model to run the network? The foundational modelling exercise, including temporal and modal dimensions ([idea](../ideas/bitemporal-modal-inventory.md)).
+Which entities, attributes, and relationships must we model to run the network? This is the foundational modeling work, including how we record time and modality ([idea](../ideas/bitemporal-modal-inventory.md)).
 
 **Depends on**: Nothing. Co-designed with D1.
-**Output**: Canonical model v1 for the core entity types (expected 10–15).
+**Output**: Canonical model v1 for the core entity types (first estimate: 10 to 15).
 
 ### B. Decide What Stays and What Goes
 
-Inventory every current data source and classify: keep, migrate, retire, or deprecate.
+List every current data source and decide for each: keep, migrate, retire, or deprecate.
 
-**Depends on**: A for the target. Runs alongside A: the estate first pass informs the model.
-**Output**: Estate disposition matrix. First pass in Phase 0; refined per domain.
+**Depends on**: A, for the target. Runs alongside A, because the first pass over the estate informs the model.
+**Output**: The estate register, with a decision per source. First pass in Phase 0; refined domain by domain.
 
 ### C. Make Data Discoverable
 
-Metadata registry + search/query interface so anyone can find what data exists and where to get it.
+A metadata registry, with search and query, so that anyone can find what data exists and where to get it.
 
 **Depends on**: A (what we index), B (what exists).
 **Output**: Registry structure in Phase 0; populated per domain.
@@ -29,7 +29,7 @@ Metadata registry + search/query interface so anyone can find what data exists a
 
 How policy is expressed, attached to entities and data elements, and evidenced. Categories: ownership, classification, naming, retention, access, quality.
 
-**Depends on**: Co-designed with A (P6).
+**Depends on**: Designed together with A (principle P6).
 **Output**: Policy model v1; ownership and classification policies for the first domain.
 
 ### D2. Policy Enforcement
@@ -50,7 +50,7 @@ Data quality monitoring, reconciliation, drift detection, and automated remediat
 
 Telemetry and observability for both the network and the data ecosystem itself.
 
-**Depends on**: E (a quality baseline makes observability meaningful).
+**Depends on**: E, because observability means little without a quality baseline.
 **Output**: Observability for network data health.
 
 ### G. Enable & Adopt
@@ -71,19 +71,19 @@ Training, documentation, self-service tooling, community model, onboarding proce
 | **2: Expand** | Migration cycle per further domain, by value and independence | A–E per domain; D2 (first policy set) | Per domain as Phase 1; first policies enforced |
 | **3: Integrate, Govern, Observe** | Cross-domain integration, enforcement at scale, telemetry, adoption at scale | D2, F, G | Measured against [Success Dimensions](04-success-dimensions.md) |
 
-Each phase delivers usable output before the next begins. Structure is designed early (P8, P6); detail arrives in increments.
+Each phase delivers something usable before the next begins. Structure is designed early (principles P8 and P6); detail is added in increments.
 
 ## Sizing
 
-Effort, not calendar time.
+We estimate effort, not calendar time.
 
 | Level | Unit | Set when |
 |---|---|---|
 | Phase, initiative | T-shirt (S, M, L, XL) | At phase start, after the estate first pass sizes scope |
 | Backlog item | Points (team-relative) | At refinement |
-| Calendar | Range derived from points ÷ measured velocity | After velocity is measured over several increments |
+| Calendar | A range, derived from points and measured velocity | Once velocity has been measured over several increments |
 
-Estimates are conservative and revised at each phase gate.
+Estimates are conservative and are revised at the end of each phase.
 
 ## Choosing the First Domain
 

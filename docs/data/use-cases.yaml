@@ -157,7 +157,7 @@ use_cases:
         question: "Which contracts exist, in which versions, and which sources and consumers use each?"
         entities: [contract, source, consumer]
         fact_dimensions: [valid_time]
-        answer: "contract catalogue with users per version"
+        answer: "contract catalog with users per version"
         status: candidate
   - id: UC-10
     activity: AC-3

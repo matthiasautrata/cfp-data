@@ -1,8 +1,10 @@
-# Process, Rules & Activities
+# Process, Rules and Activities
+
+This document outlines a work area. It lists topics and open questions, not decisions.
 
 ## Scope
 
-How data moves from source to consumer — the workflows, automation, and human activities that keep the data ecosystem healthy.
+How data moves from source to consumer: the workflows, automation, and human activities that keep the data healthy.
 
 ## Sub-Areas
 
@@ -17,7 +19,7 @@ How data moves from source to consumer — the workflows, automation, and human 
 
 - How data changes are propagated across platforms.
 - Impact analysis: "if I change this IP, what breaks?"
-- Approval gates for sensitive changes.
+- Approval steps for sensitive changes.
 
 ### Reconciliation
 
@@ -33,6 +35,6 @@ How data moves from source to consumer — the workflows, automation, and human 
 
 ## Key Questions
 
-- What is the expected latency from "data changes in source" to "data is correct in all platforms"?
+- How long may it take from a change in a source until the data is correct on every platform?
 - How do we handle systems that cannot participate in real-time data sharing?
-- What is the minimum viable automation before we see adoption?
+- How much automation is needed before teams start to adopt the platforms?

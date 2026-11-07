@@ -1,4 +1,6 @@
-# Status & Issues
+# Status and Issues
+
+The status of every document, and the open issues that affect more than one document.
 
 ## Status
 
@@ -37,9 +39,9 @@
 
 ## Open Issues
 
-Cross-cutting issues only. Questions local to one document stay in that document's Key Questions. Gaps in numbering are retired IDs.
+Only issues that affect more than one document are listed here; questions about a single document stay in that document. Gaps in the numbering are retired IDs.
 
-Current phase is structure: shape, models, conventions. Facts from the ground — systems, owners, domains, actor membership — arrive with the estate first pass. Issues that need those facts are marked *deferred*.
+We are currently working on structure: the shape of the solution, the models, and our conventions. Facts about today's systems, owners, and domains will come from the first pass over the estate. Issues that depend on those facts are marked *deferred*.
 
 | ID | Issue | Where | Next step |
 |---|---|---|---|
@@ -51,7 +53,7 @@ Current phase is structure: shape, models, conventions. Facts from the ground �
 | I-6 | Effort sizes not set | [Roadmap](docs/ways-of-working/01-roadmap.md) | Size at Phase 0 start |
 | I-7 | Precedence when modalities or oracles disagree | [Ideas](docs/ideas/source-of-truth-dimensions.md) | Discuss |
 | I-8 | Knowledge Platform history: derived or snapshots? | [Core Platforms](docs/solution/05-core-platforms.md) | Discuss |
-| I-9 | Trace matrix mixes two kinds of principle. System properties (P1, P2, P4, P6, P7, P9, P10) and decision/sequencing rules (P3, P5, P8) are traced uniformly, producing weak traces: R-2 → P8, R-6 → P7, Q-1 → P1. | [Requirements](docs/problem/03-requirements.md), [Principles](docs/solution/01-principles.md) | Split the principles table into two groups, or add a trace strength column |
-| I-10 | Actors map to stakeholders through activity owners (AC-n); owners not yet named. **Deferred** — needs organisational facts. | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Map during use-case validation with Network Services |
+| I-9 | The principles mix two kinds: properties of the system (P1, P2, P4, P6, P7, P9, P10) and rules for how we decide or sequence work (P3, P5, P8). The requirements table treats them alike, which produces weak links, for example R-2 to P8, R-6 to P7, and Q-1 to P1. | [Requirements](docs/problem/03-requirements.md), [Principles](docs/solution/01-principles.md) | Split the principles table into two groups, or add a trace strength column |
+| I-10 | Actors map to stakeholders through activity owners (AC-n); owners not yet named. **Deferred** — needs organizational facts. | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Map during use-case validation with Network Services |
 | I-12 | Policy language not chosen. Important; decide after the policy model (D1) is drafted. | [Standards landscape](docs/ideas/model-standards-landscape.md) | Evaluate candidates against D1 |
 | I-13 | Vision claims not yet covered by requirements: quality and lineage alongside data, answer assembly (access modes: R-11; freshness: R-14) | [Vision](docs/problem/00-vision.md), [Requirements](docs/problem/03-requirements.md) | Add requirements traced to vision claims |

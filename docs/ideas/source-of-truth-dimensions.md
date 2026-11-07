@@ -2,13 +2,13 @@
 
 ## Status
 
-Idea — under discussion. Promote to an ADR when agreed.
+Idea, under discussion. It becomes an ADR once the team agrees.
 
 ## Context
 
-"Every element has exactly one source of truth" conflates three questions. A fact can be authoritative in one sense and not in another.
+The rule "every element has exactly one source of truth" mixes up three different questions. A system can be authoritative in one sense and not in another.
 
-Example — configured memory of a host. It can come from Linux config, Windows config, or one of several cloud config systems. The host or its control plane decides the value. The inventory system is where consumers get it. The path differs per host.
+Example: the configured memory of a host. It can come from Linux configuration, Windows configuration, or one of several cloud configuration systems. The host, or its control plane, decides the value. The inventory system is where consumers get it. The path by which it arrives differs from host to host.
 
 ## Proposal
 
@@ -18,7 +18,7 @@ Example — configured memory of a host. It can come from Linux config, Windows 
 | **Source authority** | Which system is authoritative for holding and serving the fact? | The inventory system |
 | **Provenance** | Exactly how did this value get here? | Collector X read Linux config on host H at time *t*; or cloud API Y for instance I |
 
-Authority is declared per entity type and attribute, and may differ per modality ([idea: bitemporal, modal inventory](bitemporal-modal-inventory.md)):
+Authority is declared for each entity type and attribute, and may differ by modality ([idea: record time and modality](bitemporal-modal-inventory.md)):
 
 | Modality | Typical oracle |
 |---|---|
@@ -30,15 +30,15 @@ Provenance is recorded per fact, not per entity type.
 
 ## Trade-offs
 
-- Gains: conflicts become explainable (which oracle, which path); one attribute can have several legitimate origins; source authority can move during migration without losing provenance.
-- Costs: authority declarations to maintain in the registry ([Mapping to Core Platforms](../solution/05-core-platforms.md)); per-fact provenance adds volume.
+- Gains: conflicts can be explained (which authority, which path); one attribute can legitimately come from several places; source authority can move during migration without losing provenance.
+- Costs: authority declarations must be maintained in the registry ([Core Platforms](../solution/05-core-platforms.md)); provenance for every fact adds volume.
 - Prior art: [W3C PROV](../references/prov.md) (entity, activity, agent) for the provenance dimension.
 
 ## Open Questions
 
-- Granularity of provenance: per fact, per batch, or per collection run?
-- Precedence when two oracles disagree for the same modality.
-- Is oracle authority policy (D1), model (A), or both?
+- How fine-grained should provenance be: per fact, per batch, or per collection run?
+- Which oracle wins when two disagree for the same modality?
+- Is oracle authority part of the policy model (initiative D1), the data model (initiative A), or both?
 
 ## How We Would Check
 

@@ -1,8 +1,8 @@
 # Architecture Principles
 
-These principles guide every decision in this program. A proposal that violates a principle carries a heavy burden of proof.
+These principles guide the decisions in this program. A proposal that breaks a principle needs a strong argument.
 
-Each principle covers one concern. Which requirements each principle serves is recorded once, in the [trace matrix](../problem/03-requirements.md).
+The principles are drafts. Each covers one concern. Which requirements each principle supports is recorded once, in the [requirements](../problem/03-requirements.md) table.
 
 | ID | Principle | Concern |
 |---|---|---|
@@ -16,29 +16,29 @@ Each principle covers one concern. Which requirements each principle serves is r
 | P8 | Structure First, Detail Later | Design sequencing |
 | P9 | API-First, Agent-Accessible | Access |
 | P10 | Deterministic Core, Agentic Edge | Where agents act |
-| P11 | Question-Driven Modelling | Model scope |
+| P11 | Question-Driven Modeling | Model scope |
 
 ---
 
 ### P1. Separation of Concerns
 
-Each component does one thing well. A metadata registry does not also serve time-series data. A topology service does not also enforce policy. No single database, service, or vendor owns all network data.
+Each component does one job well. A metadata registry does not also serve time-series data; a topology service does not also enforce policy. No single database, service, or vendor holds all network data.
 
-> **Rationale**: Focused components are replaceable, testable, and understandable. A monolith follows from violating this principle; it also concentrates control in one team, which becomes a bottleneck.
+> **Rationale**: Focused components are easier to understand, test, and replace. A monolith is what happens when this principle is ignored, and it concentrates control in one team, which then becomes a bottleneck.
 
 ---
 
 ### P2. Contract-First Interfaces
 
-Every interface is defined by contract, not by product. Adapters live at the boundaries, not in the core. A new source or consumer connects through a contract, not custom code. A platform that cannot expose its data and functions through open, documented interfaces is disqualified.
+Every interface is defined by a contract, not by a product. Adapters sit at the boundaries, not in the core. A new source or consumer connects through a contract, not through custom code. A platform that cannot expose its data and functions through open, documented interfaces is not a candidate.
 
-> **Rationale**: The network lifecycle is longer than any product's. Contracts let us swap components and absorb growth without proportional complexity.
+> **Rationale**: The network outlives any product. Contracts let us replace components, and absorb growth without a matching growth in complexity.
 
 ---
 
 ### P3. Acquire Where It Fits, Build Where It Matters
 
-Prefer proven platforms over custom development, unless the requirement is differentiating. Build only:
+Prefer proven platforms to custom development, unless the requirement sets us apart. Build only:
 - Core models that reflect unique network semantics.
 - Adapters that bridge incompatible standards.
 - Policy logic that embodies proprietary operational knowledge.
@@ -49,9 +49,9 @@ Prefer proven platforms over custom development, unless the requirement is diffe
 
 ### P4. Declarative State and Intent
 
-Systems declare desired state; platforms reconcile. Imperative workflows are the exception.
+Systems describe the state they want, and the platform works to bring the actual state into line. Step-by-step (imperative) workflows are the exception.
 
-> **Rationale**: Declarative models are auditable, testable, and repeatable. They separate *what* from *how*.
+> **Rationale**: Declarative models can be audited, tested, and repeated. They separate *what* we want from *how* it is achieved.
 
 ---
 
@@ -62,52 +62,52 @@ Adopt a standard only if it:
 2. Reduces coupling or increases portability.
 3. Has an operational cost we accept.
 
-> **Rationale**: Hype-driven architecture produces complexity without value. We are effective adopters, not early adopters.
+> **Rationale**: Architecture driven by fashion adds complexity without adding value. We aim to adopt effectively, not early.
 
 ---
 
 ### P6. Policy-Driven, Designed In
 
-What data is collected, retained, transformed, and exposed is determined by policy, not by what a tool supports. The policy model — how policy is expressed, attached to data, and evidenced — is foundation work, designed with the data model. Enforcement may follow later; the model may not.
+Policy decides what data is collected, kept, transformed, and exposed, not the features of a tool. The policy model, which defines how policy is written, attached to data, and evidenced, is foundation work and is designed together with the data model. Enforcement can come later; the model cannot.
 
-> **Rationale**: Tool-driven governance produces accidental architecture. Retrofitting policy re-touches every model, pipeline, and consumer.
+> **Rationale**: Governance driven by tools produces accidental architecture. Adding policy afterwards means reworking every model, pipeline, and consumer.
 
 ---
 
 ### P7. Data Is a Product
 
-Network data has users, owners, SLAs, quality metrics, and lifecycle management. It is designed, not accumulated.
+Network data has users, owners, service levels, quality measures, and a managed lifecycle. It is designed, not accumulated.
 
-> **Rationale**: Data treated as a byproduct fragments, degrades, and costs without control.
+> **Rationale**: Data treated as a byproduct fragments, degrades, and generates cost that nobody controls.
 
 ---
 
 ### P8. Structure First, Detail Later
 
-Get the shape right early: entities, dimensions, boundaries, interfaces. Fill in detail in small increments. Each increment ships value; none forces a redesign.
+Get the shape right early: entities, dimensions, boundaries, and interfaces. Add detail in small increments. Each increment delivers value, and none should force a redesign.
 
-> **Rationale**: Structural rework is expensive; detail is cheap to add. Small increments inside a sound structure show value early without running in the wrong direction. Standards and prior art (P5) are the cheapest route to a sound structure.
+> **Rationale**: Reworking structure is expensive; adding detail is cheap. Small increments inside a sound structure show value early without heading in the wrong direction. Standards and prior art (P5) are the cheapest way to a sound structure.
 
 ---
 
 ### P9. API-First, Agent-Accessible
 
-Every meaningful function is exposed through a versioned API. Agent access (MCP today) is an adapter generated from or layered on that API, not a separate path.
+Every meaningful function is available through a versioned API. Access for AI agents (through MCP, today) is an adapter built on that API, not a separate path.
 
-> **Rationale**: Agents build, design, and use this system. A function without an API is invisible to them. Treating MCP as an adapter keeps us protocol-independent (P2, P5).
+> **Rationale**: Agents help build, design, and use this system, and a function without an API is invisible to them. Treating MCP as an adapter keeps us independent of any one protocol (P2, P5).
 
 ---
 
 ### P10. Deterministic Core, Agentic Edge
 
-Core processing — ingestion, storage, reconciliation execution, policy evaluation — is deterministic, fast, and reliable. Agents work at the edge: analysis, decisions, automation. Agents act through the same APIs and policies as humans, and their actions are audited.
+Core processing, meaning ingestion, storage, running reconciliation, and evaluating policy, is deterministic, fast, and reliable. AI agents work at the edge, on analysis, decisions, and automation. They act through the same APIs and policies as people, and their actions are audited.
 
-> **Rationale**: Core paths need predictable latency and repeatable results. Agents add value where judgement and synthesis are needed. Coordination model: [idea: multi-agent coordination](../ideas/multi-agent-coordination.md).
+> **Rationale**: Core processing needs predictable speed and repeatable results. Agents add value where judgment and synthesis are needed. How agents might coordinate: [idea: multi-agent coordination](../ideas/multi-agent-coordination.md).
 
 ---
 
-### P11. Question-Driven Modelling
+### P11. Question-Driven Modeling
 
-Every entity, attribute, and dimension in the model is needed by at least one [competency question](../data/use-cases.yaml). An element no question needs is removed, or parked in `ideas/`. The questions are the model's acceptance tests.
+Every entity, attribute, and dimension in the model must be needed by at least one [competency question](../data/use-cases.yaml). An element that no question needs is removed, or parked in `ideas/`. The questions are the model's acceptance tests.
 
-> **Rationale**: Questions ground (meta-)data design in use. They favour useful designs over theoretically complete ones, and give every model review a concrete test: which question needs this?
+> **Rationale**: Questions keep data and metadata design grounded in real use. They favor useful designs over theoretically complete ones, and give every model review a simple test: which question needs this?

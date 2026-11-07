@@ -1,57 +1,57 @@
-# Idea: Inventory Is Bitemporal and Modal
+# Idea: Record Time and Modality with Every Inventory Fact
 
 ## Status
 
-Idea — under discussion. Promote to an ADR when agreed.
+Idea, under discussion. It becomes an ADR once the team agrees.
 
 ## Context
 
-Inventory changes. We must answer:
+Inventory changes over time. We need to be able to answer:
 
-- What was true in the network at time *t*? (incident review, what-if)
-- What did we believe at time *t*? (audit — see [Compliance & Audit Risk](../problem/01-problem-statement.md#compliance--audit-risk))
+- What was true in the network at time *t*? (incident review, what-if analysis)
+- What did our records say at time *t*? (audit; see [Compliance and Audit Risk](../problem/01-problem-statement.md#compliance--audit-risk))
 - What is planned?
 
-Facts also differ by basis: observed by discovery, asserted by a person or system of record, or planned as intent.
+Facts also differ in how we know them: observed by discovery, stated by a person or system of record, or planned.
 
 Options:
 
 | # | Option | Problem |
 |---|---|---|
-| 1 | Current state + change log | History is a reconstruction, not a query |
-| 2 | Periodic snapshots | Coarse; costly; misses changes between snapshots |
-| 3 | Uni-temporal (valid time) + modality | Cannot answer "what did we believe when" |
-| 4 | Bitemporal (valid + record time) + modality | — |
+| 1 | Current state plus a change log | History has to be reconstructed; it cannot simply be queried |
+| 2 | Periodic snapshots | Coarse and costly, and misses changes between snapshots |
+| 3 | One time (valid time) plus modality | Cannot answer "what did our records say then?" |
+| 4 | Two times (valid time and record time) plus modality | — |
 
 ## Proposal
 
-Option 4. Every inventory fact carries three dimensions:
+Option 4. Every inventory fact carries three pieces of information:
 
 | Dimension | Values | Answers |
 |---|---|---|
-| **Valid time** | interval | When is/was/will this be true in the network? |
-| **Record time** | interval | When did we hold this fact? |
-| **Modality** | `discovered`, `asserted`, `planned` | On what basis do we hold it? |
+| **Valid time** | A time interval | When is, was, or will this be true in the network? |
+| **Record time** | A time interval | When did our records hold this fact? |
+| **Modality** | `discovered`, `asserted`, or `planned` | How do we know it? |
 
-Current state is a view over these dimensions, not the store.
+The current state is a view derived from these facts, not what is stored.
 
 ## Rationale
 
-- Audit needs record time; option 3 loses it.
-- `planned` gives declarative intent a home (P4).
-- Reconciliation becomes a query across modality ([Process, Rules & Activities](../solution/04-process-rules-activities.md)).
-- Prior art: [SQL:2011 temporal tables](../references/sql2011-temporal.md); [OpenConfig](../references/openconfig.md) intended vs operational state; [Kubernetes](../references/kubernetes-spec-status.md) spec vs status.
+- Audit needs record time, which option 3 does not keep.
+- `planned` gives intended state a natural home (principle P4).
+- Reconciliation becomes a query that compares modalities ([Process, Rules and Activities](../solution/04-process-rules-activities.md)).
+- Prior art: [SQL:2011 temporal tables](../references/sql2011-temporal.md); the split between intended and operational state in [OpenConfig](../references/openconfig.md); desired state (spec) and observed state (status) in [Kubernetes](../references/kubernetes-spec-status.md).
 
 ## Consequences
 
-- Easier: drift = `discovered` ≠ `asserted`; intent gap = `planned` ≠ actual; point-in-time audit is a query.
-- Harder: every model, API, and query handles three dimensions; storage must support or emulate bitemporality; consumers need a default view so simple queries stay simple.
-- Related: who is authoritative per modality — [idea: source of truth dimensions](source-of-truth-dimensions.md).
-- Open: precedence when modalities disagree; whether the modality set is closed; whether the Knowledge Platform's history derives from these facts ([Mapping to Core Platforms](../solution/05-core-platforms.md)).
+- Easier: drift shows up as a difference between discovered and asserted values; the gap between plan and reality shows up as a difference between planned and actual values; a point-in-time audit is a query.
+- Harder: every model, API, and query must handle all three; storage must support two times per fact, or emulate it; consumers need a default view so that simple queries stay simple.
+- Related: who is authoritative for each modality ([idea: source of truth dimensions](source-of-truth-dimensions.md)).
+- Open: which modality wins when they disagree; whether three modalities are enough; whether the Knowledge Platform's history is derived from these facts ([Core Platforms](../solution/05-core-platforms.md)).
 
 ## How We Would Check
 
-The schema registry rejects inventory entity schemas lacking the three dimensions.
+The schema registry rejects any inventory entity definition that lacks the three.
 
 ## Notes
 

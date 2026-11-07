@@ -1,6 +1,6 @@
 # The Problem Statement
 
-Target state: [Vision](00-vision.md). This document is the current state, why it hurts, and what it costs.
+This document describes the current state: what is wrong, why it matters, and what it costs. The target state is described in the [vision](00-vision.md).
 
 ## The One-Liner
 
@@ -15,18 +15,18 @@ We operate a network of significant scale and complexity. To run it, we need dat
 - **Vendor-specific tools** that expose data in proprietary formats and cannot talk to each other.
 - **Custom integrations** that break silently when upstream systems change.
 
-The result is a system that is:
+The result is a landscape that is:
 
 | Symptom | Effect | Leads to |
 |---|---|---|
-| **Fragile** | One team's pipeline breaks another team's workflow. No one knows until something burns. | [Operational](#operational-risk) |
+| **Fragile** | One team's pipeline breaks another team's workflow, and nobody notices until something fails. | [Operational](#operational-risk) |
 | **Expensive** | Every new use case requires bespoke data pipelines. We pay for the same integration N times. | [Consequential cost](#consequential-cost) |
-| **Error-prone** | Decisions are made on stale or contradictory data. "Which IPAM is correct?" is a recurring question. | [Untrusted decisions](#untrusted-decisions), [Compliance](#compliance--audit-risk) |
+| **Error-prone** | Decisions are made on stale or contradictory data. "Which IP address management (IPAM) system is correct?" is a recurring question. | [Untrusted decisions](#untrusted-decisions), [Compliance](#compliance--audit-risk) |
 | **Slow** | Adding a new device type, vendor, or location takes weeks of manual work across teams. | [Reputation](#reputation-risk), [Consequential cost](#consequential-cost) |
 
 ## Consequences
 
-If we do not fix CFP Network Data, these compound. Each is current, not hypothetical.
+If we do not fix CFP Network Data, these consequences compound. Each is happening now; none is hypothetical.
 
 ### Untrusted Decisions
 
@@ -43,8 +43,8 @@ If the data is wrong, no conclusion drawn from it can be trusted. Resources are 
 
 | Risk | Example |
 |---|---|
-| **Outage duration** | Extended MTTR because the correct topology or config data cannot be found during incident response. |
-| **Change-induced failures** | An unrelated change breaks a data pipeline, corrupting downstream systems silently. |
+| **Outage duration** | Outages last longer (higher mean time to repair, MTTR) because the correct topology or configuration data cannot be found during an incident. |
+| **Change-induced failures** | An unrelated change breaks a data pipeline and silently corrupts the systems that depend on it. |
 | **Manual drift** | Engineers bypass broken tooling and keep their own spreadsheets, which become the de facto authority, known to one person. |
 
 ### Compliance & Audit Risk
@@ -52,8 +52,8 @@ If the data is wrong, no conclusion drawn from it can be trusted. Resources are 
 | Risk | Example |
 |---|---|
 | **Inaccurate reporting** | Audit asks "which devices hold customer data" and we cannot answer definitively. |
-| **Policy violations undetected** | Security policies exist but cannot be enforced, because the data to check compliance does not exist in a usable form. |
-| **Regulatory inventory gaps** | [DORA Art. 8](../references/dora-art8.md) and [NYDFS 500.13](../references/nydfs-500-13.md) require a maintained inventory of assets, their dependencies, and lifecycle dates. Fragmented data makes that attestation unreliable. |
+| **Undetected policy violations** | Security policies exist but cannot be enforced, because the data needed to check compliance does not exist in a usable form. |
+| **Regulatory inventory gaps** | [DORA Art. 8](../references/dora-art8.md) and [NYDFS 500.13](../references/nydfs-500-13.md) require a maintained inventory of assets, their dependencies, and lifecycle dates. With fragmented data, we cannot attest to that inventory with confidence. |
 | **Retention failures** | We cannot prove data is retained or destroyed according to policy, because we cannot see what data exists. |
 
 ### Security Risk
@@ -68,12 +68,12 @@ If the data is wrong, no conclusion drawn from it can be trusted. Resources are 
 
 | Risk | Example |
 |---|---|
-| **Credibility with the business** | Every new initiative starts with "first we need to clean up our data"; the business stops believing we can execute. |
+| **Credibility with the business** | Every new initiative starts with "first we need to clean up our data", and the business stops believing we can deliver. |
 | **Talent retention** | Engineers burn out fighting data quality instead of solving interesting problems. |
 
 ### Consequential Cost
 
-No one knows what the data means or where it lives. So each team rediscovers it, re-extracts it, and reconciles it again.
+Nobody knows for certain what the data means or where it is held, so each team finds it again, extracts it again, and reconciles it again.
 
 | Cost | Example |
 |---|---|
@@ -81,21 +81,21 @@ No one knows what the data means or where it lives. So each team rediscovers it,
 | **Redundancy** | The same data copied, stored, and maintained in several places. |
 | **Duplicated effort** | Several teams build and run overlapping pipelines and tools for the same data. |
 | **Reconciliation** | Recurring manual effort to make sources agree, for every consumer that needs them to. |
-| **Software and infrastructure** | Licences, storage, and compute for redundant tools and copies. |
+| **Software and infrastructure** | Licenses, storage, and compute for redundant tools and copies. |
 | **Vendor lock-in** | Point solutions embed data in proprietary formats, making change prohibitively expensive. |
 | **Opportunity cost** | Engineering time spent stitching data together is time not spent improving the network. |
 
-Magnitudes are not yet known. They come from the estate first pass and feed the success dimension [Risk Reduction](../ways-of-working/04-success-dimensions.md).
+We do not yet know the size of these costs. The first pass over the estate will give a first estimate, which becomes the baseline for the *Risk Reduction* [success dimension](../ways-of-working/04-success-dimensions.md).
 
 ## Why Now
 
-The current state is not getting cheaper, faster, or more reliable on its own. Each new tool, integration, and team increases entropy. The cost of not doing this is rising faster than the cost of doing it.
+The current state will not become cheaper, faster, or more reliable on its own. Every new tool, integration, and team adds to the disorder. The cost of doing nothing is rising faster than the cost of acting.
 
 ## What We Are Not Saying
 
-- This is not about "bad people." The current state is the rational outcome of years of point solutions solving immediate problems.
+- This is not about blaming anyone. The current state is the rational result of years of point solutions to immediate problems.
 - This is not about building a monolith. We are not replacing fragmentation with a single database that rules them all.
-- This is not a reorg. We are changing how data is modelled, governed, and shared — not necessarily who does what.
+- This is not a reorg. We are changing how data is modeled, governed, and shared — not necessarily who does what.
 
 ## The Core Tension
 
