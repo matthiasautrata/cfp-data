@@ -91,7 +91,7 @@ These are early candidates. We are still collecting questions, and details such 
 | CQ-4 | UC-2 | What changed on or around `<device>` in the last `<hours>`? | device, change, configuration | record time | dependencies, freshness | ordered list of changes with source and time | candidate |
 | CQ-5 | UC-3 | What data exists about `<entity type>`, where does it live, and what does it mean? | entity type, source, definition | source authority, provenance | — | registry entries with locations and definitions | candidate |
 | CQ-6 | UC-3 | Which count of `<entity type>` is authoritative, and on whose authority? | entity type, source | oracle authority, source authority, provenance | — | count with source authority and provenance | candidate |
-| CQ-7 | UC-4 | If `<IP | link | device>` changes, which devices and services are affected? | ip address, link, device, service | modality | dependencies | impacted set with dependency paths | candidate |
+| CQ-7 | UC-4 | If `<IP \| link \| device>` changes, which devices and services are affected? | ip address, link, device, service | modality | dependencies | impacted set with dependency paths | candidate |
 | CQ-8 | UC-5 | What capacity exists and is planned, per site? | site, device, capacity metric | valid time, modality | — | capacity per site, actual and planned | candidate |
 | CQ-9 | UC-5 | Where and when does projected demand exceed capacity? | site, capacity metric | valid time, modality | — | list of site, resource, and date of shortfall | candidate |
 | CQ-10 | UC-6 | Where do discovered, asserted, and planned state disagree for `<entity type>`? | entity type | modality, source authority, provenance | — | list of disagreements with values per modality | candidate |
@@ -112,6 +112,6 @@ These are early candidates. We are still collecting questions, and details such 
 | CQ-25 | UC-16 | How is `<device>` related to other entities? | device, interface, link, site, service | — | dependencies | relationship graph | candidate |
 | CQ-26 | UC-17 | Which producers and streams feed `<entity type>`, and which consumers subscribe to it? | entity type, producer, stream, subscription, consumer | valid time | dependencies | flow graph from producers to consumers | candidate |
 | CQ-27 | UC-17 | Which source facts and events were combined into derived or aggregated fact `<X>`, by which rule, in which version? | fact, event, rule | record time, provenance | dependencies | derivation tree with rule versions | candidate |
-| CQ-28 | UC-17 | Which rules and transformations apply to `<entity type | stream>`, in which versions, and which policies are attached to them? | rule, transformation, policy, entity type, stream | valid time | — | list of rules and attached policies, with versions | candidate |
+| CQ-28 | UC-17 | Which rules and transformations apply to `<entity type \| stream>`, in which versions, and which policies are attached to them? | rule, transformation, policy, entity type, stream | valid time | — | list of rules and attached policies, with versions | candidate |
 | CQ-29 | UC-17 | What did the schema of `<entity type>` look like on `<date>`, and what has changed since? | entity type, schema version | valid time, record time | — | schema as of the date, with a list of changes | candidate |
 <!-- END GENERATED -->

@@ -57,8 +57,13 @@ def validate(data, doc_text):
         fail(f"activities without a use case: {sorted(unused)}")
 
 
+def cell(text):
+    """Escape pipes so they do not split a table cell (GitHub requires this even inside code spans)."""
+    return str(text).replace("|", "\\|")
+
+
 def code(text):
-    return re.sub(r"<([^>]+)>", r"`<\1>`", text)
+    return cell(re.sub(r"<([^>]+)>", r"`<\1>`", text))
 
 
 def words(items):
@@ -78,7 +83,7 @@ def render(data):
     for uc in data["use_cases"]:
         qs = ", ".join(q["id"] for q in uc["questions"])
         status = "validated" if all(q["status"] == "validated" for q in uc["questions"]) else "candidate"
-        out.append(f"| {uc['id']} | {uc['activity']} | {uc['actor']} | {uc['need']} | {qs} | {link(uc['driver'])} | {status} |")
+        out.append(f"| {uc['id']} | {uc['activity']} | {cell(uc['actor'])} | {cell(uc['need'])} | {qs} | {link(uc['driver'])} | {status} |")
     out += ["", "### Competency Questions", "",
             "| ID | Use case | Question | Entities | Fact dimensions | Answer requirements | Expected answer | Status |",
             "|---|---|---|---|---|---|---|---|"]
@@ -89,7 +94,7 @@ def render(data):
                 ents += "; attributes: " + words(q["attributes"])
             out.append(f"| {q['id']} | {uc['id']} | {code(q['question'])} | {ents} | "
                        f"{words(q['fact_dimensions'])} | {words(q.get('answer_requirements', []))} | "
-                       f"{q['answer']} | {q['status']} |")
+                       f"{cell(q['answer'])} | {q['status']} |")
     return "\n".join(out)
 
 
