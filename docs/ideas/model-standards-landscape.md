@@ -77,7 +77,7 @@ Criteria when deciding: expressiveness (permissions, prohibitions, obligations, 
 
 - **TM Forum SID and Open APIs** (TMF639 resource inventory, TMF638 service inventory). Complete but heavy: an information model for the whole telecom business, with hundreds of entities. The case for adopting it would be an existing integration with operator support systems, not the quality of the model. At this stage the cost far exceeds the benefit.
 - **RDF, OWL, or SHACL as the foundation.** The case for them would be inference across domains that relational models cannot express. We have no such requirement yet. If one appears, SHACL for validation is the cheap entry point; OWL reasoning is not.
-- **Vendor "digital twin" schemas.** Proprietary, and a route to lock-in (principles P2 and P3).
+- **Vendor "digital twin" schemas.** Proprietary, and a route to lock-in (principles P2 and P3). The digital twin is a broader goal this program serves by building its data foundation ([vision](../problem/00-vision.md)); it is not a vendor schema to adopt.
 
 ## LinkML — does it have a role?
 

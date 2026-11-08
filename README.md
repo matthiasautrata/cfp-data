@@ -99,3 +99,4 @@ flowchart LR
 | Topology, infrastructure assets, metadata registry | [Core Platforms](docs/solution/05-core-platforms.md) |
 | Keeping existing systems running | [Migration](docs/ways-of-working/02-migration.md) |
 | Declarative state and intent | [Principles](docs/solution/01-principles.md) (P4) |
+| Digital twin of the network | [Vision](docs/problem/00-vision.md) (part of a broader vision; we build its data foundation) |

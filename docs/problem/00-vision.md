@@ -2,6 +2,27 @@
 
 Anyone who needs to know something about CFP Network Data can get a timely, accurate, and complete answer, in the form they need, without assembling it themselves from several systems. We know the state of our environment now, and how it was in the past.
 
+## Part of a Broader Vision
+
+Network management and Network Services need a digital twin of the network: a model they can ask questions of and give instructions to, and that reflects reality. This program does not build that twin. It builds the twin's data foundation.
+
+The distinction that matters is the direction in which data flows ([IETF work in progress](../references/ietf-network-digital-twin.md)):
+
+| Term | Data flow |
+|---|---|
+| **Digital model** | No automatic flow between the network and the model |
+| **Digital shadow** | The model reflects the network automatically |
+| **Digital twin** | Data flows both ways: the model reflects the network, and instructions flow back |
+
+Our part of that picture:
+
+- **Reflecting reality**: discovered facts stream in through one fact protocol, with their history.
+- **Answering questions**: the competency questions, served through consistent access paths.
+- **Holding instructions**: intended state is kept as planned facts. Tools outside this program act on it, and discovery shows the result (principle P12, *Enable, Don't Build*).
+- Emulation, what-if analysis, and automated actions are modules that build on this foundation; they are not part of this program.
+
+The rest of this document describes the vision for the data foundation itself.
+
 ## What This Means for a Consumer
 
 | Quality | What it means |

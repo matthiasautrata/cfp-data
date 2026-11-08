@@ -15,6 +15,9 @@ Terms that are new, specific to this program, or easily misread.
 | **Consumer** | A tool, person, or agent that uses data from the data layer, through queries, subscriptions, or batch access. |
 | **Contract** | The published, versioned interface through which a source or consumer connects. It covers the schema, the meaning of the data, and the service terms (principle P2). |
 | **Data platform** | A system that stores, serves, and manages one category of network data, as part of the target architecture. |
+| **Digital model** | A model of the network with no automatic data flow between the two. |
+| **Digital shadow** | A model that reflects the network automatically, without sending instructions back. |
+| **Digital twin** | A model of the network that reflects it automatically and through which instructions flow back. Network management and Network Services need one; this program builds its data foundation ([vision](problem/00-vision.md)). |
 | **Discovered** | A modality: the fact was observed by a discovery mechanism. |
 | **Discovery** | Observing the network to produce facts. Current thinking keeps it separate from inventory ([idea](ideas/discovery-decoupled-from-inventory.md)). |
 | **Effort size** | A T-shirt estimate (S, M, L, XL) for a phase or initiative. It is not a duration. |

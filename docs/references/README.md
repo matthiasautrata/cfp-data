@@ -15,6 +15,7 @@ One file per external source. Each file holds home, key concepts, relevance, and
 | [RFC 8342 — NMDA](rfc8342.md) | Standard | Datastores: intended vs operational |
 | [RFC 8345 — Network Topologies](rfc8345.md) | Standard | Topology model |
 | [RFC 9315 — Intent-Based Networking](rfc9315-ibn.md) | Standard (informational) | Intent |
+| [Network Digital Twin (IRTF draft)](ietf-network-digital-twin.md) | Draft (work in progress) | Digital twin concepts |
 | [OpenConfig](openconfig.md) | Industry standard | Device models |
 | [SQL:2011 Temporal](sql2011-temporal.md) | Standard | Bitemporality |
 | [GQL — ISO/IEC 39075](gql-39075.md) | Standard | Graph query |
