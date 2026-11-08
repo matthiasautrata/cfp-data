@@ -43,7 +43,7 @@ A hypergraph fits because many relationships here involve more than two things: 
 ## Prior Art
 
 - [OpenLineage](../references/openlineage.md) (jobs, runs, datasets, lineage events) and [W3C PROV](../references/prov.md) (derivation, aggregation): inspiration for layer 2, to be adapted rather than adopted.
-- Open-source metadata platforms such as DataHub, OpenMetadata, and Egeria have their own type systems. They are worth inspecting for layers 1 and 2.
+- Open-source metadata platforms such as [DataHub](../references/datahub.md), [OpenMetadata](../references/openmetadata.md), and Egeria have their own type systems. They are worth inspecting for layers 1 and 2.
 - Considered and set aside: OMG CWM (Common Warehouse Metamodel) and MOF (Meta-Object Facility). Their layering resembles this proposal, but they are heavy and dated.
 
 ## Trade-offs

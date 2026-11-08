@@ -63,5 +63,6 @@ Policies are independent objects with their own lifecycle, and are attached to f
 
 | Concern | Current thinking | Idea |
 |---|---|---|
+| Core and modules | A thin core (protocols, meta-model, identity, fact store, access paths); everything else is a module (principle P14) | [Build versus buy](../ideas/market-landscape-build-vs-buy.md) |
 | Discovery and inventory | Separate components that share the canonical model | [Discovery decoupled from inventory](../ideas/discovery-decoupled-from-inventory.md) |
 | Core processing and AI agents | Core processing is deterministic; agents work at the edge, through the same APIs as people (principle P10) | [Multi-agent coordination](../ideas/multi-agent-coordination.md) |

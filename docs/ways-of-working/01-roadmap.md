@@ -60,14 +60,21 @@ Training, documentation, self-service tooling, community model, onboarding proce
 **Depends on**: Starts with the first domain's consumers; scales with C, D2, E, F.
 **Output**: Onboarding playbook; self-service; adoption program.
 
+### H. Source Modules
+
+Define the protocols and the capabilities that modules must provide, then evaluate candidate products against them and against the competency questions, in proofs of concept ([idea: build versus buy](../ideas/market-landscape-build-vs-buy.md)).
+
+**Depends on**: A (the competency questions), and a first draft of the fact protocol.
+**Output**: A capability map; evaluation results; sourcing recommendations for the first domain.
+
 ---
 
 ## Phasing
 
 | Phase | Focus | Initiatives | Exit criteria |
 |---|---|---|---|
-| **0: Foundation** | Shape: canonical model, policy model, registry structure, estate first pass | A, D1, B (first pass), C (structure) | Model v1 and policy model v1 drafted and reviewed; first domain chosen |
-| **1: First Domain** | Migration cycle end to end on one domain | A, D1 applied; B, C for the domain; E (baseline); G (domain consumers) | Domain consumers on target; legacy read-only or retired; quality baseline measured |
+| **0: Foundation** | Shape: canonical model, policy model, registry structure, estate first pass; protocols and capabilities defined | A, D1, B (first pass), C (structure), H (definitions) | Model v1 and policy model v1 drafted and reviewed; protocols and capabilities drafted; first domain chosen |
+| **1: First Domain** | Migration cycle end to end on one domain | A, D1 applied; B, C for the domain; E (baseline); G (domain consumers); H (evaluation and sourcing for the domain) | Domain consumers on target; legacy read-only or retired; quality baseline measured |
 | **2: Expand** | Migration cycle per further domain, by value and independence | A–E per domain; D2 (first policy set) | Per domain as Phase 1; first policies enforced |
 | **3: Integrate, Govern, Observe** | Cross-domain integration, enforcement at scale, telemetry, adoption at scale | D2, F, G | Measured against [Success Dimensions](04-success-dimensions.md) |
 

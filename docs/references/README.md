@@ -35,5 +35,13 @@ One file per external source. Each file holds home, key concepts, relevance, and
 | [Erlang/OTP](erlang-otp.md) | Prior art | Message-passing, supervised modules |
 | [Competency questions](competency-questions.md) | Method | Use cases, model scope (P11) |
 | [Kubernetes spec / status](kubernetes-spec-status.md) | Prior art | Desired vs observed state |
+| [NetBox](netbox.md) | Product | Network source of truth |
+| [Nautobot](nautobot.md) | Product | Network source of truth |
+| [Forward Networks](forward-networks.md) | Product | Network digital twin |
+| [IP Fabric](ip-fabric.md) | Product | Network assurance |
+| [Blue Planet Inventory](blue-planet-inventory.md) | Product | Federated inventory |
+| [ServiceNow CMDB](servicenow-cmdb.md) | Product | CMDB, governed ingestion |
+| [DataHub](datahub.md) | Product | Metadata platform |
+| [OpenMetadata](openmetadata.md) | Product | Metadata platform |
 
 Adding a reference: create `short-name.md` (format in [AGENTS.md](../../AGENTS.md#references)), then add one row here.

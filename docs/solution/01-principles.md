@@ -19,6 +19,7 @@ The principles are drafts. Each covers one concern. Which requirements each prin
 | P11 | Question-Driven Modeling | Model scope |
 | P12 | Enable, Don't Build | Program scope |
 | P13 | Self-Describing Data Layer | Metadata |
+| P14 | Thin Core | What we build |
 
 ---
 
@@ -129,4 +130,12 @@ This program builds the data layer: the models, the protocols, and the storage a
 The structure of the data, the flows that move it, and the rules and policies that act on it are described as metadata. That metadata is itself data: versioned in time, governed by policy, queryable through the same access paths as the data, and covered by competency questions. The meta-model has a small, fixed core and grows toward the leaves.
 
 > **Rationale**: A data layer that describes itself can be understood, audited, and extended by people and agents, without separate documentation drifting away from reality. See [idea: three layers of metadata](../ideas/metadata-layers.md).
+
+---
+
+### P14. Thin Core
+
+The core holds only what must be shared and consistent: the fact protocol and contracts, the meta-model, identity, the store of facts with their time, modality, and provenance, and the consistent access paths. Everything else is a module. Modules are measured against the protocols, the capabilities they must provide, and the competency questions. Anything proposed for the core must be justified by a competency question that no module can answer.
+
+> **Rationale**: A thin core is cheaper to build, easier to keep consistent, and leaves every module replaceable. It also turns build-versus-buy into a measurement rather than a matter of taste. See [idea: market landscape and build versus buy](../ideas/market-landscape-build-vs-buy.md).
 

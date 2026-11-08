@@ -37,6 +37,7 @@ The status of every document, and the open issues that affect more than one docu
 | [Idea: Multi-agent coordination](docs/ideas/multi-agent-coordination.md) | 🟡 Idea | Matthias |
 | [Idea: Extensible fact protocol](docs/ideas/extensible-fact-protocol.md) | 🟡 Idea | Matthias |
 | [Idea: Three layers of metadata](docs/ideas/metadata-layers.md) | 🟡 Idea | Matthias |
+| [Idea: Market landscape and build versus buy](docs/ideas/market-landscape-build-vs-buy.md) | 🟡 Idea — early scan | Matthias |
 | [Idea: Model and interface standards landscape](docs/ideas/model-standards-landscape.md) | 🟡 Idea — verdicts per layer, no decisions | Matthias |
 
 ## Open Issues
@@ -49,7 +50,7 @@ We are currently working on structure: the shape of the solution, the models, an
 |---|---|---|---|
 | I-1 | Use cases (UC-1 to UC-17) are candidates, not validated | [Use cases](docs/problem/02-stakeholders-use-cases.md) | Review with Network Services |
 | I-2 | Thresholds not set | [Success Dimensions](docs/ways-of-working/04-success-dimensions.md) | Baseline in Phase 1 |
-| I-3 | Domains, owners, and current systems unknown | [Current State](docs/problem/04-current-state-constraints.md) | Estate first pass |
+| I-3 | Domains, owners, and current systems unknown, including existing enterprise tools (CMDB, IP address management, discovery, assurance) that could become modules | [Current State](docs/problem/04-current-state-constraints.md) | Estate first pass |
 | I-4 | Constraints (firm-wide standards, platforms, regulatory) not captured | [Current State](docs/problem/04-current-state-constraints.md) | Collect from CFP management |
 | I-5 | R-7, Q-4 trace to no principle | [Requirements](docs/problem/03-requirements.md) | Decide: add principle or accept |
 | I-6 | Effort sizes not set | [Roadmap](docs/ways-of-working/01-roadmap.md) | Size at Phase 0 start |
@@ -61,3 +62,5 @@ We are currently working on structure: the shape of the solution, the models, an
 | I-13 | Vision claims not yet covered by requirements: quality and lineage alongside data, answer assembly (access modes: R-11; freshness: R-14) | [Vision](docs/problem/00-vision.md), [Requirements](docs/problem/03-requirements.md) | Add requirements traced to vision claims |
 | I-14 | Boundary between the data layer and the time-series subsystem: how series link to entity identities, and whether the data layer keeps summaries. | [Producers, Consumers, and Extension Points](docs/solution/06-producers-consumers.md) | Discuss with the first domain |
 | I-15 | How the structural (layer 1) models link to one another as layers of a hypergraph, and how that is represented. | [Idea: three layers of metadata](docs/ideas/metadata-layers.md) | Discuss; inspect candidate models |
+| I-16 | Security and access control are not yet designed: who may read, write, and act on what, across facts, metadata, and policy. | [Requirements](docs/problem/03-requirements.md), [Core Platforms](docs/solution/05-core-platforms.md) | Draft requirements |
+| I-17 | Operating model not defined: who runs the data service, and how modules are onboarded and supported. | [Vision](docs/problem/00-vision.md) | Discuss with CFP management |
